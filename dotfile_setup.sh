@@ -5,5 +5,5 @@ dir="${HOME}/Documents/dotfiles"
 
 for dotfile in "${dotfiles[@]}";
 do
- ln -sf "${HOME}/${dotfile}" "${dir}"
+ ln -sf "${dir}" "${HOME}/${dotfile}"
 done

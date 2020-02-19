@@ -1,0 +1,26 @@
+"""Lista_fabio01; fabio_01_04_soma_cent_dezen_unid.
+
+Leia um número inteiro (3 dígitos), calcule e escreva
+a soma de seus elementos (C + D + U).
+
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Soma elementos. Centenas + Dezenas + Unidades.\n")
+
+                   "em que deseja efetuar a operação: "))
+# Processamento
+centenas = numero // 100
+# Para se calcular as dezenas é preciso retirar
+# as centenas do numero. No caso o resto da divisão a cima.
+resto_centenas = numero % 100
+dezenas = resto_centenas // 10
+unidades = numero % 10
+soma_elementos = centenas + dezenas + unidades
+
+# Saída
+print("O número {0} possui {1} centenas, {2} dezenas e {3} unidades."
+      .format(numero, centenas, dezenas, unidades))
+
+print("A soma de seus elementos é igual a {}.".format(soma_elementos))

@@ -1,0 +1,212 @@
+from app_enem import *
+from tools import *
+from funcionalidades import *
+from importacao import *
+
+
+
+################ PRINTAR NA TELA ######################
+###### *QUASE* TUDO QUE SERA PRINTADO NA TELA ESTA AQUI ######
+
+#### MENU ####
+def menu_principal():
+    texto = cabecalho('BEM VINDO!')
+    texto += " ESCOLHA A OPÇÃO QUE DESEJA CONSULTAR\n"
+    texto += "\n"
+    texto += " [1]  Top 100 Colegios Com Maior Media Em Questões Objetivas\n"
+    texto += " [2]  Top 100 Brasil Por Area Do Conhecimento\n"
+    texto += " [3]  Top 100 Por Estado\n"
+    texto += " [4]  Top 100 Por Estado (Rede Publica / Privada)\n"
+    texto += " [5]  Media Nacional Por Area Do Conhecimento\n"
+    texto += " [6]  Melhor Colégio\n"
+    texto += " [7]  Exibir Colegios Por Renda\n"
+    texto += " [8]  Pesquisar Colegio\n"
+    texto += " [9]  Ranking Por Estado\n"
+    texto += " [10] Ranking Por Região\n"
+    texto += " [0]  Sair  \n\n"
+    texto += " OPÇÃO ESCOLHIDA >>"
+    
+    return texto
+
+
+def mensagem_opcao(chave):
+    # Recebe uma chave referente a qual opcao se deseja mostrar e a retorna
+    mensagens = {
+                'area'    : 'Por Area',
+                'estado'  : 'Por Estado',
+                'publica' : 'Somente Instituições Publicas',
+                'privada' : 'Somente Instituições Privadas'
+                } 
+
+    return mensagens[chave]
+
+
+def mensagem(tipo):
+    # Função que recebe um tipo de mensagem padrao 
+    # E retorna a mensagem equivalente ao tipo solicitado
+    # TODO tentar fazer um versao usando dicionario
+    
+    if tipo == 'filtragem':
+        return 'Você necessita algum tipo de filtragem? [S/n]'
+
+
+def item_barra(chave):
+    # Esta funcao tem um registro com diversos itens para por na barra superior
+    
+    itens = {
+            'colocacao'       : 'Nº',
+            'nome'            : 'NOME',
+            'cidade'          : 'CIDADE',
+            'UF'              : 'UF',
+            'rede'            : 'REDE',
+            'permanencia'     : 'PERMANENCIA',
+            'nivel'           : 'NIVEL',
+            'media'           : 'MEDIA GERAL' ,
+            'media_objetivas' : 'MEDIA OBJETIVAS',
+            'liguagens'       : 'LIGUAGENS',
+            'matematica'      : 'MATEMATICA',
+            'natureza'        : 'CIENC. NATUREZAS',
+            'humanas'         : 'CIENC. HUMANAS',
+            'redacao'         : 'REDAÇÃO'
+            }
+
+    return itens[chave]
+    
+
+###### funções auxiliares ######
+        
+def menu_filtros(chaves):
+    texto = cabecalho('ESCOLHA UMA OPÇÃO')
+    texto += '%s \nOPÇÃO ESCOLHIDA >> '% (opcoes_filtro(chaves))
+
+    return texto
+
+
+def opcoes_filtro(chaves):
+    opcoes = lista_opcoes(chaves)
+    texto = str()
+
+    for i in range(len(opcoes)):
+        texto += "[%d] %s \n"%((i + 1), (opcoes[i]))
+
+    return texto
+
+
+def lista_opcoes(chaves):
+    lista_chaves = string_to_list(chaves)
+    opcoes = []
+
+    for i in range(len(lista_chaves)):
+        opcoes.append(mensagem_opcao(lista_chaves[i]))
+
+    return opcoes
+
+
+def mostrar_colegios(colegios):
+    # Printar uma lista de colegios consiste em:
+    # 1 - printar o cabecalho 2 - printar a barra superior
+    # 3 - printar os dados dos colegios de acordo com os da barra superior
+
+    dados_requisitados = ['colocacao', 'nome', 'cidade', 'UF', 'media_objetivas']
+
+    print(cabecalho('ＴＯＰ １０'), 
+          barra_superior(dados_requisitados, colegios),   
+          listar_colegios(dados_requisitados, colegios))
+
+
+def barra_superior(lista_chaves, colegios):
+    # Mostra na tela uma barra superior com os tipos de dados
+    top_bar = str()
+    for chave in lista_chaves:
+        top_bar += item(colegios, chave)
+
+    # top_bar += linha_separadora(top_bar)
+    return top_bar
+
+
+def item(colecao, chave):
+    # Pequena organização para passar os itens para a barra em si
+    texto = item_barra(chave)
+    texto += espaco_item(colecao, chave, item_barra(chave))
+    return texto
+
+
+def espaco_item(colecao, chave, item):
+    tab = '   '
+    espacos = ' ' * qtd_espacos(colecao, chave, item)
+    return espacos + tab
+
+
+def qtd_espacos(colecao, chave, item):
+    numero_espacos = get_maior_len(colecao, chave)
+    
+    # if eh_menor(numero_espacos, len(item)):
+    #     return numero_espacos - len(item)
+
+    # else:
+    return numero_espacos - len(item)
+
+
+def linha_separadora(texto):
+    # Gera uma linha abaixo dos dados printados para separar dos outros a seguir
+    linha = '\n '
+    linha += '-' * len(texto)
+    return linha
+
+
+def listar_colegios(dados_requisitados, colegios):
+    # Mostra todos os colegios de um lista 
+    # Seus dados devem ser os mesmos requisitados na barra superior
+    string_dados_colegios = str() 
+    
+    for colegio in colegios:
+        string_dados_colegios += string_dados(dados_requisitados, colegios, colegio)
+
+    return string_dados_colegios 
+
+
+def string_dados(lista_chaves, colecao, registro):
+    texto = "\n "
+
+    for chave in lista_chaves:
+        texto += registro[chave]
+        texto += espaco_item(colecao, chave, registro[chave])
+    texto += linha_separadora(texto)
+    
+    return texto
+
+
+#def linha_abaixo(itens):
+#    linha = ' \n'
+#    linha += ('_' * len(itens))
+#    return linha
+    
+
+
+def get_maior_len(colecao, chave):
+    maior_len = 0 
+    for registro in colecao:
+        if maior_len < len(str(registro[chave])):
+            maior_len = len(str(registro[chave]))
+    return maior_len
+
+
+def cabecalho(titulo):
+    # Esteticamente é interressante limpar a tela 
+    # sempre que o cabecalho for mostrado na tela
+    limpar_a_tela()
+
+    texto = " _______________________________________________________________________\n"
+    texto += "\n"
+    texto += " ███████╗███╗   ██╗███████╗███╗   ███╗    ██████╗  ██████╗  ██╗██╗██╗  \n"
+    texto += " ██╔════╝████╗  ██║██╔════╝████╗ ████║    ╚════██╗██╔═████╗███║██║██║  \n"
+    texto += " █████╗  ██╔██╗ ██║█████╗  ██╔████╔██║     █████╔╝██║██╔██║╚██║███████║\n"
+    texto += " ██╔══╝  ██║╚██╗██║██╔══╝  ██║╚██╔╝██║    ██╔═══╝ ████╔╝██║ ██║╚══██║  \n"
+    texto += " ███████╗██║ ╚████║███████╗██║ ╚═╝ ██║    ███████╗╚██████╔╝ ██║   ██║  \n"
+    texto += " ╚══════╝╚═╝  ╚═══╝╚══════╝╚═╝     ╚═╝    ╚══════╝ ╚═════╝  ╚═╝   ╚═╝  \n"
+    texto += " _______________________________________________________________________\n"
+    texto += "\n\n"
+    texto += " _________    %s    _________  \n\n"%(titulo)
+
+    return texto
+

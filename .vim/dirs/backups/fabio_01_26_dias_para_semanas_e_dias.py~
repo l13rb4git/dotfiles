@@ -1,0 +1,20 @@
+"""Lista_fabio01; fabio_01_26_dias_para_semanas_e_dias.py
+
+Leia um número inteiro de dias, calcule e escreva quantas semanas e
+quantos dias ele corresponde.
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Informe um número de dias e será mostrado o equivalente em semanas "
+      "e o resto de dias.")
+
+quantidade_dias = int(input("Digite uma quantidade de dias: "))
+
+# Processamento
+quantidade_semanas = quantidade_dias // 7
+resto_dias = quantidade_dias % 7
+
+# Saída
+print("{0} dia(s) é equivalente a {1} semana(s) e sobra {2} dia(s).".format(
+                            quantidade_dias, quantidade_semanas, resto_dias))

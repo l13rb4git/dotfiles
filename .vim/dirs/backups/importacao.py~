@@ -1,0 +1,46 @@
+from app_eleicoes import *
+
+
+"""
+    FUNÇÕES RELACIONADAS A IMPORTAÇÃO DOS DADOS USADOS PELO PROGRAMA
+"""
+
+
+def inicializar_dados():
+    lista_com_dados = importar_dados('enem2014_nota_por_escola.txt.csv')
+
+    return lista_com_dados
+
+
+def importar_dados(arquivo):
+    arquivo = open(arquivo, encoding = 'ISO-8859-1')
+
+    registros = []
+
+    for linha in arquivo:
+        registros.append(registro(linha))
+
+    return registros
+
+
+def registro(linha):
+    return registro_colegios(linha.strip().split(';'))
+
+
+def registro_colegios(lista):
+    return {
+            'colocacao'       : lista[0],
+            'nome'            : lista[1],
+            'cidade'          : lista[2],
+            'UF'              : lista[3],
+            'rede'            : lista[4],
+            'permanencia'     : lista[5],
+            'nivel'           : lista[6],
+            'media_objetivas' : lista[7],
+            'liguagens'       : lista[8],
+            'matematica'      : lista[9],
+            'natureza'        : lista[10],
+            'humanas'         : lista[11],
+            'redacao'         : lista[12]   
+            }
+

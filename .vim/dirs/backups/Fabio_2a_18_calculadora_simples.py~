@@ -1,0 +1,77 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_18_calculadora_simples
+
+Leia dois valores e uma das seguintes operações a serem executadas
+(codificadas da seguinte forma: 1 – Adição, 2 – Subtração, 3 – Multiplicação
+e 4 – Divisão). Calcule e escreva o resultado dessa operação sobre os dois
+valores lidos.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    primeiro_numero = get_inteiro_ordenado('primeiro')
+    segundo_numero = get_inteiro_ordenado('segundo')
+
+    calculadora(primeiro_numero, segundo_numero)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe 2 (dois) números e escolha qual operação desja realizar.")
+
+
+def get_inteiro_ordenado(posicao):
+    """Solicita ao usuário o enésimo número requerido. """
+    return int(input("Digite o %s número: " % posicao))
+
+
+def get_opcao():
+    """Solicita ao usuário o número de uma das opções listadas. """
+    mensagem = "Escolha um das opções abaixo. \n" \
+               "1 - Adição \n2 - Subtração \n3 - Mulitplicação \n4 - Divisão."\
+               "\n0 - Sair \n\n>> "
+
+    return int(input(mensagem))
+
+
+def calculadora(numero, outro_numero):
+    opcao = get_opcao()
+
+    if opcao_invalida(opcao):
+        print("Opção inválida.")
+    elif opcao == 1:
+        efetuar_adicao(numero, outro_numero)
+    elif opcao == 2:
+        efetuar_subtracao(numero, outro_numero)
+    elif opcao == 3:
+        efetuar_multiplicacao(numero, outro_numero)
+    elif opcao == 4:
+        efetuar_divisao(numero, outro_numero)
+    else:
+        print("Até uma próxima!")
+
+
+def opcao_invalida(opcao):
+    return opcao < 0 or opcao > 4
+
+
+def efetuar_adicao(numero, outro_numero):
+    print("Resultado da Adição: %d\n" % (numero + outro_numero))
+
+
+def efetuar_subtracao(numero, outro_numero):
+    print("Resultado da Subtração: %d\n" % (numero - outro_numero))
+
+
+def efetuar_multiplicacao(numero, outro_numero):
+    print("Resultado da Mulitplicação: %d\n" % (numero * outro_numero))
+
+
+def efetuar_divisao(numero, outro_numero):
+    print("Resultado da Divisão: %d\n" % (numero / outro_numero))
+
+
+if __name__ == '__main__':
+    main()

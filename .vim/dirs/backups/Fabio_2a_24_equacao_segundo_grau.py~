@@ -1,0 +1,59 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_24_equacao_segundo_grau
+
+Leia os coeficientes (A, B e C) de uma equações de 2° grau e escreva suas
+raízes. Vale lembrar que o coeficiente A deve ser diferente de 0 (zero).
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+    coeficiente_a = get_coeficiente('A')
+    coeficiente_b = get_coeficiente('B')
+    coeficiente_c = get_coeficiente('C')
+
+    calcular_resultado(coeficiente_a, coeficiente_b, coeficiente_c)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe os coeficientes de uma equação do 2° grau, será mostrado "
+          "as raízes dessa equação.")
+
+
+def get_coeficiente(letra):
+    """Solicita um coeficiente de uma equação."""
+    return int(input("Digite o coeficiente %s da equação: " % letra))
+
+
+def calcular_resultado(coeficiente_a, coeficiente_b, coeficiente_c):
+    valor_delta = calcular_delta(coeficiente_a, coeficiente_b, coeficiente_c)
+
+    if valor_delta < 0:
+        print("A equação não possui raízes reais.")
+
+    else:
+        if valor_delta > 0:
+            raiz_x1 = baskara_x1(coeficiente_a, coeficiente_b, valor_delta)
+            raiz_x2 = baskara_x2(coeficiente_a, coeficiente_b, valor_delta)
+            solucao = "%d, %d" % (raiz_x1, raiz_x2)
+        else:
+            raiz_x1 = baskara_x1(coeficiente_a, coeficiente_b, valor_delta)
+            solucao = "%d" % raiz_x1
+
+        print("S = {%s}" % solucao)
+
+
+def calcular_delta(coeficiente_a, coeficiente_b, coeficiente_c):
+    return (coeficiente_b ** 2) - 4 * coeficiente_a * coeficiente_c
+
+
+def baskara_x1(coeficiente_a, coeficiente_b, valor_delta):
+    return ((-coeficiente_b) + (valor_delta ** 0.5)) / (2 * coeficiente_a)
+
+
+def baskara_x2(coeficiente_a, coeficiente_b, valor_delta):
+    return ((-coeficiente_b) - (valor_delta ** 0.5)) / (2 * coeficiente_a)
+
+if __name__ == '__main__':
+    main()

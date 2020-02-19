@@ -1,0 +1,54 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_28_area_triangulo
+
+Leia as coordenadas cartesianas (x e y) de 2 (dois) pontos no plano, que
+corresponderão a dois cantos de um retângulo. Baseado nisto, calcule e escreva
+a área deste retângulo. Lembre-se de que o valor da área não pode ser negativo.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+    x_primeiro_ponto = get_x_ponto('1')
+    y_primeiro_ponto = get_y_ponto('1')
+    x_segundo_ponto = get_x_ponto('2')
+    y_segundo_ponto = get_y_ponto('2')
+
+    calcular_area(x_primeiro_ponto, y_primeiro_ponto,
+                  x_segundo_ponto, y_segundo_ponto)
+
+
+def get_x_ponto(posicao):
+    """Solicita ao usuário o valor do X do ponto requerido. """
+    return int(input("{0}° ponto. \nDigite o valor do x{0}: ".format(posicao)))
+
+
+def get_y_ponto(posicao):
+    """Solicita ao usuário o valor do Y do ponto requerido. """
+    return int(input("Digite o valor do y{0}: ".format(posicao)))
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe dois pontos em um plano para saber a área do triângulo "
+          "que eles formam.")
+
+
+def calcular_area(x_primeiro_ponto, y_primeiro_ponto,
+                  x_segundo_ponto, y_segundo_ponto):
+
+    cateto_b = x_segundo_ponto - x_primeiro_ponto
+    cateto_c = y_segundo_ponto - y_primeiro_ponto
+    area_triangulo = (cateto_b * cateto_c) / 2
+    mostrar_area(area_triangulo)
+
+
+def mostrar_area(area_triangulo):
+    if area_triangulo <= 0:
+        print("Valores não formam um triângulo com área valida.")
+    else:
+        print("Área triângulo: {:0.3f}".format(area_triangulo))
+
+
+if __name__ == '__main__':
+    main()

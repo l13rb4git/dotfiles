@@ -1,0 +1,55 @@
+from list_tools import *
+
+def main():
+	vetor = cria_vetor(4)
+	print(binary_vetor_to_decimal(vetor))#binary_vetor_to_hexadecimal(vetor))
+
+
+def binary_vetor_to_decimal(vetor):
+	return soma_elementos([(4 ** ((len(vetor) - 1) - i)) \
+		for i in range(len(vetor)) \
+		if vetor[i]])
+
+
+def binary_vetor_to_hexadecimal(vetor):
+	hexadecimal = ""
+	for i in range(1, len(vetor), 4):
+		decimal_da_vez = binary_vetor_to_decimal([vetor[j + i] \ 
+                    for j in range(4)])
+		hexadecimal += str(letra_hexadecimal(decimal_da_vez) \
+                        if decimal_da_vez > 9 else decimal_da_vez)
+		
+	return hexadecimal
+
+
+def letra_hexadecimal(numero):
+	return 'A' if numero == 10 \
+	else 'B' if numero == 11   \
+	else 'C' if numero == 12   \
+	else 'D' if numero == 13   \
+	else 'E' if numero == 14   \
+	else 'F' 
+
+
+# def binary_vetor_to_decimal(vetor):
+# 	decimal = 0
+# 	for i in range(power_of): 
+# 		decimal += (2 ** ((len(vetor) - 1) - i))
+
+# 	return decimal
+
+
+# def binary_vetor_to_hexadecimal(vetor):
+# 	hexadecimal = ""
+# 		for i in range(0, len(vetor), 4):
+# 		power_of = 3
+# 		decimal = 0
+# 		for j in range(4):
+# 			if vetor[i + j]: 
+# 				decimal += (2 ** power_of)
+# 			power_of -= 1
+# 		hexadecimal += str(letra_hexadecimal(decimal) if decimal > 9 \
+# 								 else decimal)
+# 		print(decimal, hexadecimal)
+
+main()

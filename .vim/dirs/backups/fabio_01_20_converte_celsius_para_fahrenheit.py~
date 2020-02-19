@@ -1,0 +1,18 @@
+"""Lista_fabio01; fabio_01_20_converte_celsius_para_fahrenheit.py
+Leia uma temperatura em °C, calcule e escreva a equivalente em
+°F. (t°F = (9 * t°C + 160) / 5)
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Informe uma temperatura em graus celsius e será retornado"
+      " seu valor equivalente em graus fahrenheit.")
+
+temperatura_celsius = float(input("Digite a temperatura em °C "
+                                  "(graus celsius): "))
+
+# Processamento
+temperatura_fahrenheit = (((temperatura_celsius * 9) + 160) / 5)
+
+# Saída
+print("Temperatura convertida: {}°F.".format(temperatura_fahrenheit))

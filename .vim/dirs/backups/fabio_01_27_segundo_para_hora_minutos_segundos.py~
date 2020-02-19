@@ -1,0 +1,24 @@
+"""Lista_fabio01; fabio_01_27_segundo_para_hora_minutos_segundos.py
+
+Leia um número inteiro de segundos, calcule e escreva quantas horas,
+quantos minutos e quantos segundos ele corresponde.
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Informe um valor em segundos e será mostrado o equivalente em horas, "
+      "minutos e segundos.")
+
+quantidade_segundos = int(input("Digite a quantidade de segundos: "))
+
+# Processamento
+quantidade_horas = quantidade_segundos // 3600
+minutos_restantes = quantidade_segundos % 3600
+quantidade_minutos = minutos_restantes // 60
+segundos_restantes = minutos_restantes % 60
+
+# Saída
+print("{0} segundo(s) é equivalente a {1} hora(s) {2} minutos e "
+      "{3} segundo(s).".format(quantidade_horas,
+                               quantidade_minutos,
+                               segundos_restantes))

@@ -1,0 +1,52 @@
+"""
+Info:
+    Questão 01 da lista Algoritmos_Exercicio-01 (Fabio 01 ESTRUTURA SEQUENCIAL)
+
+Objetivo:
+    Receber do usuário um valor representando uma velocidade em m/s (metros por
+    segundos) e mostrar na tela o valor convertido para km/h (kilometros por hora).
+
+"""
+# Mensagens de interação com usuário
+INFO_PROGRAMA = "CONVERSOR DE VELOCIDADE \n" \
+                "m/s (metros por segundos) para km/h (kilometros por hora). \n"
+
+INFO_ENTRADA = "Digite uma velocidade em m/s: \n"
+
+# # Mostrar na tela informações sobre o programa
+# print(INFO_PROGRAMA)
+
+# # ENTRADA
+# velocidade_ms = int(input(INFO_ENTRADA))
+
+# # COMPUTAÇÃO
+# velocidade_kmh = velocidade_ms * 3.6
+
+# # SAIDA
+# print("O valor digitado é equivalente a {0} km/s".format(velocidade_kmh))
+
+# Pythonic Version
+
+# def main():
+#     print(INFO_PROGRAMA)  # Informando o usuário o que o programa deve fazer
+
+#     # Convertendo o input de string para integer
+#     velocidade_ms = int(input(INFO_ENTRADA))  # Recebendo do usuário o valor em m/s
+
+#     # Convertendo o valor em metros/segundo para kilometros/hora
+#     # Formula: Vkm/h = Vm/s * 3.6
+#     velocidade_kmh = velocidade_ms * 3.6
+
+#     # Mostando na tela o valor convertido
+#     print("O valor digitado é equivalente a {0} km/s".format(velocidade_kmh))
+
+
+# if __name__ == '__main__':
+#     try:
+#         main()
+#     except ValueError:
+#         # Mensagem de erro caso o input não contenha somente números.
+#         print("ERRO: Por favor digite apenas números.")
+
+# One-line Version
+print("O valor digitado é equivalente a {0} km/s".format(int(input("Digite uma velocidade em m/s: \n")) * 3.6))

@@ -1,0 +1,70 @@
+"""Atividade_Fabio02_Condicionais; Fabio_2a_03_maior_dos_numeros
+
+Leia 3 (três) números, verifique e escreva o maior entre os números lidos.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    segundo_numero = get_inteiro_ordenado('segundo')
+    terceiro_numero = get_inteiro_ordenado('terceiro')
+
+    maior_numero = calcular_maior_numero(primeiro_numero,
+                                         segundo_numero,
+                                         terceiro_numero)
+    mostrar_maior_numero(maior_numero)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe 3 (três) números e será mostrado o maior deles.")
+
+
+def get_inteiro_ordenado(posicao):
+    """Solicita ao usuário o enésimo número requerido. """
+    return int(input("Digite o %s número: " % posicao))
+
+
+def calcular_maior_numero(primeiro_numero, segundo_numero, terceiro_numero):
+    """Calcula o maior de três números.
+
+    Return:
+        int: 0 se os números forem iguais, o maior números dentre os
+                três caso haja um maior.
+    Note:
+        Foi escolhido retornar zero em vez de None para retirar assim
+        efeitos colaterais e manter a pureza da função.
+
+    """
+    if todos_iguais(primeiro_numero, segundo_numero, terceiro_numero):
+        return 0
+
+    else:
+        # Repete-se de acordo com a quantidade de números testados.
+        maior_numero = maior(primeiro_numero, segundo_numero)
+        maior_numero = maior(maior_numero, terceiro_numero)
+        return maior_numero
+
+
+def todos_iguais(primeiro_valor, segundo_valor, terceiro_valor):
+    return primeiro_valor == segundo_valor \
+        and segundo_valor == terceiro_valor
+
+
+def maior(numero, outro_numero):
+    if numero > outro_numero:
+        return numero
+    return outro_numero
+
+
+def mostrar_maior_numero(maior_numero):
+    if maior_numero == 0:   # if !maior_numero:
+        print("Os números são iguais.")
+    else:
+        print("%d é o maior número." % maior_numero)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,100 @@
+,V
+${dotfile},v
+ cp -lf "${dir}" "${HOME}/${dotfile}",V
+r,v
+ cp -lrf "${dir}" "${HOME}/${dotfile}",V
+ln -sf ,v
+ ,v
+".gitconfig",v
+rc,v
+".vimrc" ,v
+ "${dir}",v
+https://github.com/l13rb4git/dotfiles.git,v
+#!/bin/bashdotfiles=(".vimrc" ".zshrc" ".gitconfig")dir="${HOME}/Documents/dotfiles"for dotfile in "${dotfiles[@]}";do ln -sf "${HOME}/${dotfile}" "${dir}"done,v
+and salario ,v
+02b02 - Mensagem de informações do programa corrigida.,v
+input("Digite M para matutino, V para vespertino e N para noite: "),v
+ carácter referente a um turno,v
+letra_turno,v
+",v
+corespondente ao turno que você estuda,v
+letra_valida,v
+    letra_turno = get_letra_turno(),V
+def main():    mostrar_info_programa()    letra_turno = get_letra_turno()    if letra_valida(letra_turno):        mostra_resultado(letra_turno)    else:        print("Valor Inválido!")def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Informe uma corespondente ao turno que você estuda.")def get_letra_turno():    """Socilita ao usuário um carácter referente a um turno. """    return input("Digite M para matutino, V para vespertino e N para noite: ")if __name__ == '__main__':    main(),V
+def letra_valida(letra):    return letra == 'V' or letra == 'M' or letra == 'N'def mostra_resultado(letra_sexo):    resultado = "Bom Dia!"    if letra_sexo == 'V':        resultado = "Boa Tarde!"    elif letra_sexo == 'N':        resultado = "Boa Noite!"    print(resultado),V
+ número para saber se ele é positivo ou negativo,v
+ um ,v
+número para saber se ele é positivo ou negativo,v
+"Sexo: %s" % ,v
+Tarde,v
+V,v
+    if letra_sexo == 'V':        resultado = "Boa Tarde!",V
+        resultado = "Boa Tarde!",V
+Feminino,v
+F,v
+Masculino,v
+M,v
+ or letra == 'M',v
+.,v
+Sexo,v
+sexo,v
+M para Masculino e F para Feminino,v
+def main():    mostrar_info_programa()    letra_sexo = get_letra_sexo()    if letra_valida(letra_sexo):        mostra_resultado(letra_sexo)    else:        print("Sexo inválido.")def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Informe um número para saber se ele é positivo ou negativo.")def get_letra_sexo():    """Socilita ao usuário um carácter referente a um sexo. """    return input("Digite M para Masculino e F para Feminino: ")def letra_valida(letra):    return letra == 'F' or letra == 'M'def mostra_resultado(letra_sexo):    resultado = "Masculino"    if letra_sexo == 'F':        resultado = "Feminino"    print("Sexo: %s" % resultado)if __name__ == '__main__':    main(),V
+    print(enesimo_produto, lista_baratos),V
+        lista_baratos = adicionar_a_lista(lista_baratos, "segundo")    if terceiro_preco == menor_preco:,V
+_baratos,v
+primeiro_preco, segundo_preco, terceiro_preco,v
+,V
+menor_preco = ,v
+    menor_preco = menor(primeiro_preco, segundo_preco)    menor_preco = menor(menor_preco, terceiro_preco),V
+ular,v
+menor(primeiro_preco, segundo_preco),v
+    menor_preco = menor(primeiro_preco, segundo_preco),V
+s,V
+        menor_preco = menor(primeiro_preco, segundo_preco)        menor_preco = menor(menor_preco, terceiro_preco)        if primeiro_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "primeiro")        if segundo_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "segundo")        if terceiro_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "terceiro"),V
+'',v
+        menor_preco = menor(primeiro_preco, segundo_preco)        menor_preco = menor(menor_preco, terceiro_preco)        if primeiro_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "primeiro")        if segundo_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "segundo")        if terceiro_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "terceiro")        print(f"Produtos mais baratos: {lista_baratos}."),V
+    lista_baratos = '',V
+),v
+lista_baratos = ,v
+    print(menor_preco),V
+são ,v
+Os ,v
+el,v
+    else:,V
+    # print(resultado),V
+o,v
+        return f"o {enesimo_produto} produto",V
+        return ,V
+.format(posicao),v
+%s,v
+terceiro_preco,v
+primeiro,v
+segundo_preco,v
+primeiro_preco,v
+    elif segundo_preco == menor_preco:        adicionar_a_lista(lista_baratos, segundo_preco),V
+    print(menor_preco),V
+menor,v
+numero,v
+segund_preco,v
+    menor_preco = menor(primeiro_preco, segund_preco),V
+resultado,v
+:,v
+primeiro_preco, segund_preco, terceiro_preco,v
+lista_produtos = ,v
+    primeiro_preco = get_preco_ordenado("1º"),V
+número,v
+inteiro,v
+def get_inteiro_ordenado(posicao):    """Solicita ao usuário o enésimo número requerido. """    return int(input("Digite o {} número: ".format(posicao))),V
+def main():    mostrar_info_programa()def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Informe um número para saber se ele é positivo ou negativo.")if __name__ == '__main__':    main(),V
+primeiro_preco, segundo_preco,                                         terceiro_preco,v
+def main():    mostrar_info_programa()def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Informe duas notas para saber se o aluno  ou não.")if __name__ == '__main__':    main(),V
+def get_nota(posicao):    """Solicita ao usuário o valor referente a enésima nota de um aluno. """    return int(input("Digite o valor da %s nota: " % posicao))def verificar_situacao(primeira_nota, segunda_nota):    media_notas = media(primeira_nota, segunda_nota)    situacao = "Reprovado"    if media_notas >= 7:        situacao = "Aprovado"    if media_notas == 10:        situacao = "Aprovado com Distinção"    return situacaodef media(numero, outro_numero):    return (numero + outro_numero) / 2def mostrar_resultado_boletim(situacao):    print("Aluno %s." % situacao),V
+def get_nota(posicao):    """Solicita ao usuário o valor referente a enésima nota de um aluno. """    return int(input("Digite o valor da %s nota: " % posicao)),V
+def get_nota(posicao):    """Solicita ao usuário o valor referente a enésima nota de um aluno. """    return int(input("Digite o valor da %s nota: " % posicao))def verificar_situacao(primeira_nota, segunda_nota):    media_notas = media(primeira_nota, segunda_nota)    situacao = "Reprovado"    if media_notas >= 7:        situacao = "Aprovado"    if media_notas == 10:        situacao = "Aprovado com Distinção"    return situacaodef media(numero, outro_numero):    return (numero + outro_numero) / 2def mostrar_resultado_boletim(situacao):    print("Aluno %s." % situacao),V
+    primeira_nota = get_nota('primeira')    segunda_nota = get_nota('segunda')    situacao = verificar_situacao(primeira_nota, segunda_nota)    mostrar_resultado_boletim(situacao),V
+    # nota = get_nota(),V
+    primeira_nota = get_nota('primeira')    segunda_nota = get_nota('segunda'),V
+def get_nota(posicao):    """Solicita ao usuário o valor referente a enésima nota de um aluno. """    return int(input("Digite o valor da %s nota: " % posicao)),V
+uma letra para saber ela é uma vogal ou consoante,v
+    mostrar_resultado(letra),V

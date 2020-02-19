@@ -1,0 +1,18 @@
+"""Lista_fabio01; fabio_01_24_converte_metros_para_cm.py
+
+Leia um valor em m, calcule e escreva o equivalente em cm.
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Conversor de medidas: Metros (m) para centímetros (cm).")
+
+valor_metros = float(input("Digite um valor em metros: "))
+
+# Processamento
+# Multiplicando a quantidade de quilómetros por mil (m = km * 1000)
+valor_centimetros = valor_metros * 100
+
+# Saída
+print("{0:0.0f}m é equivalente a {1:0.0f} centímetros.".format(
+                                            valor_metros, valor_centimetros))

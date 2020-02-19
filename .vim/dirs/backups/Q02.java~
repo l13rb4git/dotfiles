@@ -1,0 +1,80 @@
+// Fabio02Condicionais; Fabio02MaiorMenorNumero
+// Leia 2 (dois) números, verifique e escreva o menor e o maior entre os números lidos.
+
+import java.util.Scanner;
+
+public class Q02 {
+    public static void main (String[] args) {
+
+        showInfoProgram();
+
+        int primeiroNumero = getInteiroOrdenado("primeiro");
+        int segundoNumero = getInteiroOrdenado("segundo");
+
+        int[] resultado = calcularMaiorMenor(primeiroNumero, segundoNumero);
+        int maiorNumero = resultado[0];
+        int menorNumero = resultado[1];
+        mostraResultadoMaiorMenor(maiorNumero, menorNumero);
+    }
+
+    private static int getInteiroOrdenado(String posicao){
+        Scanner sc = new Scanner(System.in);
+        System.out.printf("Digite o %s número: ", posicao);
+        return sc.nextInt();
+    }
+
+    private static void showInfoProgram(){
+        System.out.println("Informe 2 (dois) números e será mostrado o maior e menor deles.");
+    }
+
+    private static int[] calcularMaiorMenor(int primeiroNumero, int segundoNumero){
+        int maiorNumero = primeiroNumero;
+        int menorNumero = segundoNumero;
+
+        if (primeiroNumero < segundoNumero){
+            maiorNumero = segundoNumero;
+            menorNumero = primeiroNumero;
+        }
+        return new int[] {maiorNumero, menorNumero};
+    }
+
+    private static void mostraResultadoMaiorMenor(int maiorNumero, int menorNumero){
+        if (menorNumero == maiorNumero){
+            System.out.println("Os números são iguais.");
+        }else {
+            System.out.printf("%d é o maior número e %d é o menor.", maiorNumero, menorNumero);
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

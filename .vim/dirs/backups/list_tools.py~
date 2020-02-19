@@ -1,0 +1,129 @@
+from tools import *
+
+
+def cria_vetor(tamanho = None, preechimento = None):
+	vetor = []
+	if tamanho != 0:
+		while tamanho == None:
+			tamanho = int(input("Digite quantos elementos o vetor terá: "))
+
+		if preechimento == None:
+			opcao = escolher_tipo()
+			for i in range(tamanho):
+				print("%dº elemento do vetor > "% (i + 1), end = "")
+				vetor += [valor_tipo_escolhido(opcao)]
+		else:
+			for i in range(tamanho):
+				vetor += [preechimento]
+		return vetor
+	else:
+		return vetor
+
+
+def append(vetor, elemento_adicionado):
+	new_vetor = cria_vetor(len(vetor) + 1, 0)
+	new_vetor = substitui_elementos_vetor(new_vetor, vetor, 0, len(vetor))
+	new_vetor[len(new_vetor) - 1] = elemento_adicionado
+	return new_vetor
+
+
+# def new_append(vetor, elemento_adicionado):
+# 	vetor += [elemento_adicionado]
+
+
+def substitui_elementos_vetor(vetor, com = "", de = 0, ate = 0):
+	if type(com) == type([]):
+		j = 0
+		for i in range(de,ate):
+			vetor[i] = com[j]	
+			j +=1
+	else:
+		for i in range(de, ate):
+			vetor[i] = com	
+	return vetor
+
+
+def soma_vetores(vetor_1, vetor_2):
+	new_vetor = cria_vetor((len(vetor_1) + len(vetor_2)), 1)
+	new_vetor = substitui_elementos_vetor(new_vetor, vetor_1, 0, len(vetor_1))
+	new_vetor = substitui_elementos_vetor(new_vetor, vetor_2, len(vetor_1), (len(new_vetor)))
+	return new_vetor
+
+
+def soma_elementos(vetor):
+	elementos_do_vetor_somados = 0
+	for i in range(len(vetor)):
+		elementos_do_vetor_somados += vetor[i]
+	return elementos_do_vetor_somados
+	
+
+
+def intercalar_vetores(vetor_1, vetor_2):
+	vetores_intercalados = cria_vetor((len(vetor_1) + len(vetor_2)), 0)
+	vetores_intercalados = pular_substituir(vetores_intercalados, vetor_1)
+	vetores_intercalados = pular_substituir(vetores_intercalados, vetor_2, 1, 1)
+	return vetores_intercalados
+
+
+def pular_substituir(vetor_base, vetor, pulo = 1, inicio = 0):
+	j = 0
+	i = inicio
+	while i < len(vetor_base) and j < len(vetor):
+		vetor_base[i] = vetor[j]
+		i += pulo + 1
+		j += 1
+	return vetor_base
+
+
+def inverte_vetor(vetor):
+	vetor_invertido = []
+	for i in range(len(vetor)-1, -1, -1):
+		vetor_invertido += [vetor[i]]
+
+
+def clona_vetor(vetor, preechimento = None):
+	new_vetor = cria_vetor(len(vetor),0)
+	for i in range(len(vetor)):
+		new_vetor[i] = [0,0,0]
+	return new_vetor
+
+	
+def vetor_invertido(vetor):
+	vetor_invertido = []
+	for i in range(len(vetor)-1, -1, -1):
+		vetor_invertido += [vetor[i]]
+	return vetor_invertido
+
+
+def contem(vetor, elemento):
+	for i in range(len(vetor)):
+		if vetor[i] == elemento: return True
+	return False
+
+
+def retira_repetidos(vetor):
+	vetor_sem_repetidos = cria_vetor(0)
+	for i in range(len(vetor)):
+		if not(contem(vetor_sem_repetidos, vetor[i])):
+			vetor_sem_repetidos = append(vetor_sem_repetidos, vetor[i])
+	return vetor_sem_repetidos
+
+
+def uniao_vetores(vetor_1, vetor_2):
+	vetores_unidos = soma_vetores(vetor_1, vetor_2)	
+	return retira_repetidos(vetores_unidos)
+
+
+def intersecao_vetores(vetor_1, vetor_2):
+	intersecao = cria_vetor(0)
+	for i in range(len(vetor_1)):
+		if contem(vetor_2, vetor_1[i]):
+			intersecao = append(intersecao, vetor_1[i])
+	return retira_repetidos(intersecao)
+
+
+# v1 = [1,7,5,2,3,1,4,7,8,10]
+# v2 = [1,7,5,2,6,10]
+# uniao_vetores(v1, v2)
+# #retira_repetidos(v1)
+# #print(contem(v1, 2))

@@ -1,0 +1,19 @@
+"""Lista_fabio01; fabio_01_03_conversor_min_para_hora_min.
+
+Leia um valor em minutos, calcule e escreva o equivalente em horas e minutos.
+
+"""
+
+# Entrada
+informacoes_programa = "Conversor de minutos para horas e minutos.\n" \
+                        "\nDigite um valor um minutos: "
+
+quantidade_minutos = int(input(informacoes_programa))
+# sfjk
+# Processamento
+minutos_em_horas = quantidade_minutos // 60
+resto_minutos = quantidade_minutos % 60
+
+# Saída
+print("A quantidade de minutos informada é equivalente a ",
+        minutos_em_horas, "hora(s) e", resto_minutos,"minuto(s).")

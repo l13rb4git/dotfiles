@@ -1,0 +1,5 @@
+snippet nd "Iniciar uma nova nota de diário"
+Hoje é `date +'%d/%m/%Y %H:%M:%S'`
+
+	$1
+endsnippet

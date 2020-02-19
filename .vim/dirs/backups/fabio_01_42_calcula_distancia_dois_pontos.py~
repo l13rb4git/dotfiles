@@ -1,0 +1,27 @@
+"""Lista_fabio01; fabio_01_42_calcula_distancia_dois_pontos.py
+
+Escreva um algoritmo que, tendo como dados de entrada 2 pontos quaisquer no
+plano, ponto1 (x1,y1) e ponto2 (x2,y2), escreva a distância entre eles,
+conforme fórmula abaixo:
+d = ((x2-x1)² + (y2-y1)²)^0.5
+
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Calcula a distância entre dois pontos em um plano.")
+
+print("Primeiro Ponto:")
+x_primeiro_ponto = int(input("Digite o valor do x1: "))
+y_primeiro_ponto = int(input("Digite o valor do y1: "))
+print("Segundo Ponto:")
+x_segundo_ponto = int(input("Digite o valor do x2: "))
+y_segundo_ponto = int(input("Digite o valor do y2: "))
+
+# Processamento
+distancia_entre_pontos = ((x_segundo_ponto - x_primeiro_ponto) ** 2
+                          + ((y_segundo_ponto - y_primeiro_ponto) ** 2)) ** 0.5
+
+# Saída
+print("A distância entre os dois pontos é igual a %0.3f."
+      % distancia_entre_pontos)

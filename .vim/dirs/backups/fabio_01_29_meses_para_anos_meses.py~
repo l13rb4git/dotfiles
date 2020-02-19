@@ -1,0 +1,20 @@
+"""Lista_fabio01; fabio_01_29_meses_para_anos_meses.py
+
+Leia um número inteiro de meses, calcule e escreva quantos anos e
+quantos meses ele corresponde.
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Informe um número inteiro de meses, será retornado o equivalente em "
+      "anos e meses.")
+
+quantidade_meses = int(input("Digite a quantidade de meses: "))
+
+# Processamento
+quantidade_anos = quantidade_meses // 12
+meses_restantes = quantidade_meses % 12
+
+# Saída
+print("{0} meses equivale a {1} ano(s) e {2} meses restantes.".format(
+                                            quantidade_anos, meses_restantes))

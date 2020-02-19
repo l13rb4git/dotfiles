@@ -1,0 +1,73 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_14_maiores_que_media
+
+Leia 5 (cinco) números inteiros, calcule a sua média e escreva os que são
+maiores que a média.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+    primeiro_numero = get_inteiro_ordenado('primeiro')
+    segundo_numero = get_inteiro_ordenado('segundo')
+    terceiro_numero = get_inteiro_ordenado('terceiro')
+    quarto_numero = get_inteiro_ordenado('quarto')
+    quinto_numero = get_inteiro_ordenado('quinto')
+
+    media_numeros = calcular_media(primeiro_numero, segundo_numero,
+                                   terceiro_numero, quarto_numero,
+                                   quinto_numero)
+
+    calcular_maiores_que_media(media_numeros, primeiro_numero, segundo_numero,
+                               terceiro_numero, quarto_numero, quinto_numero)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe 5 (cinco) números e será mostrado a média deles e quais "
+          "são maiores que a média..")
+
+
+def get_inteiro_ordenado(posicao):
+    """Solicita ao usuário o enésimo número requerido. """
+    return int(input("Digite o %s número: " % posicao))
+
+
+def calcular_maiores_que_media(media, primeiro_numero, segundo_numero,
+                               terceiro_numero, quarto_numero, quinto_numero):
+
+    if media == primeiro_numero:
+        print("Os números são iguais a média.")
+
+    else:
+        mostrar_maiores(media, primeiro_numero, segundo_numero,
+                        terceiro_numero, quarto_numero, quinto_numero)
+
+
+def mostrar_maiores(media, primeiro_numero, segundo_numero, terceiro_numero,
+                    quarto_numero, quinto_numero):
+    print("Os números maiores que a média são: ", end="")
+
+    mostra_se_maior(primeiro_numero, media)
+    mostra_se_maior(segundo_numero, media)
+    mostra_se_maior(terceiro_numero, media)
+    mostra_se_maior(quarto_numero, media)
+    mostra_se_maior(quinto_numero, media)
+
+
+def mostra_se_maior(numero_testado, outro_numero):
+    if numero_testado > outro_numero:
+        print(numero_testado, end=" ")
+
+
+def calcular_media(primeiro_numero, segundo_numero, terceiro_numero,
+                   quarto_numero, quinto_numero):
+
+    soma_valores = primeiro_numero + segundo_numero + terceiro_numero \
+                 + quarto_numero + quinto_numero
+
+    return soma_valores / 5
+
+
+if __name__ == '__main__':
+    main()

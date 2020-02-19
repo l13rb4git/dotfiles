@@ -1,0 +1,81 @@
+"""Atividade_Fabio02_Condicionais; Fabio_2a_07_lados_tipos_triangulos
+
+Leia 3 (três) números (cada número corresponde a um lado do triângulo),
+verifique e escreva se os 3 (três) números formam um triângulo (a soma de
+dois lados não pode ser menor que o terceiro lado). Se formam, verifique se
+formam um triângulo equilátero (3 lados iguais), isósceles (2 lados iguais) ou
+escaleno (3 lados diferentes). Não existe lado com tamanho 0 (zero).
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    primeiro_lado = get_inteiro_ordenado('primeiro')
+    segundo_lado = get_inteiro_ordenado('segundo')
+    terceiro_lado = get_inteiro_ordenado('terceiro')
+
+    mostrar_tipo_triangulo(primeiro_lado, segundo_lado, terceiro_lado)
+
+
+def get_inteiro_ordenado(posicao):
+    """Solicita ao usuário o enésimo número requerido. """
+    return int(input("Digite o {} lado: ".format(posicao)))
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe 3 (três) números correspondentes a lados de um triângulo,"
+          " será mostrado qual tipo de triângulo eles formam.")
+
+
+def mostrar_tipo_triangulo(primeiro_lado, segundo_lado, terceiro_lado):
+    if triangulo_valido(primeiro_lado, segundo_lado, terceiro_lado):
+        tipo_triangulo = get_tipo_triangulo(primeiro_lado,
+                                            segundo_lado,
+                                            terceiro_lado)
+
+        print("Os lados formam um triângulo {}.".format(tipo_triangulo))
+    else:
+        print("Erro: Lados não formam um triangulo.")
+
+
+def triangulo_valido(primeiro_lado, segundo_lado, terceiro_lado):
+    return formam_triangulo(primeiro_lado, segundo_lado, terceiro_lado) \
+        and lados_positivos(primeiro_lado, segundo_lado, terceiro_lado)
+
+
+def formam_triangulo(primeiro_lado, segundo_lado, terceiro_lado):
+    return primeiro_lado <= (segundo_lado + terceiro_lado)  \
+        and segundo_lado <= (primeiro_lado + terceiro_lado) \
+        and terceiro_lado <= (primeiro_lado + segundo_lado)
+
+
+def lados_positivos(primeiro_lado, segundo_lado, terceiro_lado):
+    return primeiro_lado > 0 and segundo_lado > 0 and terceiro_lado > 0
+
+
+def get_tipo_triangulo(primeiro_lado, segundo_lado, terceiro_lado):
+    if eh_equilatero(primeiro_lado, segundo_lado, terceiro_lado):
+        tipo_triangulo = "equilátero"
+    elif eh_isosceles(primeiro_lado, segundo_lado, terceiro_lado):
+        tipo_triangulo = "isósceles"
+    else:
+        tipo_triangulo = "escaleno"
+
+    return tipo_triangulo
+
+
+def eh_equilatero(primeiro_lado, segundo_lado, terceiro_lado):
+    return (primeiro_lado == segundo_lado) and (segundo_lado == terceiro_lado)
+
+
+def eh_isosceles(primeiro_lado, segundo_lado, terceiro_lado):
+    return primeiro_lado == segundo_lado  \
+        or primeiro_lado == terceiro_lado \
+        or segundo_lado == terceiro_lado  \
+
+
+if __name__ == '__main__':
+    main()

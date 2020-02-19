@@ -1,0 +1,47 @@
+from array_utils import *
+
+
+def main():
+    matriz = matriz_input()
+    print("A soma da diagonal primaria é %d, da diagonal secundaria é %d e a dos outros elementos é %d."% \
+            (diagonal_primaria(matriz), diagonal_secundaria(matriz),fora_da_diagonal(matriz)))
+
+
+def ta_na_primaria(linha, coluna):
+    return linha == coluna
+
+
+def ta_na_secundaria(tamanho_matriz, linha, coluna):
+    return (tamanho_matriz - 1) == (linha + coluna)
+
+
+def not_diagonal(tamanho_matriz, linha, coluna):
+    return not((ta_na_primaria(linha, coluna)) \
+            or (ta_na_secundaria(tamanho_matriz, linha, coluna)))
+
+
+def fora_da_diagonal(matriz):
+    somatorio = 0
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            if not_diagonal(len(matriz), i, j):
+                somatorio += matriz[i][j]
+    return somatorio
+
+def diagonal_primaria(matriz):
+    somatorio = 0
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            if i == j:
+               somatorio += matriz[i][j]
+    return somatorio
+
+def diagonal_secundaria(matriz):
+    somatorio = 0
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            if ta_na_secundaria(len(matriz), i, j):
+                somatorio += matriz[i][j]
+    return somatorio
+
+#main()

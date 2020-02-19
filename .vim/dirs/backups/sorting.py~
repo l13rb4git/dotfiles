@@ -1,0 +1,42 @@
+# Quick sort
+
+# Importar do modulo ramdom a função randrange
+# Uso: index aleatorio para o pivot diminuindo tempo de big O
+from random import randrange, shuffle
+
+# Definir a func recebe tres parametros a lista o inicio e o final
+def quicksort(lista, inicio, final):
+    # Verificar se o inicio é maior que o final
+    if inicio >= final:
+        return lista
+
+    # Selecionar uma posicao aleatoria para o pivot criando um ponteiro
+    pivot_idx = randrange(inicio, final + 1)
+    pivot_elem = lista[pivot_idx]
+
+    # Trocar o pivot com o ultimo elemento da lista
+    # Fica mais facil fazer as comparções
+    lista[final],  lista[pivot_idx] = lista[pivot_idx], lista[final]
+
+    # Verificar quais elementos devem ir para o lado esquerdo (menores) do pivot
+    menor_ptr = inicio
+
+    for i in range(inicio, final):
+        # Se o elemento deveria esta no lado errado da lista
+        if lista[i] < pivot_elem:
+            # Trocar o elemento com  o elemento mais a direita dos menores
+            lista[i], lista[menor_ptr] = lista[menor_ptr], lista[i]
+
+            menor_ptr += 1
+    # Apos o loop, mover o pivot para a para  a direita dos menores
+    lista[final], lista[menor_ptr] = lista[menor_ptr], lista[final]
+
+    # Recursividade: Partiocionamento, lado direito e esquerdo da sub lista
+    quicksort(lista, inicio, menor_ptr - 1)
+    quicksort(lista, menor_ptr + 1, final)
+
+lista = [4,7,12,24,36,42]
+shuffle(lista)
+print(lista)
+quicksort(lista, 0, len(lista) - 1)
+print(lista)

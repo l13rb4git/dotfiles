@@ -1,0 +1,45 @@
+"""Lista_Fabio_02b_Condicionais	fabio_02b_07_reajuste_salario
+
+As Organizações Tabajara resolveram dar um aumento de salário aos seus
+colaboradores e lhe contrataram para desenvolver o programa que calculará os
+reajustes. Escreva um algoritmo que leia o salário de um colaborador e o
+reajuste segundo o seguinte critério, baseado no salário atual:
+
+o salários até R$ 280,00 (incluindo) : aumento de 20%
+o salários entre R$ 280,00 e R$ 700,00 : aumento de 15%
+o salários entre R$ 700,00 e R$ 1500,00 : aumento de 10%
+o salários de R$ 1500,00 em diante : aumento de 5% Após o aumento ser
+
+realizado, informe na tela:
+
+· o salário antes do reajuste;
+· o percentual de aumento aplicado;
+· o valor do aumento;
+· o novo salário, após o aumento.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+    salario = get_salario()
+
+    # if salario_valido(salario):
+    #     mostra_resultado(salario)
+    # else:
+    #     print("Valor Inválido!")
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe um valor corresponde ao seu sálario para saber quanto de "
+          "aumento você irá receber.")
+
+
+def get_salario():
+    """Socilita ao usuário um valor em reais corespondente ao seu sálario. """
+    return float(input("Digite o seu sálario:"))
+
+
+if __name__ == '__main__':
+    main()

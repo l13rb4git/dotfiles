@@ -1,0 +1,94 @@
+from funcionalidades import *
+from importacao import *
+from tools import *
+import os
+
+
+def main():
+
+    # listas vazias
+    coligacoes = []
+    vereadores = []
+
+    # preencher listas com dados importados: lista de dicionarios
+    coligacoes, vereadores = inicializar_dados(coligacoes, vereadores)
+    # informações menu
+    menu = '***** ELEIÇÕES TERESINA/2012 *****\n' \
+           '1 - Total Votos Válidos \n' \
+           '2 - Quociente Eleitoral\n' \
+           '3 - Total De Votos Por Coligação\n' \
+           '4 - Total De Vagas Por Quociente Partidário\n' \
+           '5 - Total De Vagas Pela Média\n' \
+           '6 - Mostrar Todos Os Vereadores\n' \
+           '0 - Sair\n'
+
+    # Loop do Menu de opcões
+    opcao = -1
+    while opcao != 0:
+        # pedir nova opcao
+        opcao = get_opcao(menu, 0, 6)
+
+        # verificar opcao e invocar funcao responsável
+        if opcao == 1:
+            limpar_a_tela()
+            # mostra o total de votos válidos da eleição
+            mostra_total_de_votos_validos(vereadores)
+            
+        elif opcao == 2:
+            limpar_a_tela()
+            # mostra o QE - Quociente Eleitoral da eleição 
+            mostrar_quociente_eleitoral(vereadores)
+
+        elif opcao == 3:
+            limpar_a_tela()
+            # mostrar total de votos por coligacao
+            total_votos_por_coligacao(coligacoes)
+        
+        elif opcao == 4:
+            limpar_a_tela()
+            # mostrar total de vaga por quociente partidario
+            mostrar_vagas_por_quociente_partidario(coligacoes)
+
+        elif opcao == 5:
+            limpar_a_tela()
+            # calcular e mostrar vagas pela media (vagas sobrando)
+            vagas_ramanecentes(coligacoes, vereadores)
+
+        elif opcao == 6:
+            limpar_a_tela()
+            # mostrar todos os vereadores
+            listar_todos_vereadores(vereadores)
+
+        else:
+            print('Aplicativo Encerrado.')
+
+        # limpar a tela
+        input('enter para continuar...')
+        limpar_a_tela()
+
+def inicializar_dados(coligacoes, vereadores):
+
+    # Importar dados
+    dados_coligacoes = importar_coligacoes(
+        'dados/partidos_coligacoes_the_2012.csv')
+    dados_vereadores = importar_vereadores(
+        'dados/candidatos_e_votos_vereador_THE_2012.csv')
+
+
+    # Calcular e passar total de todos dos veradores para as coligacoes
+    # coloca_votos(coligacoes, vereadores)
+    # Organizar dados em matrizes de acordo com o solicitado
+    # TODO: preencher 'coligacoes' e 'vereadores' com dados já organizados
+    coligacoes = dados_coligacoes
+    vereadores = dados_vereadores
+    organizar_dados_adicionais(coligacoes, vereadores) 
+    
+    
+    return coligacoes, vereadores 
+
+    # Limpar a tela
+    input('Enter para ir ao Menu...')
+    os.system('clear')  # ou 'cls'
+
+
+uu

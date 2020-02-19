@@ -1,0 +1,80 @@
+"""Atividade_Fabio02_Condicionais; Fabio_2a_06_tipos_triangulos
+
+Leia 3 (três) números (cada número corresponde a um ângulo interno do
+triângulo), verifique e escreva se os 3 (três) números formam um triângulo
+(a soma dos ângulos internos é igual a 180o). Se formam, verifique se formam
+um triângulo acutângulo (3 ângulos < 90o), retângulo (1 ângulo = 90o) ou
+obtusângulo (1 ângulo > 90o). Não existe ângulo com tamanho 0o (zero grau).
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    primeiro_angulo = get_inteiro_ordenado('primeiro')
+    segundo_angulo = get_inteiro_ordenado('segundo')
+    terceiro_angulo = get_inteiro_ordenado('terceiro')
+
+    mostrar_tipo_triangulo(primeiro_angulo, segundo_angulo, terceiro_angulo)
+
+
+def get_inteiro_ordenado(posicao):
+    """Solicita ao usuário o enésimo número requerido. """
+    return int(input("Digite o {} ângulo: ".format(posicao)))
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe 3 (três) números correspondentes a ângulos de um triângulo,"
+          " será mostrado qual tipo de triângulo eles formam.")
+
+
+def mostrar_tipo_triangulo(primeiro_angulo, segundo_angulo, terceiro_angulo):
+    if triangulo_valido(primeiro_angulo, segundo_angulo, terceiro_angulo):
+        tipo_triangulo = get_tipo_triangulo(primeiro_angulo,
+                                            segundo_angulo,
+                                            terceiro_angulo)
+
+        print("Os ângulos formam um triângulo {}.".format(tipo_triangulo))
+    else:
+        print("Erro: Ângulos não formam um triangulo.")
+
+
+def triangulo_valido(primeiro_angulo, segundo_angulo, terceiro_angulo):
+    return formam_triangulo(primeiro_angulo, segundo_angulo, terceiro_angulo) \
+        and angulos_positivos(primeiro_angulo, segundo_angulo, terceiro_angulo)
+
+
+def formam_triangulo(primeiro_angulo, segundo_angulo, terceiro_angulo):
+    soma_angulos = primeiro_angulo + segundo_angulo + terceiro_angulo
+    return soma_angulos == 180
+
+
+def angulos_positivos(primeiro_angulo, segundo_angulo, terceiro_angulo):
+    return primeiro_angulo > 0 and segundo_angulo > 0 and terceiro_angulo > 0
+
+
+def get_tipo_triangulo(primeiro_angulo, segundo_angulo, terceiro_angulo):
+    if eh_acutangulo(primeiro_angulo, segundo_angulo, terceiro_angulo):
+        tipo_triangulo = "acutângulo"
+    elif eh_retangulo(primeiro_angulo, segundo_angulo, terceiro_angulo):
+        tipo_triangulo = "retângulo"
+    else:
+        tipo_triangulo = "obtusângulo"
+
+
+def eh_acutangulo(primeiro_angulo, segundo_angulo, terceiro_angulo):
+    return primeiro_angulo < 90 \
+            and segundo_angulo < 90 \
+            and terceiro_angulo < 90
+
+
+def eh_retangulo(primeiro_angulo, segundo_angulo, terceiro_angulo):
+    return primeiro_angulo == 90 \
+            or segundo_angulo == 90 \
+            or terceiro_angulo == 90
+
+
+if __name__ == '__main__':
+    main()

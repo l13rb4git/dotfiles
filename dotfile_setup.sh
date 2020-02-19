@@ -1,9 +1,9 @@
 #!/bin/bash
 
-dotfiles=(".vimrc" ".zshrc" ".gitconfig")
+dotfiles=(".vimrc" ".vim" ".zshrc" ".tmux.conf")
 dir="${HOME}/Documents/dotfiles"
 
 for dotfile in "${dotfiles[@]}";
 do
- ln -sf "${dir}" "${HOME}/${dotfile}"
+ cp -lrf "${dir}/${dotfile}" "${HOME}/${dotfile}"
 done

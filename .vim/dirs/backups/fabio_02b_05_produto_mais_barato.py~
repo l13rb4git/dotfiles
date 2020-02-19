@@ -1,0 +1,76 @@
+"""Lista_Fabio_02b_Condicionais	fabio_02b_05_produto_mais_barato
+
+Leia o preço de três produtos e informe qual produto deve ser comprado, sabendo
+que a decisão é sempre pelo mais barato.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+    primeiro_preco = get_preco_ordenado("1º")
+    segundo_preco = get_preco_ordenado("2º")
+    terceiro_preco = get_preco_ordenado("3º")
+
+    selecionar_produtos(primeiro_preco, segundo_preco, terceiro_preco)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe duas notas para saber se o aluno  ou não.")
+
+
+def get_preco_ordenado(posicao):
+    """Solicita ao usuário o enésimo preço requerido. """
+    return int(input(f"Digite o preço do {posicao} produto: "))
+
+
+def selecionar_produtos(primeiro_preco, segundo_preco, terceiro_preco):
+    if todos_iguais(primeiro_preco, segundo_preco, terceiro_preco):
+        print("Preços iguais, escolha o que mais lhe agrada.")
+
+    else:
+        lista_baratos = calc_mais_baratos(primeiro_preco, segundo_preco,
+                                          terceiro_preco)
+        print(f"Produtos mais baratos: {lista_baratos}.")
+
+
+def calc_mais_baratos(primeiro_preco, segundo_preco, terceiro_preco):
+    lista_baratos = ''
+    menor_preco = calc_menor_preco(primeiro_preco, segundo_preco,
+                                   terceiro_preco)
+
+    if primeiro_preco == menor_preco:
+        lista_baratos = adicionar_a_lista(lista_baratos, "primeiro")
+    if segundo_preco == menor_preco:
+        lista_baratos = adicionar_a_lista(lista_baratos, "segundo")
+    if terceiro_preco == menor_preco:
+        lista_baratos = adicionar_a_lista(lista_baratos, "terceiro")
+
+    return lista_baratos
+
+
+def todos_iguais(primeiro_preco, segundo_preco, terceiro_preco):
+    return primeiro_preco == segundo_preco and segundo_preco == terceiro_preco
+
+
+def calc_menor_preco(primeiro_preco, segundo_preco, terceiro_preco):
+    menor_preco = menor(primeiro_preco, segundo_preco)
+    return menor(menor_preco, terceiro_preco)
+
+
+def menor(numero, outro_numero):
+    if numero < outro_numero:
+        return numero
+    return outro_numero
+
+
+def adicionar_a_lista(lista_baratos, enesimo_produto):
+    if lista_baratos == '':
+        return f"o {enesimo_produto} produto"
+
+    return f"{lista_baratos} e o {enesimo_produto} produto"
+
+
+if __name__ == '__main__':
+    main()

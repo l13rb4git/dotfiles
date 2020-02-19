@@ -1,0 +1,19 @@
+"""Lista_fabio01; fabio_01_19_volume_da_esfera
+
+Leia o valor do raio de uma esfera, calcule e escreva seu volume.
+(v = (4 * p * r 3 ) / 3) (p = 3,14)
+
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Informe o raio de um esfera para receber o volume dela.")
+
+raio_esfera = float(input("Digite o tamanho do raio: "))
+
+# Processamento
+# Multiplicar o valor do raio por PI e depois por 2 (dois).
+volume_esfera = ((raio_esfera ** 3) * 3.14 * 4) / 3
+
+# Saída
+print("O volume da esfera é {:0.3f}.".format(volume_esfera))

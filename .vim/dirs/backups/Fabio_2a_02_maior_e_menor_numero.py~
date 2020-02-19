@@ -1,0 +1,47 @@
+"""Atividade_Fabio02_Condicionais; Fabio_2a_02_maior_e_menor_numero
+
+Leia 2 (dois) números, verifique e escreva o menor e o maior entre os
+números lidos.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    primeiro_numero = get_inteiro_ordenado('primeiro')
+    segundo_numero = get_inteiro_ordenado('segundo')
+
+    calcular_maior_menor_numero(primeiro_numero, segundo_numero)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe 2 (dois) números e será mostrado o maior e menor deles.")
+
+
+def get_inteiro_ordenado(posicao):
+    """Solicita ao usuário o enésimo número requerido. """
+    return int(input("Digite o %s número: " % posicao))
+
+
+def calcular_maior_menor_numero(primeiro_numero, segundo_numero):
+    maior_numero = primeiro_numero
+    menor_numero = segundo_numero
+    if primeiro_numero < segundo_numero:
+        maior_numero = segundo_numero
+        menor_numero = primeiro_numero
+
+    mostrar_maior_menor(maior_numero, menor_numero)
+
+
+def mostrar_maior_menor(maior_numero, menor_numero):
+    if maior_numero == menor_numero:
+        print("Os números são iguais.")
+    else:
+        print("%d é o maior número e %d é o menor."
+              % (maior_numero, menor_numero))
+
+
+if __name__ == '__main__':
+    main()

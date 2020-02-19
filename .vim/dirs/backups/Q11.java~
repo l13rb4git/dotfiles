@@ -1,0 +1,23 @@
+// Lista_fabio01; fabio_01_11_inverte_numero.
+// Leia um número inteiro (3 dígitos) e escreva o inverso do número. (Ex.: número = 532 ; inverso = 235).
+import java.util.Scanner;
+
+public class Q11 {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        // Entrada
+        System.out.println("Informe um número, ele será mostrado invertido. 123 -> 321.");
+        System.out.print("Digite o número de 03 (três) dígitos em que deseja efetuar a operação: ");
+        int numero = sc.nextInt();
+
+        // Processamento
+        int centenas = numero / 100;
+        int resto_centenas = numero % 100;
+        int dezenas = resto_centenas / 10;
+        int unidades = numero % 10;
+
+        // Saída
+        System.out.println("Seu número invertido: " + unidades + dezenas + centenas);
+    }
+}

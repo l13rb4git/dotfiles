@@ -1,0 +1,27 @@
+"""Lista_fabio01; fabio_01_28_horas_para_semanas_dias_horas.py
+
+Leia um número inteiro de horas, calcule e escreva quantas semanas,
+quantos dias e quantas horas ele corresponde.
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Informe um número inteiro de horas, será retornado o equivalente em "
+      "semanas, dias e horas.")
+
+quantidade_horas = int(input("Digite a quantidade de horas: "))
+
+# Processamento
+quantidade_semanas = quantidade_horas // 168
+
+horas_restantes = quantidade_horas % 168
+quantidade_dias = horas_restantes // 24
+
+horas_restantes = horas_restantes % 24
+
+# Saída
+print("{0} hora(s) é equivalente a {1} semana(s) {2} dia(s) e "
+      "{3} hora(s) restantes.".format(quantidade_horas,
+                            quantidade_semanas,
+                            quantidade_dias,
+                            horas_restantes))

@@ -1,0 +1,70 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_23_data_mais_recente
+
+Leia 2 datas (cada data é composta por 3 variáveis inteiras: dia, mês e ano)
+e escreva qual delas é a mais recente.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    print("Digite a primeira data.")
+    data1_dia, data1_mes, data1_ano = get_data()
+    print("Digite a segunda data.")
+    data2_dia, data2_mes, data2_ano = get_data()
+
+    calcular_mais_recente(data1_dia, data1_mes, data1_ano,
+                          data2_dia, data2_mes, data2_ano)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe duas data e será mostrado qual delas é mais recente.")
+
+
+def get_data():
+    """Solicita do usuário uma string contendo "dia/mes/ano". """
+    return map(int, input("Digite a data que deseja testar "
+                          "(Ex: 09/09/1999): ").split("/"))
+
+
+def calcular_mais_recente(data1_dia, data1_mes, data1_ano,
+                          data2_dia, data2_mes, data2_ano):
+    resultado = "A primeira é a mais recente."
+
+    if datas_iguais(data1_dia, data1_mes, data1_ano,
+                    data2_dia, data2_mes, data2_ano):
+        resultado = "Datas iguais."
+
+    elif segunda_mais_recente(data1_dia, data1_mes, data1_ano,
+                              data2_dia, data2_mes, data2_ano):
+        resultado = "A segunda é a mais recente."
+
+    print(resultado)
+
+
+def datas_iguais(data1_dia, data1_mes, data1_ano,
+                 data2_dia, data2_mes, data2_ano):
+    return data1_ano == data2_ano  \
+        and data1_mes == data2_mes \
+        and data1_dia == data2_dia
+
+
+def segunda_mais_recente(data1_dia, data1_mes, data1_ano,
+                         data2_dia, data2_mes, data2_ano):
+    if data1_ano > data2_ano:
+        return False
+
+    elif data1_ano == data2_ano:
+        if data1_mes == data2_mes:
+            return data1_dia < data2_dia
+
+        elif data1_mes < data2_mes:
+            return True
+
+    return False
+
+
+if __name__ == '__main__':
+    main()

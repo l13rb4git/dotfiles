@@ -1,0 +1,18 @@
+"""Lista_fabio01; fabio_01_23_converte_quilograma_para_grama.py
+
+Leia um valor em kg (quilograma), calcule e escreva o equivalente em g (grama).
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Conversor de peso: Quilograma (kg) para gramas (g).")
+
+valor_quilograma = float(input("Digite um valor em kg: "))
+
+# Processamento
+# Multiplicando a quantidade de quilómetros por mil (m = km * 1000)
+valor_grama = valor_quilograma * 1000
+
+# Saída
+print("{0:0.3f}kg é equivalente a {1:0.3f} gramas.".format(valor_quilograma,
+                                                           valor_grama))

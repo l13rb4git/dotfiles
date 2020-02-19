@@ -1,0 +1,32 @@
+"""Lista_fabio01; fabio_01_40_calcula_gasto_fumante.py
+
+Calcule a quantidade de dinheiro gasta por um fumante.
+Dados de entrada: o número de anos que ele fuma, o nº de cigarros
+fumados por dia e o preço de uma carteira (1 carteira tem 20 cigarros).
+
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Calcula o quanto um fumante gastou com esse vício horrível.")
+
+quantidade_anos_fumando = int(input("Digite há quantos anos você fuma: "))
+quantidade_diaria_cigarros = int(input("Digite a quantidade de "
+                                       "cigarros fumados por dia: "))
+preco_carteira_cigarros = float(input("Por último informe o preço "
+                                    "da carteira de cigarros: "))
+
+# Processamento
+# Trasformar anos com fumante em dias
+quantidade_dias_fumando = quantidade_anos_fumando * 365
+# Calcular o número total de cigarros fumados
+total_cigarros_fumados = quantidade_dias_fumando * quantidade_diaria_cigarros
+# Conseguir o número de carteiras de cigarros compradas
+carteiras_cigarro_compradas = total_cigarros_fumados / 20
+# Calcular o valor total gasta com cigarros
+total_gasto_fumando = carteiras_cigarro_compradas * preco_carteira_cigarros
+
+# Saída
+print(f"Ao todo você gastou R${total_gasto_fumando:.2f} em cigarros.")
+print("Lembre-se o maior prejuízo que este vício traz não é financeiro, "
+      "mas sim à sua saúde.")

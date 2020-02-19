@@ -1,0 +1,22 @@
+"""Lista_fabio01; fabio_01_44_quantidade_componentes_latao.py
+
+Sabendo que latão é constituído de 70% de cobre e 30% de zinco, escreva um
+algoritmo que calcule a quantidade de cada um desses componentes para se
+obter certa quantidade de latão (em kg), informada pelo usuário.
+
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Informe um quantidade em kg (quilógramas) de latão e será mostrado"
+      "a quantidade dos componentes (zinco e cobre) que o formam.")
+
+quantidade_latao = float(input("Digite a quantidade de latão (kg): "))
+
+# Processamento
+quantidade_cobre = quantidade_latao * 0.7
+quantidade_zinco = quantidade_latao * 0.3
+
+# Saída
+print("Sua porção de latão é formado por {0}kg de cobre e {1}kg de zinco."
+      .format(quantidade_cobre, quantidade_zinco))

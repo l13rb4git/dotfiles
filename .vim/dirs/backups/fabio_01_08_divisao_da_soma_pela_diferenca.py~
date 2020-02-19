@@ -1,0 +1,24 @@
+"""Lista_fabio01; fabio_01_08_divisao_da_soma_pela_diferenca.
+
+Leia 2 números, calcule e escreva a divisão da soma
+pela subtração dos números lidos.
+
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Informe 02 (dois) números;\nSerá mostrado a divisão da soma pela "
+      "diferença entre os dois.")
+
+primeiro_numero = int(input("Digite o primeiro número: "))
+segundo_numero = int(input("Digite o segundo número: "))
+
+# Processamento
+# Somando e subtraindo os dois números.
+soma_numeros = primeiro_numero + segundo_numero
+diferenca_numeros = primeiro_numero - segundo_numero
+# Divisao da soma pela subtração
+total_divisao = soma_numeros / diferenca_numeros
+
+# Saída
+print("A divisão da soma pela diferença é igual a {}.".format(total_divisao))

@@ -1,0 +1,267 @@
+import ordenacao
+from tratamento_strings import *
+
+"""
+    ESTAS FUNCOES FAZEM O TRABALHO DO PROGRAMA
+"""
+
+##### TOP ######
+##### FUNCOES QUE AUXILIAM A CONSULTA DOS TOP #####
+
+def top_colegios(colegios):
+    # Default - top 10 colegios com melhor nota nas objetivas
+    top_10_geral(colegios)
+        
+    if necessita_filtragem():
+        filtragem_top(colegios)
+
+
+def top_10_geral(colegios):
+    top_10 = primeiros(10, colegios)
+    
+    dados_requisitados = ['colocacao', 'nome', 'cidade', 'UF', 'media_objetivas']
+    mostrar_colegios(top_10, dados_requisitados)
+
+
+def top_10_regiao(colegios):
+    # Mostrar os 10 colegios de uma regiao selecionada com maior media objetivas
+    colegios_regiao = colegios_pertencentes_regiao(colegios)
+    organizar_top(colegios_regiao)
+
+    dados_requisitados = ['colocacao', 'nome', 'cidade', 'UF', 'media_objetivas']
+    mostrar_colegios(organizar_top(colegios_regiao), dados_requisitados)
+
+
+def top_10_estado(colegios):
+    # Mostrar os 10 colegios de um estado com a maior media objetivas
+    colegios_estado = colegios_pertencentes_estado(colegios)
+    colegios_estado = organizar_top(colegios_estado)
+
+    dados_requisitados = ['colocacao', 'nome', 'cidade', 'media_objetivas']
+    mostrar_colegios(colegios_estado, dados_requisitados)
+
+
+def top_10_privadas(colegios):
+    colegios_privados = colegios_rede_privada(colegios)
+    organizar_top(colegios_privados)
+
+    dados_requisitados = ['colocacao', 'nome', 'cidade', 'UF', 'media_objetivas']
+    mostrar_colegios(colegios_privados, dados_requisitados)
+
+
+def top_10_publicas(colegios):
+    colegios_publicos = colegios_rede_publica(colegios)
+    organizar_top(colegios_publicos)
+
+    dados_requisitados = ['colocacao', 'nome', 'cidade', 'UF', 'media_objetivas']
+    mostrar_colegios(organizar_top(colegios_publicos), dados_requisitados)
+
+
+def organizar_top(colegios):
+    ordenar_por_media(colegios)
+    colegios = primeiros(10, colegios)
+    organizar_colocacao(colegios)
+    return colegios
+
+
+def colegios_pertencentes_regiao(colegios):
+    # Apartir da regiao selecionada se cria um lista com os colegios pertecentes
+    # a regiao que foi escolhida pelo usuario
+    regiao_escolhida = selecionar_regiao()
+    pertecentes = list()
+    
+    for estado in regiao_escolhida:
+        colegios_que_pertencentem(colegios, 'UF', estado, pertecentes)
+
+    return pertecentes
+
+
+def colegios_pertencentes_estado(colegios):
+    # Apartir do estado selecionado se cria um lista com os colegios pertecentes
+    # ao estado que foi escolhido pelo usuario
+    estado_escolhido = selecionar_estado()
+    pertecentes = list()
+    colegios_que_pertencentem(colegios, 'UF', estado_escolhido, pertecentes)
+
+    return pertecentes
+
+
+def colegios_rede_publica(colegios):
+    # Cria uma lista com todos os colegios da rede publica 
+    # Os colegios da rede publica são todos aqueles que nao são da rede privada
+    return colegios_que_nao_pertencentem(colegios, 'rede', 'Privada') 
+
+
+def colegios_rede_privada(colegios):
+    return colegios_rede(colegios, 'Privada')
+
+
+def colegios_rede(colegios, rede):
+    pertecentes = list()
+    
+    return 
+
+
+def colegios_que_pertencentem(colegios, chave, valor_chave, pertecentes):
+    # Filtra os colegios que tem o valor esperado na chave escolhida
+    
+    for colegio in colegios:
+        if colegio[chave] == valor_chave:
+            pertecentes.append(colegio)
+
+    return pertecentes
+
+
+def colegios_que_nao_pertencentem(colegios, chave, valor_chave):
+    # Filtra os colegios que tem o valor esperado na chave escolhida
+    nao_pertecentes = list()
+    
+    for colegio in colegios:
+        if colegio[chave] != valor_chave:
+            nao_pertecentes.append(colegio)
+
+    return nao_pertecentes
+
+
+def primeiros(qtd_elementos, colegios):
+    # Recebe uma lista de colegios e retorna os 10 primeiros elementos dela 
+    # A lista preferencialmente vem ordenada de acordo com a filtragem 
+
+    listas_com_elementos = []
+    for i in range(qtd_elementos):
+        listas_com_elementos.append(colegios[i])
+
+    return listas_com_elementos
+
+
+def organizar_colocacao(colegios):
+    # Recoloca o numero da colocacao nos registros de acordo com 
+    # a ordenacao e a quantidade de elementos
+
+    for i in range(len(colegios)):
+        numero_por_posicao(colegios, i)
+
+
+def numero_por_posicao(colegios, posicao):
+    # A colocacao do colegio sera igual a posicao dele na colecao 
+    colegios[posicao]['colocacao'] = str( posicao + 1 )
+
+
+###### FILTRAGEM ######
+
+def filtragem_top(colegios):
+    opcao = -1
+    while opcao != 0: 
+        opcoes_requisitadas = [ 'regiao', 'estado', 'privada', 'publica' ]
+        opcao = get_opcao(menu_filtros(opcoes_requisitadas), 0, 4)
+
+        if opcao == 1:
+            limpar_a_tela()
+            top_10_regiao(colegios)
+
+        elif opcao == 2:
+            limpar_a_tela()
+            top_10_estado(colegios)
+
+        elif opcao == 3:
+            limpar_a_tela()
+            top_10_privadas(colegios)
+        
+        elif opcao == 4:
+            limpar_a_tela()
+            top_10_publicas(colegios)
+
+        else:
+            limpar_a_tela()
+            print('aaaaaaaaaaaa"=')
+            #top_10_geral()
+        
+        wait()
+        limpar_a_tela()
+    
+
+####### INTERAÇÕES RAPIDAS COM O USUARIO #####
+
+def necessita_filtragem():
+    # Pergunta ao usuario se ele necessita de algum tipo de filtragem
+    
+    resposta = input(mensagem('filtragem'))
+
+    while resposta_incorreta(resposta):
+        resposta = input(mensagem('filtragem'))
+
+    return boolean_resposta(resposta)
+
+
+def selecionar_regiao():
+    regiao_escolhida = get_regiao() 
+    return estados_por_regiao(str(regiao_escolhida))
+
+
+def selecionar_estado():
+    estado_escolhido = get_estado()
+    return uf_estado(str(estado_escolhido))
+
+
+def get_regiao():
+    return get_opcao(menu_regiao(), 1, 5)
+
+
+def get_estado():
+    return get_opcao(menu_estados(), 1, 26)
+
+
+###### FUNCOES AUXILIARES ###### 
+
+
+def estados_por_regiao(regiao_escolhida):
+    # Registro que recebe o numero da regiao e retorna um lista com seus estados
+    regioes = {
+            '1' : ['AM', 'RR', 'AP', 'PA', 'TO', 'RO', 'AC'],
+            '2' : ['MA', 'PI', 'CE', 'RN', 'PE', 'PB', 'SE', 'AL', 'BA'],
+            '3' : ['MT', 'MS', 'GO'],
+            '4' : ['SP', 'RJ', 'ES', 'MG'],
+            '5' : ['PR', 'RS', 'SC'] 
+            }
+
+    return regioes[regiao_escolhida]
+
+
+def uf_estado(id_estado):
+    estados = {
+            '1'  : 'AC',
+            '2'  : 'AL',
+            '3'  : 'AP',
+            '4'  : 'AM',
+            '5'  : 'BA',
+            '6'  : 'ES',
+            '7'  : 'GO',
+            '8'  : 'CE',
+            '9'  : 'MA',
+            '10' : 'MT',
+            '11' : 'MS',
+            '12' : 'MG',
+            '13' : 'PA',
+            '14' : 'PB',
+            '15' : 'PR',
+            '16' : 'PE',
+            '17' : 'PI',
+            '18' : 'RJ',
+            '19' : 'RN',
+            '20' : 'RS',
+            '21' : 'RO',
+            '22' : 'RR',
+            '23' : 'SC',
+            '24' : 'SP',
+            '25' : 'SE',
+            '26' : 'TO'
+            }
+
+    return estados[id_estado]
+
+###### ORDENACOES ######
+
+def ordenar_por_media(colegios):
+    return ordenacao.bubble(colegios, 'media_objetivas', True)
+
+

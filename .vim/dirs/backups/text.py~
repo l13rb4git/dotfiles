@@ -1,0 +1,34 @@
+
+def menu():
+    texto = '-------------------------------------'
+    texto += '\n============== MENU ================='
+    texto += '\n-------------------------------------'
+    texto += '\n[1] Consultar Dados'
+    texto += '\n[2] Inserir Montadora'
+    texto += '\n[3] Inserir Veiculo'
+    texto += '\n[3] Alterar Dados'
+    texto += '\n[4] Deletar Dados'
+    texto += '\n [0] Sair'
+    texto += '\n>> '
+    return texto
+
+def menu_consulta():
+    texto = '==== O Que Deseja Consultar? ===='
+    texto += '\n[1] Mostrar Veiculos'
+    texto += '\n[2] Mostrar Montadoras'
+    returnt texto
+
+
+def menu_alterar_dados():
+    texto = '==== O Que Deseja Alterar? ===='
+    texto += '\n[1] Alterar Veiculo'
+    texto += '\n[2] Alterar Montadora'
+    return texto
+
+
+def menu_deletar_dados():
+    texto = '==== O Que Deseja Deletar? ===='
+    texto += '\n[1] Deletar Veiculo'
+    texto += '\n[2] Deletar Montadora'
+    return texto
+

@@ -1,0 +1,26 @@
+"""Lista_fabio01; fabio_01_41_calcular_preco_carro_novo.py
+
+O custo ao consumidor de um carro novo é a soma do custo de fábrica com a
+percentagem do distribuidor e dos impostos (aplicados ao custo de fábrica).
+Supondo que a percentagem do distribuidor seja de 28% e os impostos de 45%,
+escreva um algoritmo que leia o custo de fábrica de um carro e escreva o
+custo ao consumidor.
+
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Calcula o preço de um carro novo ao sair da fábrica.")
+
+custo_de_fabrica = float(input("Digite qual o custo de fábrica desse carro: "))
+
+# Processamento
+#  Percetagem do distribuidor = 28%
+cota_distribuidor = custo_de_fabrica * 0.28
+# Alíquota de tributos = 45%
+cota_impostos = custo_de_fabrica * 0.45
+
+custo_final = custo_de_fabrica + cota_distribuidor + cota_impostos
+
+# Saída
+print("Este carro irá custar ao consumidor R$%f." % custo_final)

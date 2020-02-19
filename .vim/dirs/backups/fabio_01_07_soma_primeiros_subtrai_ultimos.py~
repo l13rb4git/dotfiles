@@ -1,0 +1,22 @@
+"""Lista_fabio01; fabio_01_07_soma_primeiros_subtrai_ultimos.
+
+Leia 3 números, calcule e escreva a soma dos 2 primeiros e a
+diferença entre os 2 últimos.
+
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Informe 03 (três) números;\nSerá mostrado a soma dos dois primeiros "
+      "e a diferença entre os dois últimos.")
+
+primeiro_numero = int(input("Digite o primeiro número: "))
+segundo_numero = int(input("Digite o segundo número: "))
+terceiro_numero = int(input("Digite o terceiro número: "))
+# Processamento
+soma_primeiros = primeiro_numero + segundo_numero
+diferenca_ultimos = segundo_numero - terceiro_numero
+
+# Saída
+print("A soma dos dois primeiros números é {}.".format(soma_primeiros))
+print("A diferença entre os dois últimos é {}.".format(diferenca_ultimos))

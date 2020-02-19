@@ -1,0 +1,83 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_13_maior_e_menor_cinco_numeros
+
+Leia 5 (cinco) números inteiros e escreva o maior e o menor deles.
+Considere que todos os valores são diferentes.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+    primeiro_numero = get_inteiro_ordenado('primeiro')
+    segundo_numero = get_inteiro_ordenado('segundo')
+    terceiro_numero = get_inteiro_ordenado('terceiro')
+    quarto_numero = get_inteiro_ordenado('quarto')
+    quinto_numero = get_inteiro_ordenado('quinto')
+
+    maior_numero = calcular_maior_numero(primeiro_numero, segundo_numero,
+                                         terceiro_numero, quarto_numero,
+                                         quinto_numero)
+
+    menor_numero = calcular_menor_numero(primeiro_numero, segundo_numero,
+                                         terceiro_numero, quarto_numero,
+                                         quinto_numero)
+
+    mostrar_maior_menor(maior_numero, menor_numero)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe 5 (cinco) números e será mostrado o maior e menor deles.")
+
+
+def get_inteiro_ordenado(posicao):
+    """Solicita ao usuário o enésimo número requerido. """
+    return int(input("Digite o %s número: " % posicao))
+
+
+def calcular_maior_numero(primeiro_numero, segundo_numero,
+                          terceiro_numero, quarto_numero, quinto_numero):
+
+    # Repete-se de acordo com a quantidade de números testados.
+    maior_numero = maior(primeiro_numero, segundo_numero)
+    maior_numero = maior(maior_numero, terceiro_numero)
+    maior_numero = maior(maior_numero, quarto_numero)
+    maior_numero = maior(maior_numero, quinto_numero)
+
+    return maior_numero
+
+
+def calcular_menor_numero(primeiro_numero, segundo_numero,
+                          terceiro_numero, quarto_numero, quinto_numero):
+
+    # Repete-se de acordo com a quantidade de números testados.
+    menor_numero = menor(primeiro_numero, segundo_numero)
+    menor_numero = menor(menor_numero, terceiro_numero)
+    menor_numero = menor(menor_numero, quarto_numero)
+    menor_numero = menor(menor_numero, quinto_numero)
+
+    return menor_numero
+
+
+def mostrar_maior_menor(maior_numero, menor_numero):
+    if maior_numero == menor_numero:
+        print("Os números são iguais.")
+    else:
+        print("%d é o maior número e %d é o menor."
+              % (maior_numero, menor_numero))
+
+
+def maior(numero, outro_numero):
+    if numero >= outro_numero:
+        return numero
+    return outro_numero
+
+
+def menor(numero, outro_numero):
+    if numero <= outro_numero:
+        return numero
+    return outro_numero
+
+
+if __name__ == '__main__':
+    main()

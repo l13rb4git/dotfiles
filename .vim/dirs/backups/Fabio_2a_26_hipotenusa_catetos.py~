@@ -1,0 +1,48 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_26_hipotenusa_catetos
+
+Leia os 3 (três) lados de um triângulo e identifique sua hipotenusa
+e seus catetos.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    primeiro_lado = get_inteiro_ordenado('primeiro')
+    segundo_lado = get_inteiro_ordenado('segundo')
+    terceiro_lado = get_inteiro_ordenado('terceiro')
+
+    denominar_lados(primeiro_lado, segundo_lado, terceiro_lado)
+
+
+def get_inteiro_ordenado(posicao):
+    """Solicita ao usuário o enésimo número requerido. """
+    return int(input("Digite o {} lado: ".format(posicao)))
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe 3 (três) números correspondentes a lados de um triângulo,"
+          " retângulo será mostrado quais são os catetos e a hipotenusa.")
+
+
+def denominar_lados(primeiro_lado, segundo_lado, terceiro_lado):
+    if primeiro_lado > segundo_lado and primeiro_lado > terceiro_lado:
+        mostrar_lados(primeiro_lado, segundo_lado, terceiro_lado)
+    elif segundo_lado > primeiro_lado and segundo_lado > terceiro_lado:
+        mostrar_lados(segundo_lado, primeiro_lado, terceiro_lado)
+    elif terceiro_lado > primeiro_lado and terceiro_lado > segundo_lado:
+        mostrar_lados(terceiro_lado, primeiro_lado, segundo_lado)
+    else:
+        print("Não foi posível realizar a operação, verifique se os lados "
+              "informados condizem com os de um triângulo retângulo.")
+
+
+def mostrar_lados(hipotenusa, cateto_oposto, cateto_adjacente):
+    print("Hipotenusa: {} \nCateto Oposto: {} \nCateto Adjacente: {}".
+          format(hipotenusa, cateto_oposto, cateto_adjacente))
+
+
+if __name__ == '__main__':
+    main()

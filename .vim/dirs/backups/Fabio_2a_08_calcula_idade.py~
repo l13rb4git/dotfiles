@@ -1,0 +1,51 @@
+"""Atividade_Fabio02_Condicionais; Fabio_2a_08_calcula_idade
+
+Leia data atual (dia, mês e ano) e data de nascimento (dia, mês e ano) de uma
+pessoa, calcule e escreva sua idade exata (em anos).
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    dia_atual, mes_atual, ano_atual = map(int, input(
+        "Digite a data atual (Ex: 09/09/1999): ").split("/"))
+
+    dia_nascimento, mes_nascimento, ano_nascimento = map(int, input(
+        "Digite o sua data de nascimento (Ex: 09/09/1999): ").split("/"))
+
+    idade_anos = calcular_idade(dia_atual, mes_atual, ano_atual,
+                                dia_nascimento, mes_nascimento, ano_nascimento)
+    mostrar_idade(idade_anos)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe a data de hoje e data de seu nascimento, será mostrado "
+          "quantos anos de idade você tem. ")
+
+
+def calcular_idade(dia_atual, mes_atual, ano_atual,
+                   dia_nascimento, mes_nascimento, ano_nascimento):
+
+    idade_anos = ano_atual - ano_nascimento
+
+    if not ocorreu_aniversario(dia_atual, mes_atual,
+                               dia_nascimento, mes_nascimento):
+        idade_anos -= 1
+
+    return idade_anos
+
+
+def ocorreu_aniversario(dia_atual, mes_atual, dia_nascimento, mes_nascimento):
+    return (mes_atual > mes_nascimento) \
+        or ((mes_atual == mes_nascimento) and (dia_atual >= dia_nascimento))
+
+
+def mostrar_idade(idade):
+    print("Você tem %d anos de idade." % idade)
+
+
+if __name__ == '__main__':
+    main()

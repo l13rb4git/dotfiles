@@ -1,0 +1,19 @@
+"""Lista_fabio01; fabio_01_01_conversor_kmh_para_ms.
+
+Leia uma velocidade em km/h, calcule e escreva esta velocidade em m/s.
+(Vm/s = Vkm/h / 3.6)
+
+"""
+
+# Entrada
+informacoes_programa = "Conversor de velocidade.\n" \
+                    "Quilómetros por hora (km/h) para metros por segundo." \
+                    "\nDigite a velocidade em km/h a ser convertida: "
+
+velocidade_kmh = int(input(informacoes_programa))
+
+# Processamento
+velocidade_ms = velocidade_kmh / 3.6
+
+# Saída
+print("Resultado da conversão:", velocidade_ms)

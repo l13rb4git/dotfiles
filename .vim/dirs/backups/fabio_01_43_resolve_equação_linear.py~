@@ -1,0 +1,32 @@
+"""Lista_fabio01; fabio_01_43_resolve_equação_linear.py
+
+Um sistema de equações lineares do tipo ax + by = c; dx + ey = f poder ser
+resolvido segundo mostrado abaixo
+x = ce - bf / ae - bd ; y = af - cd / ae - bd
+
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Calcula o resultado de uma equação linear.")
+
+print("Dẽ os valores para as variáveis:")
+variavel_a = int(input("Digite o valor da variável a: "))
+variavel_b = int(input("Digite o valor da variável b: "))
+variavel_c = int(input("Digite o valor da variável c: "))
+variavel_d = int(input("Digite o valor da variável d: "))
+variavel_e = int(input("Digite o valor da variável e: "))
+variavel_f = int(input("Digite o valor da variável f: "))
+
+# Processamento
+numerador_x = (variavel_c * variavel_e) - (variavel_b * variavel_f)
+denominador_x = (variavel_a * variavel_e) - (variavel_b * variavel_d)
+incognita_x = numerador_x / denominador_x
+
+numerador_y = (variavel_a * variavel_f) - (variavel_c * variavel_d)
+denominador_y = (variavel_a * variavel_e) - (variavel_b * variavel_d)
+incognita_y = numerador_y / denominador_y
+
+# Saída
+print("O valor de X e Y para as variáveis fornecidas são: "
+      "\nX: %0.3f \nY: %0.3f" % incognita_x, incognita_y)

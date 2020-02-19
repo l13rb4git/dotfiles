@@ -1,0 +1,193 @@
+# Este arquivo viminfo foi gerado pelo Vim 8.1.
+# Você pode editá-lo se for cuidadoso!
+
+# Viminfo version
+|1,4
+
+# Valor de 'encoding' quando este arquivo foi escrito
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# Último padrão de busca :
+~MSle0~////
+
+# Último padrão de busca  de substituição:
+~MSle0&tamanho
+
+# Última string de substituição:
+$\=closure.Process(submatch(0))
+
+# Histórico de linha de comando (mais recente primeiro):
+:q
+|2,0,1562480769,,"q"
+:tabnew
+|2,0,1562471213,,"tabnew"
+:q!
+|2,0,1562467025,,"q!"
+:e test_menu.py
+|2,0,1562429588,,"e test_menu.py"
+:ls
+|2,0,1562298359,,"ls"
+:syn sync fromstart
+|2,0,1562270712,,"syn sync fromstart"
+::syn sync fromstart
+|2,0,1562270691,,":syn sync fromstart"
+:e funcionalidades.py
+|2,0,1562270277,,"e funcionalidades.py"
+:/
+|2,0,1562209094,,"/"
+:e array_utils.py
+|2,0,1562208113,,"e array_utils.py"
+:e tools.py
+|2,0,1562207716,,"e tools.py"
+:tabedit %
+|2,0,1562207643,,"tabedit %"
+:h ctrl-a
+|2,0,1561982269,,"h ctrl-a"
+:h C-a
+|2,0,1561982040,,"h C-a"
+:w
+|2,0,1561981690,,"w"
+:showcmd
+|2,0,1561981683,,"showcmd"
+:h count
+|2,0,1561981672,,"h count"
+:PlugInstall
+|2,0,1561929085,,"PlugInstall"
+:color molokai
+|2,0,1561928700,,"color molokai"
+:color morning
+|2,0,1561928693,,"color morning"
+:color fisa
+|2,0,1561928674,,"color fisa"
+:color malokai
+|2,0,1561928582,,"color malokai"
+:color desert
+|2,0,1561928559,,"color desert"
+:color wombat
+|2,0,1561928541,,"color wombat"
+:colorscheme
+|2,0,1561922685,,"colorscheme"
+:dlo
+|2,0,1561922671,,"dlo"
+:e ~/.vim/plugged/vim-sublime-monokai/examples/
+|2,0,1561921723,,"e ~/.vim/plugged/vim-sublime-monokai/examples/"
+:Q
+|2,0,1561920759,,"Q"
+:%s/tamanho/tam/g
+|2,0,1561636412,,"%s/tamanho/tam/g"
+:s/tamanho/tam/g
+|2,0,1561636377,,"s/tamanho/tam/g"
+:s/tamanho/tam
+|2,0,1561635802,,"s/tamanho/tam"
+:wq
+|2,0,1561558644,,"wq"
+:qw
+|2,0,1561557716,,"qw"
+:tabnew ~/.vimrc
+|2,0,1561556613,,"tabnew ~/.vimrc"
+:q all
+|2,0,1561556329,,"q all"
+:newtab
+|2,0,1561555859,,"newtab"
+:registers
+|2,0,1561555408,,"registers"
+:tabnew Fabio_05_13_determinante.py
+|2,0,1561550675,,"tabnew Fabio_05_13_determinante.py"
+:e Fabio_05_10_fibonacci.py
+|2,0,1561469180,,"e Fabio_05_10_fibonacci.py"
+:autosave
+|2,0,1561466986,,"autosave"
+:qq
+|2,0,1561442642,,"qq"
+:w!
+|2,0,1561433783,,"w!"
+:e Fabio_05_13_determinante.py
+|2,0,1561429463,,"e Fabio_05_13_determinante.py"
+:cat
+|2,0,1561429252,,"cat"
+:try
+|2,0,1561429249,,"try"
+::cat t.py
+|2,0,1561429104,,":cat t.py"
+::q
+|2,0,1561429070,,":q"
+:cat t.py
+|2,0,1561429059,,"cat t.py"
+:try t.py
+|2,0,1561429046,,"try t.py"
+:try:cat t.py
+|2,0,1561429037,,"try:cat t.py"
+
+# Histórico de expressões de busca (mais recente primeiro):
+??///
+|2,1,1562528674,63,"///"
+?/                              
+|2,1,1562528665,47,"                              "
+? \<vereadores\>
+|2,1,1562528375,,"\\<vereadores\\>"
+? \<total_votos\>
+|2,1,1562528212,,"\\<total_votos\\>"
+? \<numero\>
+|2,1,1562528173,,"\\<numero\\>"
+? \<nome\>
+|2,1,1562528107,,"\\<nome\\>"
+? \<canditado\>
+|2,1,1562528071,,"\\<canditado\\>"
+? from
+|2,1,1562526414,,"from"
+? \<calcular_quociente_partidario\>
+|2,1,1562525933,,"\\<calcular_quociente_partidario\\>"
+? get_maior_len
+|2,1,1562431418,,"get_maior_len"
+? maior_len
+|2,1,1562431405,,"maior_len"
+? \Vdef\%#
+|2,1,1562430958,,"\\Vdef\\%#"
+? \<AO\>
+|2,1,1562349830,,"\\<AO\\>"
+? \<def\>
+|2,1,1562349811,,"\\<def\\>"
+? app_eleicoes
+|2,1,1562299063,,"app_eleicoes"
+? numero
+|2,1,1562297609,,"numero"
+? ()
+|2,1,1562273388,,"()"
+??retui
+|2,1,1562209125,63,"retui"
+? valor
+|2,1,1562209115,,"valor"
+??menor
+|2,1,1562209106,63,"menor"
+? def
+|2,1,1562075235,,"def"
+? \<new_vetor\>
+|2,1,1561637060,,"\\<new_vetor\\>"
+? \<vetor\>
+|2,1,1561636783,,"\\<vetor\\>"
+?/vetor
+|2,1,1561636769,47,"vetor"
+? tamanho
+|2,1,1561636412,,"tamanho"
+?/imap
+|2,1,1561558944,47,"imap"
+?/ima
+|2,1,1561556428,47,"ima"
+?/tana
+|2,1,1561431480,47,"tana"
+?/set
+|2,1,1561331158,47,"set"
+? count
+|2,1,1561331126,,"count"
+? \<print\>
+|2,1,1561331111,,"\\<print\\>"
+? \<all_lists\>
+|2,1,1561331097,,"\\<all_lists\\>"
+?/union
+|2,1,1561330243,47,"union"
+
+# Histórico de expressões (mais recente primeiro):
+

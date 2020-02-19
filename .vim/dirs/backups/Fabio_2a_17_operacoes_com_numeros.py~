@@ -1,0 +1,96 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_17_operacoes_com_numeros
+
+Leia valores inteiros em duas variáveis distintas e se o resto da divisão da
+primeira pela segunda for 1 escreva a soma dessas variáveis mais o resto da
+divisão; se for 2 escreva se o primeiro e o segundo valor são pares ou ímpares;
+se for igual a 3 multiplique a soma dos valores lidos pelo primeiro; se for
+igual a 4 divida a soma dos números lidos pelo segundo, se este for diferente
+de zero. Em qualquer outra situação escreva o quadrado dos números lidos.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    primeiro_numero = get_inteiro_ordenado('primeiro')
+    segundo_numero = get_inteiro_ordenado('segundo')
+
+    fazer_operacoes(primeiro_numero, segundo_numero)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe 2 (dois) números e tente adivinha qual operação foi feita "
+          "com eles.")
+
+
+def get_inteiro_ordenado(posicao):
+    """Solicita ao usuário o enésimo número requerido. """
+    return int(input("Digite o %s número: " % posicao))
+
+
+def fazer_operacoes(primeiro_numero, segundo_numero):
+    """Faz umas operação malucas apartir de uma lógica mais louca ainda."""
+
+    resto_divisao = primeiro_numero % segundo_numero
+    resultado_operacao = operacao_coringa(primeiro_numero, segundo_numero)
+
+    if resto_divisao == 1:
+        resultado_operacao = operacao_um(primeiro_numero, segundo_numero,
+                                         resto_divisao)
+    elif resto_divisao == 2:
+        resultado_operacao = operacao_dois(primeiro_numero, segundo_numero)
+    elif resto_divisao == 3:
+        resultado_operacao = opercao_tres(primeiro_numero, segundo_numero)
+    elif resto_divisao == 4:
+        resultado_operacao = opercao_quatro(primeiro_numero, segundo_numero)
+
+    mostrar_resultado_operacao(resultado_operacao)
+
+
+def operacao_um(primeiro_numero, segundo_numero, resto_divisao):
+    return primeiro_numero + segundo_numero + resto_divisao
+
+
+def operacao_dois(primeiro_numero, segundo_numero):
+    primeiro_eh_par = primeiro_numero % 2 == 0
+    segundo_eh_par = segundo_numero % 2 == 0
+
+    resultado_primeiro = "ímpar"
+    resultado_segundo = "ímpar"
+
+    if primeiro_eh_par:     # if primeiro_eh_par == True:
+        resultado_primeiro = "par"
+
+    if segundo_eh_par:     # if segundo_eh_par == True:
+        resultado_segundo = "par"
+
+    return "Primeiro é %s e o segundo é %s." % (resultado_primeiro,
+                                                resultado_segundo)
+
+
+def opercao_tres(primeiro_numero, segundo_numero):
+    return (primeiro_numero + segundo_numero) * primeiro_numero
+
+
+def opercao_quatro(primeiro_numero, segundo_numero):
+    if segundo_numero != 0:
+        return (primeiro_numero + segundo_numero) / segundo_numero
+    return operacao_coringa(primeiro_numero, segundo_numero)
+
+
+def operacao_coringa(primeiro_numero, segundo_numero):
+    quadrado_primeiro = primeiro_numero ** 2
+    quadrado_segundo = segundo_numero ** 2
+
+    return "Quadrado do primeiro é %d e do segundo é %d." \
+           % (quadrado_primeiro, quadrado_segundo)
+
+
+def mostrar_resultado_operacao(resultado_operacao):
+    print("O resultado da operação foi:", resultado_operacao)
+
+
+if __name__ == '__main__':
+    main()

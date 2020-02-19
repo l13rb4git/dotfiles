@@ -1,0 +1,20 @@
+"""Lista_fabio01; fabio_01_24_inteiro_metros_para_quilometros_e_metros.py
+
+Leia um número inteiro de metros, calcule e escreva quantos km e
+quantos metros ele corresponde.
+"""
+
+# Entrada
+# Mostrando informacoes sobre o programa
+print("Informe um valor interio em metros (m) e será mostrado o equivalente "
+      "em quilómetros (km) e o resto em metros. ")
+
+valor_metros = float(input("Digite um valor em metros: "))
+
+# Processamento
+valor_quilometros = valor_metros // 1000
+resto_metros = valor_metros % 1000
+
+# Saída
+print("{0} metros é equivalente a {1}km e sobra {2} metros.".format(
+                                valor_metros, valor_quilometros, resto_metros))

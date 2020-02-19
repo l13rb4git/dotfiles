@@ -1,0 +1,78 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_09_verifica_numero_primo
+
+Leia 1 (um) número entre 0 e 100, verifique e escreva se o número é
+ou não primo.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+    numero = int(input("Digite o número: "))
+
+    for numero in range(100):
+        eh_primo = verifica_se_primo(numero)
+        mostrar_se_primo(eh_primo)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe um número, será verificado se ele é primo ou não.")
+
+
+def verifica_se_primo(numero):
+    """Verfica se o numero pertence aos números primos
+
+    Resultado limitado ao intervalo de 0 a 100.
+
+    Returns:
+        bool : True se primo, False se não.
+
+    """
+    # if numero > 2 and numero % 2 != 0 or numero == 2:
+    if numero > 2 or numero == 2:
+        return nao_eh_divisivel_por_primo(numero) \
+               and quociente_compativel(numero)
+
+    return False
+
+
+def nao_eh_divisivel_por_primo(numero):
+    return eh_primo_divisor(numero) \
+        or (numero % 3 != 0
+            and numero % 5 != 0
+            and numero % 7 != 0
+            and numero % 11 != 0)
+
+
+def eh_primo_divisor(numero):
+    return numero == 2 \
+        or numero == 3 \
+        or numero == 5 \
+        or numero == 7 \
+        or numero == 11
+
+
+def quociente_compativel(numero):
+    return divisao_por_primo(numero, 2) \
+        or divisao_por_primo(numero, 3) \
+        or divisao_por_primo(numero, 5) \
+        or divisao_por_primo(numero, 7) \
+        or divisao_por_primo(numero, 11)
+
+
+def divisao_por_primo(numero, primo):
+    return numero / primo <= primo
+
+
+def mostrar_se_primo(eh_primo):
+    resultado = "não é primo"
+
+    if eh_primo == True:    # if eh_primo:
+        resultado = "é primo"
+
+    print("O número %s." % resultado)
+
+
+if __name__ == '__main__':
+    main()

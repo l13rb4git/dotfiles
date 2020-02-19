@@ -1,0 +1,12 @@
+MODIFICAR (INCREMENTAR) UM OU VARIOS NUMEROS RAPIDAMENTE
+    CTRL-A
+        Add [count] to the number at or AFTER the cursor. 
+            Ex: <C-a>   0 -> 1 
+                10<C-a> 1 -> 11
+
+    {Visual}Ctrl-A 
+        The same of normal Ctrl-a, but in more than one number
+            Ex: <C-a> 1 1 1 (highlighted) -> 2 2 2 
+
+    {Visual}Ctrl-A 
+        

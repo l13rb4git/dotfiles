@@ -1,0 +1,124 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_22_calcula_duracao_jogo
+
+Leia a hora do início de um jogo e a hora de fim do jogo (cada hora é
+composta por 2 variáveis inteiras: hora e minuto). Calcule e escreva a
+duração do jogo (horas e minutos), sabendo-se que o tempo máximo de duração do
+jogo é de 24 horas e que ele pode iniciar-se em um dia e terminar no dia
+seguinte.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    print("Digite o horário de inicio do jogo.")
+    hora_inicio = get_hora()
+    minutos_inicio = get_minutos()
+
+    print("Digite o horário do encerramento do jogo.")
+    hora_final = get_hora()
+    minutos_final = get_minutos()
+
+    if horario_valido(hora_inicio, minutos_inicio, hora_final, minutos_final):
+        calcular_duracao(hora_inicio, minutos_inicio,
+                         hora_final, minutos_final)
+    else:
+        print("Erro: Horário informado inválido.")
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe dois horários, o de inicio de um jogo e o de encerramento "
+          "dele, será mostrado o tempo de duração.")
+
+
+def get_hora():
+    """Solicita a usuário um valor correspondente a horas de um dia. """
+    return int(input("Digite a hora: "))
+
+
+def get_minutos():
+    """Solicita a usuário um valor correspondente a minutos de um horário. """
+    return int(input("Digite os minutos: "))
+
+
+def horario_valido(hora_inicio, minutos_inicio, hora_final, minutos_final):
+    return horas_validas(hora_inicio, hora_final) \
+        and minutos_validos(minutos_inicio, minutos_final) \
+        and duracao_maxima(hora_inicio, minutos_inicio,
+                           hora_final, minutos_final)
+
+
+def horas_validas(hora_inicio, hora_final):
+    return hora_inicio <= 23 and hora_final <= 23
+
+
+def minutos_validos(minutos_inicio, minutos_final):
+    return minutos_inicio <= 60 and minutos_final <= 60
+
+
+def duracao_maxima(hora_inicio, minutos_inicio, hora_final, minutos_final):
+    return hora_inicio != hora_final or minutos_inicio < minutos_final
+
+
+def calcular_duracao(hora_inicio, minutos_inicio, hora_final, minutos_final):
+    if hora_inicio < hora_final:
+        duracao_horas = hora_final - hora_inicio
+    elif hora_inicio == hora_final:
+        duracao_horas = 0
+    else:
+        duracao_horas = (24 - hora_inicio) + hora_final
+
+    if minutos_inicio > minutos_final:
+        hora_sem_minutos = retirar_minutos(duracao_horas, minutos_inicio,
+                                           minutos_final)
+        duracao_horas = hora_sem_minutos // 60
+        duracao_minutos = hora_sem_minutos % 60
+    else:
+        duracao_minutos = minutos_final - minutos_inicio
+
+    mostrar_duracao_jogo(duracao_horas, duracao_minutos)
+
+
+def retirar_minutos(duracao_horas, minutos_inicio, minutos_final):
+    minutos_nao_completatos = minutos_inicio - minutos_final
+    horas_com_minutos = duracao_horas * 60
+    hora_sem_minutos = horas_com_minutos - minutos_nao_completatos
+    return hora_sem_minutos
+
+
+def mostrar_duracao_jogo(duracao_horas, duracao_minutos):
+    texto_horas = string_horas(duracao_horas)
+    texto_minutos = string_minutos(duracao_minutos)
+    adicao = string_aditiva(duracao_horas, duracao_minutos)
+    print("O jogo durou %s%s%s." % (texto_horas, adicao, texto_minutos))
+
+
+def string_horas(duracao_horas):
+    texto_horas = ''
+    if duracao_horas > 1:
+        texto_horas = "%d horas" % duracao_horas
+    elif duracao_horas == 1:
+        texto_horas = "%d hora" % duracao_horas
+    return texto_horas
+
+
+def string_minutos(duracao_minutos):
+    texto_minutos = ''
+    if duracao_minutos > 1:
+        texto_minutos = "%d minutos" % duracao_minutos
+    elif duracao_minutos == 1:
+        texto_minutos = "%d minuto" % duracao_minutos
+    return texto_minutos
+
+
+def string_aditiva(duracao_horas, duracao_minutos):
+    adicao = ''
+    if duracao_horas > 0 and duracao_minutos > 0:
+        adicao = ' e '
+    return adicao
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,51 @@
+"""Lista_Fabio_02b_Condicionais	fabio_02b_04_boletim_aluno
+
+Leia 2 (duas) notas parciais de um aluno, calcule a média e escreva a mensagem:
+o "Aprovado", se a média alcançada for maior ou igual a sete;
+o "Reprovado", se a média for menor do que sete;
+o "Aprovado com Distinção", se a média for igual a dez.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+    primeira_nota = get_nota('primeira')
+    segunda_nota = get_nota('segunda')
+
+    situacao = verificar_situacao(primeira_nota, segunda_nota)
+    mostrar_resultado_boletim(situacao)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe duas notas para saber se o aluno  ou não.")
+
+
+def get_nota(posicao):
+    """Solicita ao usuário o valor referente a enésima nota de um aluno. """
+    return int(input("Digite o valor da %s nota: " % posicao))
+
+
+def verificar_situacao(primeira_nota, segunda_nota):
+    media_notas = media(primeira_nota, segunda_nota)
+    situacao = "Reprovado"
+
+    if media_notas >= 7:
+        situacao = "Aprovado"
+    if media_notas == 10:
+        situacao = "Aprovado com Distinção"
+
+    return situacao
+
+
+def media(numero, outro_numero):
+    return (numero + outro_numero) / 2
+
+
+def mostrar_resultado_boletim(situacao):
+    print("Aluno %s." % situacao)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,39 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_25_verifica_senha
+
+Verifique a validade de uma senha fornecida pelo usuário. A senha é 1234.
+O algoritmo deve escrever uma mensagem de permissão de acesso ou não.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+    senha_inserida = get_senha()
+    senha_correta = verifica_senha(senha_inserida)
+    mostrar_resultado_senha(senha_correta)
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Tente adivinhar qual é a senha. Dica: Não é 1234.")
+
+
+def get_senha():
+    """Solicita ao usuário uma string correspondente a uma senha."""
+    return input("Digite a senha que você acha que é a correta: ")
+
+
+def verifica_senha(senha_inserida):
+    return senha_inserida == '1234'
+
+
+def mostrar_resultado_senha(senha_correta):
+    resultado = 'incorreta'
+    if senha_correta == True:   # if senha_correta:
+        resultado = 'correta'
+
+    print("Senha %s!" % resultado)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,23 @@
+// Lista_fabio01; Fabio0123ConverteQuilogramaParaGrama
+// Leia um valor em kg (quilograma), calcule e escreva o equivalente em g (grama).
+import java.util.Scanner;
+        import java.lang.Math;
+
+public class Q23 {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        // Entrada
+        System.out.println("Conversor de peso: Quilograma (kg) para grama (g).");
+
+        System.out.print("Digite o valor em kg: ");
+        float valorQuilograma = sc.nextFloat();
+
+        // Processamento
+        double valorGrama = valorQuilograma * 1000;
+
+        // Saída
+        String mensagem = String.format("%3.2f kg é equivalente a %3.0f gramas.", valorQuilograma, valorGrama);
+        System.out.println(mensagem);
+    }
+}

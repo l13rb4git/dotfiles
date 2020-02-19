@@ -1,0 +1,63 @@
+"""Atividade_Fabio02_Condicionais;
+Fabio_2a_05_coloca_numeros_em_ordem_crescente
+
+Leia 3 (três) números e escreva-os em ordem crescente.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+
+    primeiro_numero = get_inteiro_ordenado('primeiro')
+    segundo_numero = get_inteiro_ordenado('segundo')
+    terceiro_numero = get_inteiro_ordenado('terceiro')
+
+    ordenar_crescentemente(primeiro_numero, segundo_numero, terceiro_numero)
+
+
+def get_inteiro_ordenado(posicao):
+    """Solicita ao usuário o enésimo número requerido. """
+    return int(input("Digite o {} número: ".format(posicao)))
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe 3 (três) números para eles serem mostrados em "
+          "ordem crescente.")
+
+
+def mostrar_ordem_crescente(primeiro, central, ultimo):
+    print("Os números em ordem crescente são: {0} {1} {2}".format(primeiro,
+                                                                  central,
+                                                                  ultimo))
+
+
+def ordenar_crescentemente(primeiro_numero, segundo_numero, terceiro_numero):
+    # Repete-se de acordo com a quantidade de números testados.
+    ultimo = maior(primeiro_numero, segundo_numero)
+    ultimo = maior(ultimo, terceiro_numero)
+
+    primeiro = menor(primeiro_numero, segundo_numero)
+    primeiro = menor(primeiro, terceiro_numero)
+
+    central = menor(primeiro_numero, terceiro_numero)
+    central = maior(central, segundo_numero)
+
+    mostrar_ordem_crescente(primeiro, central, ultimo)
+
+
+def maior(numero, outro_numero):
+    if numero >= outro_numero:
+        return numero
+    return outro_numero
+
+
+def menor(numero, outro_numero):
+    if numero <= outro_numero:
+        return numero
+    return outro_numero
+
+
+if __name__ == '__main__':
+    main()

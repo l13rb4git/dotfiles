@@ -1,0 +1,28 @@
+from tools import *
+from text import *
+from persistencia import *
+from crud_montadora import *
+from crud_veiculos import *
+from os import *
+
+def main():
+    montadoras = []
+    veiculos = []
+    while True:
+        x = int(input(menu()))
+        if x == 0:
+           limpar_tela()
+           salvar_dados()
+           break
+        elif x ==1:
+            consulta(get_inteiro_intervalo(Consultar)
+        elif x == 2:
+            pass
+        input('\n\nPressione Enter!!!')
+        os.system('clear' if os.name == 'posix' else 'cls')
+        
+
+
+
+if __name__ == "__main__":
+    main(   )

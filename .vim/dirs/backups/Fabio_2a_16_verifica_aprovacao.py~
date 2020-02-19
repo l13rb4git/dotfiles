@@ -1,0 +1,62 @@
+"""Lista_Fabio02_Condicionais	Fabio_2a_16_verifica_aprovacao
+
+Leia duas notas de um aluno e escreva na tela a palavra “Aprovado” se a média
+das duas notas for maior ou igual a 7,0. Caso a média seja inferior a 7,0, o
+programa deve ler a nota do exame e calcule a média final. Se esta média for
+maior ou igual a 5,0, o programa deve escreva “Aprovado”, caso contrário deve
+escreva “Reprovado”.
+
+"""
+
+
+def main():
+    mostrar_info_programa()
+    primeira_nota = get_nota('primeira')
+    segunda_nota = get_nota('segunda')
+
+    calcular_situacao_aluno(primeira_nota, segunda_nota)
+
+
+def get_nota(posicao):
+    """Solicita ao usuário o valor referente a enésima nota de um aluno. """
+    return int(input("Digite o valor da %s nota: " % posicao))
+
+
+def get_nota_exame():
+    """Solicita ao usuário o valor referente a nota da prova final do aluno."""
+    return int(input("Digite o valor da nota da prova final: "))
+
+
+def mostrar_info_programa():
+    """Mostra ao usuário informações sobre o funcionamento do programa. """
+    print("Informe as nota do aluno para saber a situação dele.")
+
+
+def calcular_situacao_aluno(primeira_nota, segunda_nota):
+    media_notas = media_dois_valores(primeira_nota, segunda_nota)
+    sitacao_aluno = "aprovado"
+
+    if media_notas < 7:
+        nota_prova_final = get_nota_exame()
+        media_notas = media_tres_valores(primeira_nota, segunda_nota,
+                                         nota_prova_final)
+    if media_notas < 5:
+        sitacao_aluno = "reprovado"
+
+    mostrar_situacao_aluno(sitacao_aluno)
+
+
+def mostrar_situacao_aluno(sitacao_aluno):
+    print("O aluno está %s." % sitacao_aluno)
+
+
+def media_dois_valores(primeiro_numero, segundo_numero):
+    return (primeiro_numero + segundo_numero) / 2
+
+
+def media_tres_valores(primeiro_numero, segundo_numero, terceiro_numero):
+    return (primeiro_numero + segundo_numero + terceiro_numero) / 3
+
+
+if __name__ == '__main__':
+    main()

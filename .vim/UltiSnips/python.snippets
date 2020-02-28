@@ -1,4 +1,4 @@
-snippet doc "Intialize a Doc string"
+snippet idoc "Intialize a Doc string for the module"
 """`!v expand("%:p:h:t")`	`!v expand("%:r")`
 
 $1
@@ -16,4 +16,17 @@ endsnippet
 
 snippet cpf "C formmated print for python"
 print("${1:%s}\n" % ${2:Args})
+endsnippet
+
+
+snippet doc "Open a doc string"
+"""$1
+
+$2
+
+"""
+endsnippet
+
+snippet onedoc "Open a one-line doc string"
+"""$1 """
 endsnippet

@@ -22,6 +22,13 @@
 
 " Obscure hacks done, you can now modify the rest of the .vimrc as you wish :)
 
+
+" Open .vimrc easily 
+        cabbrev vrc e ~/.vimrc
+        " Visual Split
+        cabbrev vvrc vsp ~/.vimrc
+
+
 " E576: Failed to parse ShaDa file
         if !has('nvim')
           set viminfo+=n~/vim/viminfo
@@ -319,8 +326,34 @@ endif
         let g:sublimemonokai_term_italic = 1
 
 
-" when scrolling, keep cursor 4 lines away from screen border
+" when scrolling, keep cursor 8 lines away from screen border
         set scrolloff=8
+
+" Keep the cursor centered vertically on the screen
+        if !exists('*VCenterCursor')
+            augroup VCenterCursor
+                au!
+                au OptionSet *,*.*
+                    \ if and( expand("<amatch>")=='scrolloff' ,
+                    \         exists('#VCenterCursor#WinEnter,WinNew,VimResized') )|
+                    \      au! VCenterCursor WinEnter,WinNew,VimResized|
+                    \ endif
+                augroup END
+
+                function VCenterCursor()
+                    if !exists('#VCenterCursor#WinEnter,WinNew,VimResized')
+                        let s:default_scrolloff=&scrolloff
+                        let &scrolloff=winheight(win_getid())/2
+                        au VCenterCursor WinEnter,WinNew,VimResized *,*.*
+                            \ let &scrolloff=winheight(win_getid())/2
+                        else
+                        au! VCenterCursor WinEnter,WinNew,VimResized
+                        let &scrolloff=s:default_scrolloff
+                    endif
+                endfunction
+            endif
+
+        nnoremap <leader>zz :call VCenterCursor()<CR>
 
 " autocompletion of files and commands behaves like shell
 " (complete only the common part, list the options that match)

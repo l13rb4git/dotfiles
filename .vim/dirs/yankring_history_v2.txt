@@ -1,10 +1,66 @@
+direct from the buffer,v
+r 5<CTRL-F>,v
+your,v
+",V
+e,v
+        cabbrev vrc e ~/.vimrc,V
+:,v
+fd AnyFoldActivate ,v
+,V
+        cabbrev fd AnyFoldActivate ,V
+ain,v
+    pass,V
+def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """,V
+    ,V
+l,v
+$2 ,v
+snippet doc "Open a doc string""""$1$2"""endsnippet,V
+""",V
+",v
+f,v
+ ,v
+descontado (é a empresa que deposita). O salário líquido corresponde ao salário bruto menos os descontos. O programa deverá pedir ao usuário o valor ,V
+o Salário Bruto acima de R$ 2.500,00 - desconto de 20%,V
+: R$ 165,00,v
+: R$ 121,00,v
+: R$ 110,00,v
+: R$ 55,00,v
+: R$ 1100,00,v
+    informacoes_aumento = organizar_string(salario, porcentagem_aumento,                                           valor_aumento, salario_reajustado),V
+def organizar_string(salario, porcentagem_aumento, valor_aumento,                     salario_reajustado):    return f"O salário antes do reajuste: R${salario}\n\        O percentual de aumento aplicado: {porcentagem_aumento * 100}%\n\        O valor do aumento: R${valor_aumento}\n\        O novo salário, após o aumento: R${salario_reajustado}",V
+\,v
+                    ),v
+    ,V
+f"O salário antes do reajuste: R${salario}\n\    O percentual de aumento aplicado: {porcentagem_aumento * 100}%\n\    O valor do aumento: R${valor_aumento}\n\    O novo salário, após o aumento: R${salario_reajustado}",69
+return ,v
+informacoes_aumento,v
+    return f"O salário antes do reajuste: R${salario}\n\        O percentual de aumento aplicado: {porcentagem_aumento * 100}%\n\        O valor do aumento: R${valor_aumento}\n\        O novo salário, após o aumento: R${salario_reajustado}",V
+R$,v
+salario,v
+.,v
+;,v
+· · · · ,2
+· o salário antes do reajuste;· o percentual de aumento aplicado;· o valor do aumento;· o novo salário, após o aumento.,V
+salario, porcentagem_aumento,                                           valor_aumento, salario_reajustado,v
+S,v
+salario,,v
+nfor,v
+i,v
+infor,v
+çõ,v
+        · o salário antes do reajuste;        · o percentual de aumento aplicado;        · o valor do aumento;        · o novo salário, após o aumento.,V
+1,v
+5,v
+        porcentagem_aumento = 0.15,V
+=,v
+    if salario >= 280: ,V
+valido,v
 ,V
 ${dotfile},v
  cp -lf "${dir}" "${HOME}/${dotfile}",V
 r,v
  cp -lrf "${dir}" "${HOME}/${dotfile}",V
 ln -sf ,v
- ,v
 ".gitconfig",v
 rc,v
 ".vimrc" ,v
@@ -16,7 +72,6 @@ and salario ,v
 input("Digite M para matutino, V para vespertino e N para noite: "),v
  carácter referente a um turno,v
 letra_turno,v
-",v
 corespondente ao turno que você estuda,v
 letra_valida,v
     letra_turno = get_letra_turno(),V
@@ -35,7 +90,6 @@ F,v
 Masculino,v
 M,v
  or letra == 'M',v
-.,v
 Sexo,v
 sexo,v
 M para Masculino e F para Feminino,v
@@ -44,57 +98,3 @@ M para Masculino e F para Feminino,v
         lista_baratos = adicionar_a_lista(lista_baratos, "segundo")    if terceiro_preco == menor_preco:,V
 _baratos,v
 primeiro_preco, segundo_preco, terceiro_preco,v
-,V
-menor_preco = ,v
-    menor_preco = menor(primeiro_preco, segundo_preco)    menor_preco = menor(menor_preco, terceiro_preco),V
-ular,v
-menor(primeiro_preco, segundo_preco),v
-    menor_preco = menor(primeiro_preco, segundo_preco),V
-s,V
-        menor_preco = menor(primeiro_preco, segundo_preco)        menor_preco = menor(menor_preco, terceiro_preco)        if primeiro_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "primeiro")        if segundo_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "segundo")        if terceiro_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "terceiro"),V
-'',v
-        menor_preco = menor(primeiro_preco, segundo_preco)        menor_preco = menor(menor_preco, terceiro_preco)        if primeiro_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "primeiro")        if segundo_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "segundo")        if terceiro_preco == menor_preco:            lista_baratos = adicionar_a_lista(lista_baratos, "terceiro")        print(f"Produtos mais baratos: {lista_baratos}."),V
-    lista_baratos = '',V
-),v
-lista_baratos = ,v
-    print(menor_preco),V
-são ,v
-Os ,v
-el,v
-    else:,V
-    # print(resultado),V
-o,v
-        return f"o {enesimo_produto} produto",V
-        return ,V
-.format(posicao),v
-%s,v
-terceiro_preco,v
-primeiro,v
-segundo_preco,v
-primeiro_preco,v
-    elif segundo_preco == menor_preco:        adicionar_a_lista(lista_baratos, segundo_preco),V
-    print(menor_preco),V
-menor,v
-numero,v
-segund_preco,v
-    menor_preco = menor(primeiro_preco, segund_preco),V
-resultado,v
-:,v
-primeiro_preco, segund_preco, terceiro_preco,v
-lista_produtos = ,v
-    primeiro_preco = get_preco_ordenado("1º"),V
-número,v
-inteiro,v
-def get_inteiro_ordenado(posicao):    """Solicita ao usuário o enésimo número requerido. """    return int(input("Digite o {} número: ".format(posicao))),V
-def main():    mostrar_info_programa()def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Informe um número para saber se ele é positivo ou negativo.")if __name__ == '__main__':    main(),V
-primeiro_preco, segundo_preco,                                         terceiro_preco,v
-def main():    mostrar_info_programa()def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Informe duas notas para saber se o aluno  ou não.")if __name__ == '__main__':    main(),V
-def get_nota(posicao):    """Solicita ao usuário o valor referente a enésima nota de um aluno. """    return int(input("Digite o valor da %s nota: " % posicao))def verificar_situacao(primeira_nota, segunda_nota):    media_notas = media(primeira_nota, segunda_nota)    situacao = "Reprovado"    if media_notas >= 7:        situacao = "Aprovado"    if media_notas == 10:        situacao = "Aprovado com Distinção"    return situacaodef media(numero, outro_numero):    return (numero + outro_numero) / 2def mostrar_resultado_boletim(situacao):    print("Aluno %s." % situacao),V
-def get_nota(posicao):    """Solicita ao usuário o valor referente a enésima nota de um aluno. """    return int(input("Digite o valor da %s nota: " % posicao)),V
-def get_nota(posicao):    """Solicita ao usuário o valor referente a enésima nota de um aluno. """    return int(input("Digite o valor da %s nota: " % posicao))def verificar_situacao(primeira_nota, segunda_nota):    media_notas = media(primeira_nota, segunda_nota)    situacao = "Reprovado"    if media_notas >= 7:        situacao = "Aprovado"    if media_notas == 10:        situacao = "Aprovado com Distinção"    return situacaodef media(numero, outro_numero):    return (numero + outro_numero) / 2def mostrar_resultado_boletim(situacao):    print("Aluno %s." % situacao),V
-    primeira_nota = get_nota('primeira')    segunda_nota = get_nota('segunda')    situacao = verificar_situacao(primeira_nota, segunda_nota)    mostrar_resultado_boletim(situacao),V
-    # nota = get_nota(),V
-    primeira_nota = get_nota('primeira')    segunda_nota = get_nota('segunda'),V
-def get_nota(posicao):    """Solicita ao usuário o valor referente a enésima nota de um aluno. """    return int(input("Digite o valor da %s nota: " % posicao)),V
-uma letra para saber ela é uma vogal ou consoante,v
-    mostrar_resultado(letra),V

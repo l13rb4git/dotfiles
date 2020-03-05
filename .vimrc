@@ -330,28 +330,42 @@ endif
         set scrolloff=8
 
 " Keep the cursor centered vertically on the screen
-        if !exists('*VCenterCursor')
-            augroup VCenterCursor
-                au!
-                au OptionSet *,*.*
-                    \ if and( expand("<amatch>")=='scrolloff' ,
-                    \         exists('#VCenterCursor#WinEnter,WinNew,VimResized') )|
-                    \      au! VCenterCursor WinEnter,WinNew,VimResized|
-                    \ endif
-                augroup END
+        let s:is_centered = 0
 
-                function VCenterCursor()
-                    if !exists('#VCenterCursor#WinEnter,WinNew,VimResized')
-                        let s:default_scrolloff=&scrolloff
-                        let &scrolloff=winheight(win_getid())/2
-                        au VCenterCursor WinEnter,WinNew,VimResized *,*.*
-                            \ let &scrolloff=winheight(win_getid())/2
-                        else
-                        au! VCenterCursor WinEnter,WinNew,VimResized
-                        let &scrolloff=s:default_scrolloff
-                    endif
-                endfunction
+        function! VCenterCursor()
+            if s:is_centered
+                unmap j
+                unmap k
+                let s:is_centered = 0
+            else
+                nnoremap j jzz
+                nnoremap k kzz
+                let s:is_centered = 1
             endif
+        endfunction
+
+        " if !exists('*VCenterCursor')
+        "     augroup VCenterCursor
+        "         au!
+        "         au OptionSet *,*.*
+        "             \ if and( expand("<amatch>")=='scrolloff' ,
+        "             \         exists('#VCenterCursor#WinEnter,WinNew,VimResized') )|
+        "             \      au! VCenterCursor WinEnter,WinNew,VimResized|
+        "             \ endif
+        "     augroup END
+
+        "         function VCenterCursor()
+        "             if !exists('#VCenterCursor#WinEnter,WinNew,VimResized')
+        "                 " let s:default_scrolloff=&scrolloff
+        "                 " let &scrolloff=(winheight(win_getid())/2)
+        "                 au VCenterCursor WinEnter,WinNew,VimResized *,*.*
+        "                     " \ let &scrolloff=(winheight(win_getid())/2)
+        "             else
+        "                 au! VCenterCursor WinEnter,WinNew,VimResized
+        "                 " let &scrolloff=s:default_scrolloff
+        "             endif
+        "         endfunction
+        "     endif
 
         nnoremap <leader>zz :call VCenterCursor()<CR>
 
@@ -407,7 +421,7 @@ endif
         let g:ale_echo_msg_warning_str = 'W'
 " I have some custom icons for errors and warnings 
         let g:ale_sign_error = '✘✘'
-        let g:ale_sign_warning = '⚠⚠'
+        let g:ale_sign_warning = '⚠'
 
 " Disable or enable loclist at the bottom of vim 
         let g:ale_open_list = 0

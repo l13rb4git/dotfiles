@@ -1,100 +1,100 @@
-direct from the buffer,v
-r 5<CTRL-F>,v
-your,v
-",V
-e,v
-        cabbrev vrc e ~/.vimrc,V
-:,v
-fd AnyFoldActivate ,v
+int,v
++,v
+!,v
 ,V
-        cabbrev fd AnyFoldActivate ,V
-ain,v
-    pass,V
-def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """,V
-    ,V
-l,v
-$2 ,v
-snippet doc "Open a doc string""""$1$2"""endsnippet,V
-""",V
+if __name__ == "__main__":    main(),V
+separar_decimais,v
 ",v
-f,v
- ,v
-descontado (é a empresa que deposita). O salário líquido corresponde ao salário bruto menos os descontos. O programa deverá pedir ao usuário o valor ,V
-o Salário Bruto acima de R$ 2.500,00 - desconto de 20%,V
-: R$ 165,00,v
-: R$ 121,00,v
-: R$ 110,00,v
-: R$ 55,00,v
-: R$ 1100,00,v
-    informacoes_aumento = organizar_string(salario, porcentagem_aumento,                                           valor_aumento, salario_reajustado),V
-def organizar_string(salario, porcentagem_aumento, valor_aumento,                     salario_reajustado):    return f"O salário antes do reajuste: R${salario}\n\        O percentual de aumento aplicado: {porcentagem_aumento * 100}%\n\        O valor do aumento: R${valor_aumento}\n\        O novo salário, após o aumento: R${salario_reajustado}",V
-\,v
-                    ),v
-    ,V
-f"O salário antes do reajuste: R${salario}\n\    O percentual de aumento aplicado: {porcentagem_aumento * 100}%\n\    O valor do aumento: R${valor_aumento}\n\    O novo salário, após o aumento: R${salario_reajustado}",69
-return ,v
-informacoes_aumento,v
-    return f"O salário antes do reajuste: R${salario}\n\        O percentual de aumento aplicado: {porcentagem_aumento * 100}%\n\        O valor do aumento: R${valor_aumento}\n\        O novo salário, após o aumento: R${salario_reajustado}",V
-R$,v
-salario,v
-.,v
-;,v
-· · · · ,2
-· o salário antes do reajuste;· o percentual de aumento aplicado;· o valor do aumento;· o novo salário, após o aumento.,V
-salario, porcentagem_aumento,                                           valor_aumento, salario_reajustado,v
-S,v
-salario,,v
-nfor,v
-i,v
-infor,v
-çõ,v
-        · o salário antes do reajuste;        · o percentual de aumento aplicado;        · o valor do aumento;        · o novo salário, após o aumento.,V
-1,v
-5,v
-        porcentagem_aumento = 0.15,V
+quantas centenas, dezenas e " "unidades ele tem,v
+def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Digite um número, será mostrado quantas centenas, dezenas e "          "unidades ele tem.\n"),V
+str_unidades == "",v
+    # if str_centenas != "":    #     mensagem = mensagem + str_centenas    # if str_dezenas != "":    #     mensagem = mensagem + ", " + str_dezenas,V
 =,v
-    if salario >= 280: ,V
-valido,v
-,V
-${dotfile},v
- cp -lf "${dir}" "${HOME}/${dotfile}",V
+or,v
+),v
+ ,v
+    print(str_centenas, juncao, str_dezenas, sep=''),V
+str_unidades, ,v
+    else:,V
+return,v
+, ,v
+    ,V
+    if str_centenas == "" and str_dezenas == "":,V
+if str_centenas != "" and str_dezenas != "":,v
+tempo,v
+and str_unidades != "",v
+    if ,V
+    if str_centenas != "" and str_dezenas != "" and str_unidades != "":,V
+centenas,v
+entenas,v
+str_centenas != "",v
+'',v
+ção,v
+decidir_juncao(str_unidades, str_dezenas, str_centenas),v
+str_unidades, str_dezenas, str_centenas,v
+,V
+:      # if not str_unidades:,v
+unidades,v
+f", {str_dezenas}",v
+f"{str_centenas}",v
+    else:        ck,V
+!=,v
+centenas ,v
+    if str_centenas != "":        mensagem = mensagem + f"{str_centenas}",V
+        ,V
+'':,v
+:,v
+    if str_unidades == '':      # if not str_unidades:        return '.'    else:        if str_centenas != '' or str_dezenas != '':            return f" e {str_unidades}."        else:            return f"{str_unidades}.",V
+def organizar_primeira_parte(str_unidades, str_dezenas, str_centenas):    if str_unidades == '':      # if not str_unidades:        return '.'    else:        if str_centenas != '' or str_dezenas != '':            return f" e {str_unidades}."        else:            return f"{str_unidades}.",V
+_parte,v
+segunda,v
+def organizar_segunda_parte(str_unidades, str_dezenas, str_centenas):    if str_unidades == '':      # if not str_unidades:        return '.'    else:        if str_centenas != '' or str_dezenas != '':            return f" e {str_unidades}."        else:            return f"{str_unidades}.",V
+str_unidades,                                                str_dezenas,                                                str_centenas,v
+primeira,v
+e,v
+        seturn ,V
 r,v
- cp -lrf "${dir}" "${HOME}/${dotfile}",V
-ln -sf ,v
-".gitconfig",v
-rc,v
-".vimrc" ,v
- "${dir}",v
-https://github.com/l13rb4git/dotfiles.git,v
-#!/bin/bashdotfiles=(".vimrc" ".zshrc" ".gitconfig")dir="${HOME}/Documents/dotfiles"for dotfile in "${dotfiles[@]}";do ln -sf "${HOME}/${dotfile}" "${dir}"done,v
-and salario ,v
-02b02 - Mensagem de informações do programa corrigida.,v
-input("Digite M para matutino, V para vespertino e N para noite: "),v
- carácter referente a um turno,v
-letra_turno,v
-corespondente ao turno que você estuda,v
-letra_valida,v
-    letra_turno = get_letra_turno(),V
-def main():    mostrar_info_programa()    letra_turno = get_letra_turno()    if letra_valida(letra_turno):        mostra_resultado(letra_turno)    else:        print("Valor Inválido!")def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Informe uma corespondente ao turno que você estuda.")def get_letra_turno():    """Socilita ao usuário um carácter referente a um turno. """    return input("Digite M para matutino, V para vespertino e N para noite: ")if __name__ == '__main__':    main(),V
-def letra_valida(letra):    return letra == 'V' or letra == 'M' or letra == 'N'def mostra_resultado(letra_sexo):    resultado = "Bom Dia!"    if letra_sexo == 'V':        resultado = "Boa Tarde!"    elif letra_sexo == 'N':        resultado = "Boa Noite!"    print(resultado),V
- número para saber se ele é positivo ou negativo,v
- um ,v
-número para saber se ele é positivo ou negativo,v
-"Sexo: %s" % ,v
-Tarde,v
-V,v
-    if letra_sexo == 'V':        resultado = "Boa Tarde!",V
-        resultado = "Boa Tarde!",V
-Feminino,v
-F,v
-Masculino,v
-M,v
- or letra == 'M',v
-Sexo,v
-sexo,v
-M para Masculino e F para Feminino,v
-def main():    mostrar_info_programa()    letra_sexo = get_letra_sexo()    if letra_valida(letra_sexo):        mostra_resultado(letra_sexo)    else:        print("Sexo inválido.")def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Informe um número para saber se ele é positivo ou negativo.")def get_letra_sexo():    """Socilita ao usuário um carácter referente a um sexo. """    return input("Digite M para Masculino e F para Feminino: ")def letra_valida(letra):    return letra == 'F' or letra == 'M'def mostra_resultado(letra_sexo):    resultado = "Masculino"    if letra_sexo == 'F':        resultado = "Feminino"    print("Sexo: %s" % resultado)if __name__ == '__main__':    main(),V
-    print(enesimo_produto, lista_baratos),V
-        lista_baratos = adicionar_a_lista(lista_baratos, "segundo")    if terceiro_preco == menor_preco:,V
-_baratos,v
-primeiro_preco, segundo_preco, terceiro_preco,v
+            return f" e {str_unidades}.",V
+a,v
+g,v
+nome_agru,v
+agrupamento,v
+f"{valor} {agrupamento}",v
+centenas != ',v
+str_centenas != '',v
+    11j,V
+            return,V
+    if unidades != 0:        if dezenas != 0 or centenas != 0:,V
+modificar_se_plural,v
+valor, agrupamento,v
+    return,v
+            eeturn,V
+unidades, dezenas, centenas,v
+    msg = ''    if centenas != 0:        msg = msg + str_centenas,V
+    if dezenas,V
+        str_centenas = modificar_se_plural(centenas, "centena"),V
+    print(str_unidades, str_dezenas, str_centenas),V
+s,v
+unidade,v
+    str_unidades = modificar_se_plural(unidades, "unidade"),V
+        print(unidades, dezenas, centenas, sep='\n'),V
+dezenas,v
+def separar_dezenas(numero):    return (numero % 100) // 10,V
+        centenas = separar_centenas(numero),V
+def separar_unidades(numero):    return numero % 10,V
+        unidades = separar_unidades(numero),V
+<,v
+as duas notas parciais do aluno para saber sua situação,v
+def main():    mostrar_info_programa()    primeira_nota = get_nota("1ª")    segunda_nota = get_nota("2ª")    media_notas = calcular_media(primeira_nota, segunda_nota)    conceito_nota = calcular_conceito_nota(media_notas)    situacao_aluno = calcular_situacao_aluno(media_notas)    mostrar_situacao_aluno(media_notas, conceito_nota, situacao_aluno)def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Digite as duas notas parciais do aluno para saber sua situação.\n")if __name__ == "__main__":    main(),V
+adicionada.,V
+02b10 - Notas Conceitos -,v
+C,v
+el,v
+"O aluno foi %s." % situacao_aluno,v
+media_notas, conceito_nota, situacao_aluno,v
+situacao_aluno,v
+media_notas,v
+7.5,v
+5,v
+.,v
+7,v

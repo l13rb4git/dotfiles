@@ -99,6 +99,12 @@ call plug#begin('~/.vim/plugged')
 " Better file browser
     Plug 'scrooloose/nerdtree'
 
+" Instant Markdown
+    Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
+" Vim Markdown
+    Plug 'tpope/vim-markdown'
+
 " Code commenter
     Plug 'scrooloose/nerdcommenter'
 
@@ -445,7 +451,15 @@ endif
 
 
 " UltiSnips ----------------------------- 
-let g:UltiSnipsEditSplit="vertical"
+        let g:UltiSnipsEditSplit="vertical"
+
+
+" Instant Markdown ----------------------------- 
+        " let g:instant_markdown_browser = "vivaldi --new-window"
+        autocmd BufRead,BufReadPost *.md set filetype=markdown
+        " let g:instant_markdown_autostart = 0
+        " let g:instant_markdown_port = 8888
+        " source $HOME/.vim/ftplugin/markdown/instant-markdown.vim
 
 
 " Tagbar ----------------------------- 

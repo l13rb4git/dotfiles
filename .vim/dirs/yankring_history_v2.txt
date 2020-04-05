@@ -1,100 +1,100 @@
-int,v
-+,v
-!,v
-,V
-if __name__ == "__main__":    main(),V
-separar_decimais,v
-",v
-quantas centenas, dezenas e " "unidades ele tem,v
-def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Digite um número, será mostrado quantas centenas, dezenas e "          "unidades ele tem.\n"),V
-str_unidades == "",v
-    # if str_centenas != "":    #     mensagem = mensagem + str_centenas    # if str_dezenas != "":    #     mensagem = mensagem + ", " + str_dezenas,V
-=,v
-or,v
-),v
- ,v
-    print(str_centenas, juncao, str_dezenas, sep=''),V
-str_unidades, ,v
-    else:,V
-return,v
-, ,v
-    ,V
-    if str_centenas == "" and str_dezenas == "":,V
-if str_centenas != "" and str_dezenas != "":,v
-tempo,v
-and str_unidades != "",v
-    if ,V
-    if str_centenas != "" and str_dezenas != "" and str_unidades != "":,V
-centenas,v
-entenas,v
-str_centenas != "",v
-'',v
-ção,v
-decidir_juncao(str_unidades, str_dezenas, str_centenas),v
-str_unidades, str_dezenas, str_centenas,v
-,V
-:      # if not str_unidades:,v
-unidades,v
-f", {str_dezenas}",v
-f"{str_centenas}",v
-    else:        ck,V
-!=,v
-centenas ,v
-    if str_centenas != "":        mensagem = mensagem + f"{str_centenas}",V
-        ,V
-'':,v
-:,v
-    if str_unidades == '':      # if not str_unidades:        return '.'    else:        if str_centenas != '' or str_dezenas != '':            return f" e {str_unidades}."        else:            return f"{str_unidades}.",V
-def organizar_primeira_parte(str_unidades, str_dezenas, str_centenas):    if str_unidades == '':      # if not str_unidades:        return '.'    else:        if str_centenas != '' or str_dezenas != '':            return f" e {str_unidades}."        else:            return f"{str_unidades}.",V
-_parte,v
-segunda,v
-def organizar_segunda_parte(str_unidades, str_dezenas, str_centenas):    if str_unidades == '':      # if not str_unidades:        return '.'    else:        if str_centenas != '' or str_dezenas != '':            return f" e {str_unidades}."        else:            return f"{str_unidades}.",V
-str_unidades,                                                str_dezenas,                                                str_centenas,v
-primeira,v
-e,v
-        seturn ,V
-r,v
-            return f" e {str_unidades}.",V
-a,v
-g,v
-nome_agru,v
-agrupamento,v
-f"{valor} {agrupamento}",v
-centenas != ',v
-str_centenas != '',v
-    11j,V
-            return,V
-    if unidades != 0:        if dezenas != 0 or centenas != 0:,V
-modificar_se_plural,v
-valor, agrupamento,v
-    return,v
-            eeturn,V
-unidades, dezenas, centenas,v
-    msg = ''    if centenas != 0:        msg = msg + str_centenas,V
-    if dezenas,V
-        str_centenas = modificar_se_plural(centenas, "centena"),V
-    print(str_unidades, str_dezenas, str_centenas),V
-s,v
-unidade,v
-    str_unidades = modificar_se_plural(unidades, "unidade"),V
-        print(unidades, dezenas, centenas, sep='\n'),V
-dezenas,v
-def separar_dezenas(numero):    return (numero % 100) // 10,V
-        centenas = separar_centenas(numero),V
-def separar_unidades(numero):    return numero % 10,V
-        unidades = separar_unidades(numero),V
+subtrativc,v
+o,v
+numero,v
 <,v
-as duas notas parciais do aluno para saber sua situação,v
-def main():    mostrar_info_programa()    primeira_nota = get_nota("1ª")    segunda_nota = get_nota("2ª")    media_notas = calcular_media(primeira_nota, segunda_nota)    conceito_nota = calcular_conceito_nota(media_notas)    situacao_aluno = calcular_situacao_aluno(media_notas)    mostrar_situacao_aluno(media_notas, conceito_nota, situacao_aluno)def mostrar_info_programa():    """Mostra ao usuário informações sobre o funcionamento do programa. """    print("Digite as duas notas parciais do aluno para saber sua situação.\n")if __name__ == "__main__":    main(),V
-adicionada.,V
-02b10 - Notas Conceitos -,v
-C,v
-el,v
-"O aluno foi %s." % situacao_aluno,v
-media_notas, conceito_nota, situacao_aluno,v
-situacao_aluno,v
-media_notas,v
-7.5,v
-5,v
+ ,v
+void taboada(int numero){,V
+adicao,v
+void taboda_subtracao(int numero, int subtrativo){    if (subtrativo >= 1){        taboda_adicao(numero, subtrativo - 1);        if (subtrativo < numero){            int diff = numero - subtrativo;            printf("%d - %d = %d\n", subtrativo, numero, diff);        }    }},V
+    taboda_adicao(numero, 10);,V
+    taboda_subtracao(numero, 10);,V
+, subtrativo,v
+},v
+-,v
++,v
+,V
+soma,v
+parcela,v
+parcsubtrativo,v
+ela,v
+void taboda_adicao(int numero, int parcela){    if (parcela >= 1){        taboda_adicao(numero, parcela - 1);        int soma = numero + parcela;        printf("%d + %d = %d\n", numero, parcela, soma);    }},V
+void taboda_adicao(int numero, int parcela){    if (parcela >= 1){        taboda_adicao(numero, parcela - 1);        int soma = numero + parcela;        printf("%d + %d = %d\n", numero, parcela, soma);    }},V
+void taboda_adicao(int numero, int parcela){    if (parcela >= 1){        taboda_adicao(numero, parcela - 1);        int soma = numero + parcela;        printf("%d + %d = %d\n", numero, parcela, soma);    }},V
+    if (parcela >= 1)        taboda_adicao(numero, parcela - 1);,V
+limite,v
+%s,v
+/,v
+,V
+    printf("ADIÇÃO\n");,V
+    printf("%d\n", numero);,V
+%d,v
+n,v
+\,v
+    fazer_operações(numero, '+', 1);,V
+void fazer_operacoes(int numero, char operador, int razao){    printf("%d%s = kk\n", );},V
+f,v
+    return 0;,V
+_atual,v
+    printf("Taboda do %d:\n", numero_atual);,V
+    },V
+    if (numero_atual >= 10){,V
+ numero_atual, int final,v
+ numero,v
+inicio, final,v
+i,v
+),v
+d,v
+%,v
+   int inicio = 1;   int final = 10;,V
+aboda ,v
+T,v
+        return numero * fatorial(numero-1);,V
+nicio,v
+fatorial,v
+int,v
+   scanf("%i", &numero);,V
+  printf("Digite o número: ");   int numero;,V
+   printf("%d\n", fatorial(numero));,V
+Informe um número e será mostrado o seu fatorial,v
+#include <stdio.h> void info_programma(){    printf("Informe um número e será mostrado o seu fatorial.\n");}int fatorial(int numero){    if (numero > 1){        return numero * fatorial(numero-1);    }}int main(){   info_programma();    printf("Digite o número: ");   int numero;   scanf("%i", &numero);   printf("%d\n", fatorial(numero));    return 0;},V
+#include <stdio.h> ,V
+0,v
+        printf("%d \n", numero);,V
+;,v
+fatorial(numero),v
+void,v
+inicio,v
+ inicial,v
+   printf("Digite o limite: ");   int limite;   scanf("%i", &limite);   printf("Digite a razão: ");   int razao;   scanf("%i", &razao);   progressao_geometrica(inicio, limite, razao);,V
+void progressao_geometrica(int inicio, int limite, int razao){    if (inicio != 0 && razao != 0 && inicio * razao <= limite){        progressao_geometrica(inicio * razao, limite, razao);        printf("%d\n", inicio);    }},V
+valor inicial, um final, e uma razão " "e veja a progressão geometrica que eles formam,v
+valor inicial, um final, e uma razão " "e veja a progressão geometrica que eles formam.\n"),v
+#include <stdio.h> void info_programma(){    printf("Informe um valor inicial, um final, e uma razão "           "e veja a progressão geometrica que eles formam.\n");}void progressao_geometrica(int inicio, int limite, int razao){    if (inicio != 0 && razao != 0 && inicio * razao <= limite){        progressao_geometrica(inicio * razao, limite, razao);        printf("%d\n", inicio);    }}int main(){   info_programma();    printf("Digite o número inicial: ");   int inicio;   scanf("%i", &inicio);   printf("Digite o limite: ");   int limite;   scanf("%i", &limite);   printf("Digite a razão: ");   int razao;   scanf("%i", &razao);   progressao_geometrica(inicio, limite, razao);    return 0;},V
+{,v
+aritmetrica,v
+aritmétrica,v
+#include <stdio.h> void info_programma(){    printf("Informe um valor inicial, um final, e uma razão "           "e veja a progressão aritmétrica que eles formam.\n");}void progressao_aritmetrica(int inicio, int limite, int razao){    if (inicio + razao <= limite)        progressao_aritmetrica(inicio + razao, limite, razao);        printf("%d\n", inicio);}int main(){   info_programma();    printf("Digite o número inicial: ");   int inicio;   scanf("%i", &inicio);   printf("Digite o limite: ");   int limite;   scanf("%i", &limite);   printf("Digite a razão: ");   int razao;   scanf("%i", &razao);   progressao_aritmetrica(inicio, limite, razao);    return 0;},V
+>,v
+print_pares_anteriores,v
+   printf("Digite o limite: ");   int limite;   scanf("%i", &limite);,V
+número inicial,v
+   printf("Digite o número inicial: ");   int inicio;   scanf("%i", &inicio);,V
+    if (eh_par(limite))        printf("%d ", limite);    /* if (limite > 1) */    /*     print_pares_anteriores(limite - 2); */    /*     printf("%d ", limite); */},V
+void print_pares_anteriores(int limite){    if (limite > 1)        print_pares_anteriores(limite - 1);,V
+int eh_par(int limite){    if (limite % 2 == 0)        return 1;    else        return 0;},V
 .,v
-7,v
+um número será mostrado todos os outros pares anteriores a ele,v
+#include <stdio.h> void info_programma(){    printf("Informe um número será mostrado todos os outros pares anteriores a ele.\n");}int eh_par(int limite){    if (limite % 2 == 0)        return 1;    else        return 0;}void print_pares_anteriores(int limite){    if (limite > 1)        print_pares_anteriores(limite - 1);    if (eh_par(limite))        printf("%d ", limite);    /* if (limite > 1) */    /*     print_pares_anteriores(limite - 2); */    /*     printf("%d ", limite); */}int main(){   info_programma();    printf("Digite o número: ");   int limite;   scanf("%i", &limite);   print_pares_anteriores(limite);    return 0;},V
+    if (limite > 1)        print_pares_anteriores(limite - 2);        printf("%d ", limite);,V
+=,v
+1,v
+        printf("%d ", limite);,V
+    {,V
+        if (eh_par(limite))            printf("%d ", limite);,V
+   int limite = 10;,V
+printf("%d ", limite);,v
+        },V
+        if(limite%2){,V
+        printf("%d\n", limite);,V
+    printf("%d\n", limite);,V
+        else,V

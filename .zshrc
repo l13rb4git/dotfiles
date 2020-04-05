@@ -7,8 +7,8 @@ export ZSH="/home/leirbag/.oh-my-zsh"
 
 
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100
+SAVEHIST=100
 HISTFILE=~/.cache/zsh/history
 
 # Basic auto/tab complete:

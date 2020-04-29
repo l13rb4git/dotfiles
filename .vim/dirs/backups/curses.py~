@@ -1,0 +1,24 @@
+from curses import *
+
+
+def main(stdscr):
+    curses.curs_set(0)
+
+    while 1:
+        key = stdscr.getch()
+
+        if key == curses.KEY_UP:
+            stdscr.addstr(0, 0, "Key up pressed!")
+
+        elif key == curses.KEY_DOWN:
+            stdscr.addstr(0, 0, "Key down pressed!")
+
+        elif key == curses.KEY_ENTER:
+            stdscr.addstr(0, 0, "Key enter pressed!")
+
+        stdscr.refresh()
+
+
+if __name__ == '__main__':
+    stdscr = initscr()
+    stdscr.wrapper(main)

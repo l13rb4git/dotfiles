@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+def tam_code(div):
+    tam = ''
+    for i in range(len(div)-1):
+        tam += ''.join('0')
+    return tam
+
+
+def crc(msg, div, code):
+    msg = msg + code
+    msg = list(msg)
+    div = list(div)
+    for i in range(len(msg)-len(code)):
+        if msg[i] == '1':
+            for j in range(len(div)):
+                msg[i+j] = str((int(msg[i+j])+int(div[j])) % 2)
+
+    return ''.join(msg[-len(code):])
+
+
+def main():
+    print('------------------------------------------')
+    msg = input('Digite a mensagem a ser enviada: ')
+    div = input('Digite o polimonio gerador: ')
+    tam = tam_code(div)
+    print('Mensagem:', msg)
+    print('Divisor:', div)
+
+    code = crc(msg, div, tam)
+    nao_tem_erro = True
+
+    print('Output code:', code)
+
+    print('Success:', crc(msg, div, code) == tam)
+    print('------------------------------------------')
+    esc = input('deseja provocar um erro: (S, N) >> ').upper()
+
+    if esc == 'S':
+        print('mensagem enviada:\n{}'.format(
+                                        ' '.join(map(str, list(msg+code)))))
+
+        print('\nultimo bit alteravel: {}'.format(len(msg)-1))
+
+        num = int(input('\nEm qual bit deseja provocar o erro'
+                        '(menos os ultimos {} bits): '. format(len(tam))))
+
+        nao_tem_erro = crc(error(num, msg), div, code) == tam
+        print('\nSua mensagem foi alterada para: {}'.format(
+                                ' '.join(map(str, (error(num, msg)+code)))))
+
+    input("\nPressione [Enter] para receber a sua mensagem.")
+    print('\nMensagem Recebida: ')
+
+    if nao_tem_erro:
+        print('Nenhum erro encontrado.\n')
+    else:
+        print('Sua mensagem teve a integridade corrompida.\n')
+
+    input("\nPressione [Enter] para encerrar o programa.")
+
+
+def error(num, msg):
+    new_msg = list(msg)
+    if msg[num] == '1':
+        new_msg[num] = '0'
+    if msg[num] == '0':
+        new_msg[num] = '1'
+
+    return ''.join(new_msg)
+
+
+if __name__ == '__main__':
+    main()

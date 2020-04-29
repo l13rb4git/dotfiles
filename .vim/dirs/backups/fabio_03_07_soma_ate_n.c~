@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+
+void info_programma()
+{
+    printf("Informe um número para ver a soma de todos os outros anteriores.");
+}
+
+
+int soma_ate_n(int limite)
+{
+    static int s = 0;
+    s++;
+    static int so = 0;
+
+    printf("\an = %d; s = %d; soma = %d\n", limite, s, limite+s);
+
+    if (limite-1 != s && limite != s)
+    {
+        so += limite + s;
+        printf("%d\n", so);
+
+        soma_ate_n(limite - 1);
+    }
+    else
+    {
+        so += limite + s;
+        /* so += s; */
+    }
+
+    return so;
+}
+
+
+int main()
+{
+    info_programma();
+
+    int limite;
+    printf("Digite o número: ");
+    scanf("%i", &limite);
+
+    int soma = soma_ate_n(limite);
+    printf("%d\n", soma);
+
+    return 0;
+}

@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+
+void info_programa()
+{
+    printf("Informe um número limite para ver o valor dado pela sequencia a ele.\n");
+}
+
+
+int sequencia(int n)
+{
+    static float interation = 1;
+    static float soma = 0;
+
+    if (interation <= n - 1)
+    {
+        printf("%1.1f/N-%1.1f\n", interation, interation - 1);
+        soma += interation / (n - (interation - 1));
+        interation++;
+        sequencia(n);
+    }
+
+    return soma + n;
+}
+
+
+int main()
+{
+    info_programa();
+
+    int limite;
+    printf("Digite o número N: ");
+    scanf("%d", &limite);
+
+    float sequencia_valor = sequencia(limite);
+
+    printf("Valor: %1.5f\n", sequencia_valor);
+
+    return 0;
+}

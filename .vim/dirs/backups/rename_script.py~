@@ -1,0 +1,20 @@
+import os
+
+os.chdir('/home/leirbag/documents/Lista_fabio01')
+
+count = 1
+
+for f in os.listdir():
+    f_name, f_ext = os.path.splitext(f)
+
+    prof, n_lista, n_questao, nome_questao = f_name.split('_', 3)
+
+    n_lista = "01_part02"
+    n_questao = str(count).zfill(2)
+    
+
+    name = "{}{}_{}_{}{}".format(prof, n_lista, n_questao, nome_questao, f_ext)
+
+    print(name)
+
+    count += 1

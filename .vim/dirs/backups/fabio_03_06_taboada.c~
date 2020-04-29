@@ -1,0 +1,80 @@
+#include <stdio.h> 
+
+
+void info_programma()
+{
+    printf("Informe um número para ver a taboada dele de 1 ao 10.\n");
+}
+
+
+void taboada_adicao(int numero, int parcela)
+{
+    if (parcela >= 1){
+        taboada_adicao(numero, parcela - 1);
+
+        int soma = numero + parcela;
+        printf("%d + %d = %d\n", numero, parcela, soma);
+    }
+}
+
+
+void taboada_subtracao(int numero, int minuendo)
+{
+    if (minuendo >= 1){
+        taboada_subtracao(numero, minuendo - 1);
+
+        if (minuendo > numero){
+            int diff = minuendo - numero;
+            printf("%d - %d = %d\n", minuendo, numero, diff);
+        }
+    }
+}
+
+
+void taboada_multiplicacao(int numero, int multiplicador)
+{
+    if (multiplicador >= 1){
+        taboada_multiplicacao(numero, multiplicador - 1);
+
+        int produto = numero * multiplicador;
+        printf("%d * %d = %d\n", numero, multiplicador, produto);
+    }
+}
+
+
+void taboada_divisao(int numero, int divisor)
+{
+    if (divisor >= 1){
+        taboada_divisao(numero, divisor - 1);
+
+        if (divisor % numero == 0){
+            int quociente = divisor / numero;
+            printf("%d / %d = %d\n", numero, divisor, quociente);
+        }
+    }
+}
+
+
+void taboada(int numero)
+{
+    printf("\nADIÇÃO\n");
+    taboada_adicao(numero, 10);
+    printf("\nSUBTRAÇÃO\n");
+    taboada_subtracao(numero, 10);
+    printf("\nMULTIPLICAÇÃO\n");
+    taboada_multiplicacao(numero, 10);
+    printf("\nDIVISÃO\n");
+    taboada_divisao(numero, 10);
+}
+
+int main()
+{
+   info_programma(); 
+
+   printf("Digite o numero: ");
+   int numero;
+   scanf("%d", &numero);
+   taboada(numero);
+
+    return 0;
+}

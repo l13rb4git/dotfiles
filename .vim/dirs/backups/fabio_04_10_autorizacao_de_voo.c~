@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+
+void cabecalho()
+{
+    printf("======TESTE DE O SEU AVIÃO ESTÁ APTO PARA DECOLAR======\n\n");
+}
+
+
+int get_qtd_containers()
+{
+    printf("---- CONTAINERS ----\n");
+    printf("Digite quantos containers o avião há no avião: ");
+    int qtd_containers;
+    scanf("%d", &qtd_containers);
+    return qtd_containers;
+}
+
+
+float get_dados_containeres(int qtd_containers)
+{
+    if (qtd_containers > 0)
+    {
+        get_dados_containeres(qtd_containers - 1);
+
+        printf("Qual o peso do %dº container? ", qtd_containers);
+    }
+
+    return 0;
+}
+
+
+int main()
+{
+    cabecalho();
+
+    float peso_containers;
+
+    peso_containers = get_dados_containeres(get_qtd_containers());
+
+    return 0;
+}

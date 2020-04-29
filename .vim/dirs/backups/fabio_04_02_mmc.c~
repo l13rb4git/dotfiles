@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+
+void info_programa()
+{
+    printf("Informe dois números para saber o seu MMC.\n");
+}
+
+
+int mdc(int num_1, int num_2)
+{
+    if (num_2 == 0) return num_1;
+    return mdc(num_2, num_1 % num_2);
+}
+
+
+int mmc(int num_1, int num_2)
+{
+    return num_1 * (num_2 / mdc(num_1, num_2));
+}
+
+
+int main()
+{
+    info_programa();
+
+    int num_1, num_2;
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num_1);
+    printf("Digite o segundo número: ");
+    scanf("%d", &num_2);
+
+    int resultado = mmc(num_1, num_2);
+
+    printf("O resultado do MMC é %d\n", resultado);
+
+    return 0;
+}

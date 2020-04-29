@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+
+void info_programa()
+{
+    printf("Informe um número e outros mais que forem pedidos, "
+            "o programa encerará quando você repetir o primeiro.\n");
+}
+
+
+void encontrar_numero(int primeiro_numero)
+{
+    int numero_atual; 
+    printf("Qual foi o primeiro numero digitado? ");
+    scanf("%d", &numero_atual);
+
+    if (primeiro_numero != numero_atual) encontrar_numero(primeiro_numero);
+}
+
+
+int main()
+{
+    info_programa();
+
+    int numero;
+    printf("Digite o número: ");
+    scanf("%d", &numero);
+    encontrar_numero(numero);
+
+    return 0;
+}

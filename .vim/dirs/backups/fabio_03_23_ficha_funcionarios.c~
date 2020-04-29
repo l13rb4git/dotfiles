@@ -1,0 +1,109 @@
+#include <stdio.h>
+
+
+void info_programa()
+{
+    printf("Informe os dados dos funcionários para ver a folha de pagamento.\n");
+}
+
+
+typedef struct
+{
+    int code;
+    int qtd_horas;
+    int qtd_dependentes;
+} ficha;
+
+
+typedef struct
+{
+    int salario_bruto;
+    float salario_liquido;
+    float desconto_inss;
+    float desconto_ir;
+} pagamanto;
+
+
+ficha get_informacoes(int i)
+{
+    ficha ficha_tmp;
+    
+    printf("===FUNCIONÁRIO %dº===\n", i);
+    printf("Digite o codigo dele: ");
+    scanf("%d", &ficha_tmp.code);
+    printf("Digite o a quantidade de hora trabalhadas: ");
+    scanf("%d", &ficha_tmp.qtd_horas);
+    printf("Digite o a quantidade de dependentes que ele possui: ");
+    scanf("%d", &ficha_tmp.qtd_dependentes);
+
+    return ficha_tmp;
+}
+
+
+void mostrar_cabecalho()
+{
+    printf("\n\n==== FOLHA DE PAGAMENTO ====\n");
+}
+
+
+int calcular_salario(int qtd_horas, int qtd_dependentes)
+{
+    return qtd_horas * 12;
+}
+
+
+pagamanto calcular_pagamento(ficha ficha_atual)
+{
+    pagamanto pagamanto_atual;
+    pagamanto_atual.salario_bruto = calcular_salario(ficha_atual.qtd_horas, ficha_atual.qtd_dependentes);
+    pagamanto_atual.desconto_inss = pagamanto_atual.salario_bruto * 0.085;
+    pagamanto_atual.desconto_ir = pagamanto_atual.salario_bruto * 0.05;
+    int total_descontos = pagamanto_atual.desconto_ir + pagamanto_atual.desconto_inss;
+    pagamanto_atual.salario_liquido = pagamanto_atual.salario_bruto - total_descontos;
+
+    return pagamanto_atual;
+}
+
+
+void mostar_informacoes_funcionario(ficha ficha_atual)
+{
+    pagamanto pagamanto_atual = calcular_pagamento(ficha_atual);
+
+    printf("ID funcionário: %d\n", ficha_atual.code);
+    printf("INSS: R$%0.2f\n", pagamanto_atual.desconto_inss);
+    printf("IR: R$%0.2f\n", pagamanto_atual.desconto_ir);
+    printf("Salário Liquído: R$%0.2f\n", pagamanto_atual.salario_liquido);
+}
+
+
+void folha_de_pagamento(int qtd_funcionarios)
+{
+    static int i = 1;
+
+    if (i <= qtd_funcionarios)
+    {
+        ficha ficha_atual = get_informacoes(i);
+
+        i++;
+        folha_de_pagamento(qtd_funcionarios);
+
+        if (i == qtd_funcionarios + 1) {mostrar_cabecalho(); i++;}
+
+        mostar_informacoes_funcionario(ficha_atual);
+    }
+    
+}
+
+
+int main()
+{
+    info_programa();
+
+    printf("Digite quantos funcionários deseja adicionar: ");
+    int qtd_funcionarios;
+    scanf("%d", &qtd_funcionarios);
+
+    folha_de_pagamento(qtd_funcionarios);
+
+    return 0;
+}

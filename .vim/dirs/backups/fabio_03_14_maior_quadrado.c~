@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+
+void info_programa()
+{
+    printf("Digite um número, será mostrado o maior quadrado até ele.\n");
+}
+
+
+int get_maior_quadrado(int limite)
+{
+    static int i = 1;
+    int j = i + 1;
+
+    if (j * j <= limite)
+    {
+        i++;
+        get_maior_quadrado(limite);
+    }
+    return i * i; 
+}
+
+
+int main(){
+    info_programa();
+
+    int limite;
+
+    printf("Digite o número limite: ");
+    scanf("%d", &limite);
+
+    int maior_quadrado = get_maior_quadrado(limite);
+
+    printf("O maior quadrado é: %d\n", maior_quadrado);
+
+    return 0;
+}

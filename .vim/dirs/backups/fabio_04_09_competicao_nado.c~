@@ -1,0 +1,121 @@
+#include <stdio.h>
+static int clube_a_pts = 0, clube_b_pts = 0;
+
+void info_programa()
+{
+    printf("Informe os dados solicitados para saber a equipe vencedora.");
+}
+
+
+int adicionar_pontos(int classificacao)
+{
+    switch (classificacao) {
+        case 1:
+            return 9;
+            break;
+        case 2:
+            return 6;
+            break;
+        case 3:
+            return 4;
+            break;
+        case 4:
+            return 3;
+            break;
+        default:
+            printf("Classificação inválida!\n");
+    }
+
+    return 0;
+}
+
+
+void atualizar_contagem(char clube, int classificacao)
+{
+    switch (clube) {
+        case 'a':
+            clube_a_pts += adicionar_pontos(classificacao);
+            break;
+        case 'b':
+            clube_b_pts += adicionar_pontos(classificacao);
+            break;
+    }
+}
+
+
+void solicitar_dados_nadadores(int qtd_nadores)
+{
+    if (qtd_nadores > 0)
+    {
+
+        char *temp;
+        char clube;
+
+        printf("Digite o nome do %dº nadador: ", qtd_nadores);
+        scanf("%s", &temp);
+        printf("Digite o tempo do nadador: ");
+        scanf("%s", &temp);
+
+        printf("Qual a classificação desse nadador? ");
+        scanf("%d", &classificacao);
+
+        printf("A qual clube ele pertence? [a/b] ");
+        scanf(" %c", &clube);
+
+        atualizar_contagem(clube, classificacao);
+
+    }
+    
+}
+
+
+void mostrar_clube_vencedor()
+{
+    if (clube_a_pts > clube_b_pts)
+    {
+        printf("O clube A venceu com %d pontos.\n", clube_a_pts);
+    }
+    else
+    {
+        if (clube_b_pts > clube_a_pts)
+        {
+            printf("O clube B venceu com %d pontos.\n", clube_b_pts);
+        }
+        else
+        {
+            printf("Empate\n");
+        }
+    }
+}
+
+
+void contabilizar_vitorias()
+{
+    int prova, qtd_nadores;
+    printf("\nDigite o número da prova: ");
+    scanf("%d", &prova);
+
+    printf("Quantos nadadores participaram da prova %d? ", prova);
+    scanf("%d", &qtd_nadores);
+
+    if (prova != 0 || qtd_nadores != 0)
+    {
+        solicitar_dados_nadadores(qtd_nadores);
+        contabilizar_vitorias();
+    }
+    else
+    {
+        mostrar_clube_vencedor();
+    }
+    
+}
+
+
+int main()
+{
+    info_programa();
+
+    contabilizar_vitorias();
+
+    return 0;
+}

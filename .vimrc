@@ -1,8 +1,4 @@
-" Fisa-vim-config
-" http://fisadev.github.io/fisa-vim-config/
-
-" ============================================================================
-"Vim-plug initialization
+" Vim-plug initialization   {{{
 " Avoid modify this section, unless you are very sure of what you are doing
         let vim_plug_just_installed = 0
         let vim_plug_path = expand('~/.vim/autoload/plug.vim')
@@ -18,18 +14,15 @@
         if vim_plug_just_installed
             :execute 'source '.fnameescape(vim_plug_path)
         endif
+        "}}}
 
-
-" Obscure hacks done, you can now modify the rest of the .vimrc as you wish :)
-
-
-" Open .vimrc easily 
+" Open .vimrc easily    {{{
         cabbrev vrc e ~/.vimrc
         " Visual Split
         cabbrev vvrc vsp ~/.vimrc
+"}}}
 
-
-" E576: Failed to parse ShaDa file
+" E576: Failed to parse ShaDa file  {{{
         if !has('nvim')
           set viminfo+=n~/vim/viminfo
         else
@@ -37,14 +30,13 @@
           " or do soemething like:
           set viminfo+=n~/.shada
         endif
+"}}}
 
-" ============================================================================
-" Active plugins
-" You can disable or add new ones here:
-
-" this needs to be here, so vim-plug knows we are declaring the plugins we
-" want to use
+" PLUGINS   {{{
 call plug#begin('~/.vim/plugged')
+
+" Gruvbox colorscheme
+    Plug 'morhetz/gruvbox'
 
 " Easily interact with tmux from vim.
     Plug 'benmills/vimux'
@@ -84,6 +76,9 @@ call plug#begin('~/.vim/plugged')
 " DilemtMate
     Plug 'Raimondi/delimitMate'
 
+" lh-cpp
+    " Plug 'LucHermitte/lh-cpp'
+
 " Python syntax for colorschemes
     Plug 'kh3phr3n/python-syntax'
 
@@ -116,6 +111,9 @@ call plug#begin('~/.vim/plugged')
 
 " Extension to ctrlp, for fuzzy command finder
     Plug 'fisadev/vim-ctrlp-cmdpalette'
+
+" DevIcons
+    " Plug 'ryanoasis/vim-devicons'
 
  " Goyo - White RoomVim Room
     Plug 'junegunn/goyo.vim'
@@ -228,22 +226,11 @@ endif
 " Yank history navigation
     Plug 'vim-scripts/YankRing.vim'
 
-
-" Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
+"}}}
 
-" ============================================================================
-" Install plugins the first time vim runs
-
-if vim_plug_just_installed
-    echo "Installing Bundles, please ignore key map error messages"
-    :PlugInstall
-endif
-
-
-
-" ============================================================================
-" Vim settings and mappings
+" Vim settings  {{{
+        let mapleader=" "
         set autoread        		   " Auto reload changed files
         set lazyredraw                 " Reduce the redraw frequency
         set ttyfast                    " Send more characters in fast terminals
@@ -252,90 +239,61 @@ endif
         set listchars+=precedes:←      " Show arrow if line continues leftwards
         set laststatus=2               " Always display the status line
         set ruler                      " show the cursor position all the time
-        let mapleader=" "
-
-
-" Get rid of that delay using <space> in insert mode
-        augroup FastEscape
-            autocmd!
-            au InsertEnter * set timeoutlen=0
-            au InsertLeave * set timeoutlen=1000
-        augroup END
-
-" no vi-compatible
         set nocompatible
-
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+        set ignorecase
+        set smartcase
+        set winwidth=90
+        " Background   {{{
+        set background=dark
+        " Set background trasparency
+        " hi Normal guibg=NONE ctermbg=NONE
+"}}}
+        " Showcase comments in italics
+        highlight Comment cterm=italic gui=italic
+        " always show status bar
+        set ls=2
+        " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
         set splitbelow splitright
+        " Enable autocompletion preview window
+        set completeopt-=preview
+        " When scrolling, keep cursor 8 lines away from screen border
+        set scrolloff=8
+        " Save as sudo
+        ca w!! w !sudo tee "%"
+        " Autocompletion of files and commands behaves like shell
+        set wildmode=list:longest
 
-" allow plugins by file type (required for plugins!)
+        " Make it obvious where 80 characters is
+        set textwidth=80
+        set colorcolumn=+1
+
+        syntax on
+
+        " allow plugins by file type (required for plugins!)
         filetype plugin on
         filetype indent on
 
-" tabs and spaces handling
-        set expandtab
-        set tabstop=4
-        set softtabstop=4
-        set shiftwidth=4
-
-" tab length exceptions on some file types
-        autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
-        autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
-        autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
-
-" always show status bar
-        set ls=2
-
-" incremental search
-        set incsearch
-
-" highlighted search results
-        set hlsearch  
-
-" syntax highlight on
-        syntax on
-
-" show line numbers
-        set nu
-        " map rln :set relativenumber<CR>
-        " map abn :set norelativenumber<CR>
-
-    " Automatic toggling between line number modes
-            :augroup numbertoggle
-            :  autocmd!
-            :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-            :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-            :augroup END
-
-" Showcase comments in italics
-        highlight Comment cterm=italic gui=italic
-
-" Comment this line to enable autocompletion preview window
-" (displays documentation related to the selected completion option)
-" Disabled by default because preview makes the window flicker
-        set completeopt-=preview
-
-" save as sudo
-        ca w!! w !sudo tee "%"
-
-" use 256 colors when possible
-        if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
-            let &t_Co = 256
-            colorscheme monokai-phoenix
-
-        else
-            colorscheme delek
+        " Better backup, swap and undos storage   {{{
+        set directory=~/.vim/dirs/tmp     " directory to place swap files in
+        set backup                        " make backup files
+        set backupdir=~/.vim/dirs/backups " where to put backup files
+        set undofile                      " persistent undos - undo after you re-open the file
+        set undodir=~/.vim/dirs/undos
+        set viminfo+=n~/.vim/dirs/viminfo
+"}}}
+        " Create needed directories if they don't exist   {{{
+        if !isdirectory(&backupdir)
+            call mkdir(&backupdir, "p")
         endif
+        if !isdirectory(&directory)
+            call mkdir(&directory, "p")
+        endif
+        if !isdirectory(&undodir)
+            call mkdir(&undodir, "p")
+        endif
+"}}}
 
-        set termguicolors
-        set t_Co=256
-        let g:sublimemonokai_term_italic = 1
-
-
-" when scrolling, keep cursor 8 lines away from screen border
-        set scrolloff=8
-
-" Keep the cursor centered vertically on the screen
+" Keep the cursor centered vertically on the screen   {{{
         let s:is_centered = 0
 
         function! VCenterCursor()
@@ -349,176 +307,80 @@ endif
                 let s:is_centered = 1
             endif
         endfunction
+"}}}
 
-        " if !exists('*VCenterCursor')
-        "     augroup VCenterCursor
-        "         au!
-        "         au OptionSet *,*.*
-        "             \ if and( expand("<amatch>")=='scrolloff' ,
-        "             \         exists('#VCenterCursor#WinEnter,WinNew,VimResized') )|
-        "             \      au! VCenterCursor WinEnter,WinNew,VimResized|
-        "             \ endif
-        "     augroup END
+"}}}
 
-        "         function VCenterCursor()
-        "             if !exists('#VCenterCursor#WinEnter,WinNew,VimResized')
-        "                 " let s:default_scrolloff=&scrolloff
-        "                 " let &scrolloff=(winheight(win_getid())/2)
-        "                 au VCenterCursor WinEnter,WinNew,VimResized *,*.*
-        "                     " \ let &scrolloff=(winheight(win_getid())/2)
-        "             else
-        "                 au! VCenterCursor WinEnter,WinNew,VimResized
-        "                 " let &scrolloff=s:default_scrolloff
-        "             endif
-        "         endfunction
-        "     endif
+" Tab and spaces   {{{
+    " tabs and spaces handling
+        set expandtab
+        set tabstop=4
+        set softtabstop=4
+        set shiftwidth=4
 
-        nnoremap <leader>zz :call VCenterCursor()<CR>
+    " tab length exceptions on some file types
+        autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
+        autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
+        autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+"}}}
 
-" autocompletion of files and commands behaves like shell
-" (complete only the common part, list the options that match)
-        set wildmode=list:longest
+" Mappings   {{{
 
-" Make it obvious where 80 characters is
-        set textwidth=80
-        set colorcolumn=+1
+" Disable arrow keys   {{{
+        no <down> ddp
+        no <up> ddkkp
+        no <left> <Nop>
+        no <right> <Nop>
 
-" better backup, swap and undos storage
-        set directory=~/.vim/dirs/tmp     " directory to place swap files in
-        set backup                        " make backup files
-        set backupdir=~/.vim/dirs/backups " where to put backup files
-        set undofile                      " persistent undos - undo after you re-open the file
-        set undodir=~/.vim/dirs/undos
-        set viminfo+=n~/.vim/dirs/viminfo
+        ino <up> <Nop>
+        ino <down> <Nop>
+        ino <left> <Nop>
+        ino <right> <Nop>
+"}}}
 
-" store yankring history file there too
-        let g:yankring_history_dir = '~/.vim/dirs/'
-
-" create needed directories if they don't exist
-        if !isdirectory(&backupdir)
-            call mkdir(&backupdir, "p")
-        endif
-        if !isdirectory(&directory)
-            call mkdir(&directory, "p")
-        endif
-        if !isdirectory(&undodir)
-            call mkdir(&undodir, "p")
-        endif
-
-
-" ============================================================================
-" Plugins settings and mappings
-" Edit them as you wish.
-"
-"
-" Vim Motions  ------------------------------
-        nmap S <Plug>(easymotion-s2)
-        map \ <Plug>(easymotion-prefix)
-        let g:EasyMotion_smartcase = 1
-
-"
-" DelimitMate  ------------------------------
-        let delimitMate_expand_cr = 1
-
-"
-" Ale  ------------------------------
-" Shorten error/warning flags
-        let g:ale_echo_msg_error_str = 'E'
-        let g:ale_echo_msg_warning_str = 'W'
-" I have some custom icons for errors and warnings 
-        let g:ale_sign_error = '✘✘'
-        let g:ale_sign_warning = '⚠'
-
-" Disable or enable loclist at the bottom of vim 
-        let g:ale_open_list = 0
-        let g:ale_loclist = 0
-
-" Setup compilers for languages
-        let g:ale_linters = {
-              \  'cs':['syntax', 'semantic', 'issues'],
-              \  'java': ['javac']
-              \ }
-" Repairing cursor disappears when viewing error message
-        let g:ale_echo_cursor = 0
-
-
-" Deoplete ------------------------------
-" Setup completion sources
-        let g:deoplete#sources = {}
-        let g:deoplete#sources.java = ['jc', 'file', 'buffer', 'ultisnips']
-        let g:deoplete#complete_method = "omnifunc"
-        let g:deoplete#auto_complete_delay=50
-
-
-" UltiSnips ----------------------------- 
-        let g:UltiSnipsEditSplit="vertical"
-
-
-" Instant Markdown ----------------------------- 
-        " let g:instant_markdown_browser = "vivaldi --new-window"
-        autocmd BufRead,BufReadPost *.md set filetype=markdown
-        " let g:instant_markdown_autostart = 0
-        " let g:instant_markdown_port = 8888
-        " source $HOME/.vim/ftplugin/markdown/instant-markdown.vim
-
-
-" Tagbar ----------------------------- 
-
-" toggle tagbar display
-        map <F4> :TagbarToggle<CR>
-" autofocus on tagbar open
-        let g:tagbar_autofocus = 1
-
-" NERDTree ----------------------------- 
-" toggle nerdtree display
-        map <leader>n :NERDTreeToggle<CR>
-        autocmd BufWritePost * NERDTreeRefreshRoot
-        let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
- " Disable numbers in the pane
-        autocmd FileType nerdtree set norelativenumber
-
-
-" Find/replace
+" Find/replace   {{{
         vnoremap ,r "hy:%s/<C-r>h//g<left><left>
+"}}}
 
-" Moving to the end and the begin of line easily
+" Moving to the end and the begin of line easily   {{{
         map <Leader>h 0
         map <Leader>l $
+"}}}
 
-" File, Buffers and Window Management 
+" Files {{{
         inoremap <leader>w <Esc>:w<CR>
         nnoremap <leader>w :w<CR>
-
-        inoremap <leader>q <ESC>:q<CR>
-        nnoremap <leader>q :q<CR>
-
         inoremap <leader>x <ESC>:x<CR>
         nnoremap <leader>x :x<CR>
+"}}}
+
+" Buffers   {{{
+        inoremap <leader>q <ESC>:q<CR>
+        nnoremap <leader>q :q<CR>
 
         nnoremap <leader>v :vnew<CR>:NERDTreeToggle<CR>
 
         nmap ,n :bn<CR>
         nmap ,p :bp<CR>
+"}}}
 
-
-" Vimux shortcuts
+" Vimux Shortcuts   {{{
         map rt :VimuxPromptCommand<CR>
         map tt :VimuxRunLastCommand<CR>
+"}}}
 
-" tab navigation mappings
+" Tab navigation mappings   {{{
         map <Leader>tn :tabn<CR>
         map <Leader>tp :tabp<CR>
         map <Leader>ts :tab split<CR>
+"}}}
 
-" Resize splits more quickly
+" Resize splits more quickly   {{{
         nmap <C-S-Right> <C-w>>
         nmap <C-S-Left> <C-w><
+"}}}
 
-" Insert Mode to Normal Mode (also write)
-        " ino <S-Tab> <Esc>:w<CR>
-        " map <S-Tab> :w<CR>
-
-" tmux - navigate windows with meta+arrows
+" TMUX - navigate windows with meta+arrows   {{{
         map <M-Right> <c-w>l
         map <M-Left> <c-w>h
         map <M-Up> <c-w>k
@@ -527,14 +389,13 @@ endif
         imap <M-Left> <ESC><c-w>h
         imap <M-Up> <ESC><c-w>k
         imap <M-Down> <ESC><c-w>j
+"}}}
 
-
-" Tasklist ------------------------------
-
-" show pending tasks list
+" show pending tasks list   {{{
         map <F2> :TaskList<CR>
+"}}}
 
-" CtrlP ------------------------------
+" CtrlP   {{{
 
 " file finder mapping
         let g:ctrlp_map = ',e'
@@ -568,9 +429,23 @@ endif
           \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
           \ 'file': '\.pyc$\|\.pyo$',
           \ }
+"}}}
 
+" Signify   {{{
+    " mappings to jump to changed blocks
+        nmap <leader>sn <plug>(signify-next-hunk)
+        nmap <leader>sp <plug>(signify-prev-hunk)
+"}}}
 
-" Syntastic ------------------------------
+" Window Chooser   {{{
+        nmap  -  <Plug>(choosewin)
+"}}}
+
+"}}}
+
+" Plugins Settings   {{{
+
+" Syntastic ------------------------------{{{
 
 " show list of errors and warnings on the current file
         " nmap <leader>e :Errors<CR>
@@ -584,8 +459,9 @@ endif
         let g:syntastic_warning_symbol = '⚠'
         let g:syntastic_style_error_symbol = '✗'
         let g:syntastic_style_warning_symbol = '⚠'
+"}}}
 
-" Jedi-vim ------------------------------
+" Jedi-vim ------------------------------{{{
 " All these mappings work only for python code:
 " Go to definition
         let g:jedi#goto_command = ',d'
@@ -597,9 +473,9 @@ endif
         nmap ,D :tab split<CR>:call jedi#goto()<CR>
 " Remap goto documentation for using the Pymode option 
         let g:jedi#documentation_command = "KK"
+"}}}
 
-" NeoComplCache ------------------------------
-
+" NeoComplCache ------------------------------{{{
 " most of them not documented because I'm not sure how they work
 " (docs aren't good, had to do a lot of trial and error to make 
 " it play nice)
@@ -618,13 +494,14 @@ endif
 " complete with workds from any opened file
         let g:neocomplcache_same_filetype_lists = {}
         let g:neocomplcache_same_filetype_lists._ = '_'
+"}}}
 
-" Autoclose ------------------------------
+" Autoclose ------------------------------{{{
+        " Fix to let ESC work as espected with Autoclose plugin
+        let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+"}}}
 
-" Fix to let ESC work as espected with Autoclose plugin
-let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
-
-" Goyo  ------------------------------
+" Goyo  ------------------------------{{{
         let g:goyo_width = 100
         let g:goyo_height = 100
         nmap <Leader>gy :Goyo<CR>
@@ -650,10 +527,9 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
         autocmd! User GoyoEnter nested call <SID>goyo_enter()
         autocmd! User GoyoLeave nested call <SID>goyo_leave()
+"}}}
 
-
-" DragVisuals ------------------------------
-
+" DragVisuals ------------------------------{{{
 " mappings to move blocks in 4 directions
         vmap <expr> <S-M-LEFT> DVB_Drag('left')
         vmap <expr> <S-M-RIGHT> DVB_Drag('right')
@@ -661,62 +537,166 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
         vmap <expr> <S-M-UP> DVB_Drag('up')
 " mapping to duplicate block
         vmap <expr> D DVB_Duplicate()
-           
-" Signify ------------------------------
+"}}}
 
-" this first setting decides in which order try to guess your current vcs
-" UPDATE it to reflect your preferences, it will speed up opening files
-let g:signify_vcs_list = [ 'git', 'hg' ]
-" mappings to jump to changed blocks
-        nmap <leader>sn <plug>(signify-next-hunk)
-        nmap <leader>sp <plug>(signify-prev-hunk)
-" nicer colors
+" Signify ------------------------------{{{
+        " this first setting decides in which order try to guess your current vcs
+        let g:signify_vcs_list = [ 'git', 'hg' ]
+        cabbrev sgt SignifyToggle 
+        " nicer colors   {{{
         highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
         highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
         highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
         highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
         highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+"}}}
+"}}}
 
-" Window Chooser ------------------------------
-
-" mapping
-        nmap  -  <Plug>(choosewin)
-" show big letters
+" Window Chooser ------------------------------{{{
+    " show big letters
         let g:choosewin_overlay_enable = 1
+"}}}
 
-" Airline ------------------------------
-" 
+" Airline ------------------------------{{{
+        let g:airline#extensions#tabline#enabled = 1
         let g:airline_powerline_fonts = 1
         let g:airline_theme = 'luna'
         let g:airline#extensions#whitespace#enabled = 0
+"}}}
 
-" Disable arrow keys
-        no <down> ddp
-        no <up> ddkkp
-        no <left> <Nop>
-        no <right> <Nop>
-
-        ino <up> <Nop>
-        ino <down> <Nop>
-        ino <left> <Nop>
-        ino <right> <Nop>
-
-" Set background trasparency
-        hi Normal guibg=NONE ctermbg=NONE
-
-" Python Highlight
+" Pymode ------------------------------{{{
+        let g:pymode_run = 1
+        " Python Highlight
         let python_highlight_all = 1
         let python_self_cls_highlight = 1
         let g:pymode_python = 'python3'
+"}}}
 
-" Pymode ------------------------------
-        let g:pymode_run = 1
-" Mixing Vimux commands to improve workflow with python files.
-        autocmd FileType python nmap ,t :call VimuxRunCommand("clear; python3 " . expand("%:p"))<CR>
-        nmap gt :VimuxInspectRunner<CR>  
+" Vim Motions  ------------------------------{{{
+        nmap S <Plug>(easymotion-s2)
+        map \ <Plug>(easymotion-prefix)
+        let g:EasyMotion_smartcase = 1
 
-" Folding for vim
+"}}}
+
+" Ale  ------------------------------{{{
+" Shorten error/warning flags
+        let g:ale_echo_msg_error_str = 'E'
+        let g:ale_echo_msg_warning_str = 'W'
+" I have some custom icons for errors and warnings 
+        let g:ale_sign_error = '✘✘'
+        let g:ale_sign_warning = '⚠'
+
+" Disable or enable loclist at the bottom of vim 
+        let g:ale_open_list = 0
+        let g:ale_loclist = 0
+
+" Setup compilers for languages
+        let g:ale_linters = {
+              \  'cs':['syntax', 'semantic', 'issues'],
+              \  'java': ['javac']
+              \ }
+" Repairing cursor disappears when viewing error message
+        let g:ale_echo_cursor = 0
+"}}}
+
+" Deoplete ------------------------------{{{
+" Setup completion sources
+        let g:deoplete#sources = {}
+        let g:deoplete#sources.java = ['jc', 'file', 'buffer', 'ultisnips']
+        let g:deoplete#complete_method = "omnifunc"
+        let g:deoplete#auto_complete_delay=50
+"}}}
+
+" UltiSnips ----------------------------- {{{
+        let g:UltiSnipsEditSplit="vertical"
+"}}}
+
+" Instant Markdown ----------------------------- {{{
+        " let g:instant_markdown_browser = "vivaldi --new-window"
+        autocmd BufRead,BufReadPost *.md set filetype=markdown
+        " let g:instant_markdown_autostart = 0
+        " let g:instant_markdown_port = 8888
+        " source $HOME/.vim/ftplugin/markdown/instant-markdown.vim
+"}}}
+
+" Tagbar ----------------------------- {{{
+
+" toggle tagbar display
+        map <F4> :TagbarToggle<CR>
+" autofocus on tagbar open
+        let g:tagbar_autofocus = 1
+"}}}
+
+" NERDTree ----------------------------- {{{
+" toggle nerdtree display
+        map <leader>n :NERDTreeToggle<CR>
+        autocmd BufWritePost * NERDTreeRefreshRoot
+        let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+
+ " Disable numbers in the pane
+        autocmd FileType nerdtree set norelativenumber
+"}}}
+
+"}}}
+
+" Get rid of that delay using <space> in insert mode    {{{
+        augroup FastEscape
+            autocmd!
+            au InsertEnter * set timeoutlen=0
+            au InsertLeave * set timeoutlen=1000
+        augroup END
+"}}}
+
+" Search   {{{
+
+    " incremental search
+        set incsearch
+
+    " highlighted search results
+        set hlsearch  
+
+    " Unhighlight after the search is done
+        nnoremap <CR> :nohlsearch<CR>
+"}}}
+
+" Automatic toggling between line number modes   {{{
+        :augroup numbertoggle
+        :  autocmd!
+        :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+        :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+        :augroup END
+"}}}
+
+" Use 256 colors when possible   {{{
+        if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
+            let &t_Co = 256
+            " colorscheme monokai-phoenix
+            colorscheme gruvbox
+
+        else
+            colorscheme delek
+        endif
+
+        set termguicolors
+        set t_Co=256
+        let g:sublimemonokai_term_italic = 1
+"}}}
+
+" Folding   {{{
+        " Any Fold   {{{
         let g:anyfold_identify_comments=2
         let g:anyfold_fold_comments=1
         cabbrev fd AnyFoldActivate 
+        "}}}
+
+        " Section Folding {{{
+        set foldenable
+        set foldlevelstart=10
+        set foldnestmax=10
+        set foldmethod=syntax
+        " }}}
+
+"}}}
+" vim: set foldmethod=marker

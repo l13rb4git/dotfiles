@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+
+void info_programa()
+{
+    printf("Informe quantos números da sequencia Fibonacci deseja ver.\n");
+}
+
+
+void fibonacci(int limite)
+{
+   static int interation = 2; 
+   if (interation == 2) printf("0, 1, ");
+
+   static int num_anterior1 = 0; 
+   static int num_anterior2 = 1; 
+   int num_atual = num_anterior1 + num_anterior2;
+
+
+   if (interation <= limite)
+   {
+       printf("%d, ", num_atual);
+
+       num_anterior1 = num_anterior2;
+       num_anterior2 = num_atual;
+
+       interation++;
+       fibonacci(limite);
+   }
+}
+
+
+int main(){
+    info_programa();
+
+    int limite;
+    printf("Digite o até qual N número a sequencia dever ir: ");
+    scanf("%d", &limite);
+
+    fibonacci(limite);
+
+
+    return 0;
+}

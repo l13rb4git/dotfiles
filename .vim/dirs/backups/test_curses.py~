@@ -1,0 +1,38 @@
+from unicurses import *
+from tools_curses import *
+
+def main():
+    stdscr = initscr()
+    noecho()
+    curs_set(False)
+    keypad(stdscr, True)
+    start_color()
+
+    red = make_color(COLOR_RED, COLOR_BLACK)
+    addstr(stdscr, "Olha se é vermelhor isso ai.", color_pair(red))
+
+    init_pair(1, COLOR_YELLOW, COLOR_GREEN)
+    init_pair(2, COLOR_RED, COLOR_YELLOW)
+
+    person = newwin(1, 1, 15, 25)
+    waddstr(person, '#', color_pair(2))
+    person_panel = new_panel(person)
+
+    grass = newwin(10, 40, 10, 10)
+    wbkgd(grass, '+', color_pair(1))
+    grass_panel = new_panel(grass)
+
+    top_panel(person_panel)
+
+
+    update_panels()
+    doupdate()
+
+
+    while getch() != 27: pass
+
+    endwin()
+
+
+if __name__ == "__main__":
+    main()

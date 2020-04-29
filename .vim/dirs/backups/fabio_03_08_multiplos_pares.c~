@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+
+void info_programa()
+{
+    printf("Informe um número, um limite inferior e um limite superior, será mostrado todos os pares múltiplos pares entre os limites lidos.\n");
+}
+
+
+void multiplos_pares(int numero, int inicio, int final)
+{
+    if (inicio <= final)
+    {
+        if (inicio % numero == 0)
+            printf("%d\n", inicio);
+
+        multiplos_pares(numero, inicio+1, final);
+    }
+}
+
+
+int main()
+{
+    info_programa();
+
+    int numero, limite_superior, limite_inferior;
+
+    printf("\nDigite o valor do número: ");
+    scanf("%d", &numero);
+    printf("\nDigite o valor do limite inferior: ");
+    scanf("%d", &limite_inferior);
+    printf("\nDigite o valor do limite superior: ");
+    scanf("%d", &limite_superior);
+    multiplos_pares(numero, limite_inferior, limite_superior);
+
+    return 0;
+}

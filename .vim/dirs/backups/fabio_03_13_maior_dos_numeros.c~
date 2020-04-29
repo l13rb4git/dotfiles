@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+
+void info_programa()
+{
+    printf("Digite a quantidade de números e os números para saber qual o maior deles.");
+}
+
+
+int maior(int qtd_num)
+{
+    static int enesimo_num = 1;
+    static int atual_maior = 0;
+    int num;
+
+    if (enesimo_num <= qtd_num)
+    {
+        printf("Digite o %d número: ", enesimo_num);
+        scanf("%d", &num);
+
+        if (atual_maior <= num)
+        {
+            atual_maior = num;
+        }
+
+        enesimo_num++;
+        maior(qtd_num);
+    }
+    else
+    {
+        return atual_maior;
+    }
+}
+
+
+int main(){
+    info_programa();
+
+    int qtd_num;
+
+    printf("Digite a quantidade de números: ");
+    scanf("%d", &qtd_num);
+
+    int maior_num = maior(qtd_num);
+
+    printf("O maior número é: %d\n", maior_num);
+
+    return 0;
+}

@@ -436,7 +436,7 @@ call plug#end()
 "}}}
 
 " Airline   {{{
-        nmap <Leader>tb :call ToggleTablineMode()<CR><bar>:redraw!<CR>
+        nmap <Leader>tb :call ToggleTablineMode()<CR>
 "}}}
 
 "}}}
@@ -557,11 +557,12 @@ call plug#end()
 
 " Airline ------------------------------{{{
 
-        let g:airline#extensions#tabline#enabled = 1
         let g:airline_powerline_fonts = 1
         let g:airline_theme = 'luna'
         let g:airline#extensions#whitespace#enabled = 0
 
+        " TabLine{{{
+        let g:airline#extensions#tabline#enabled = 1
         let g:airline#extensions#tabline#show_splits = 0
         let g:airline#extensions#tabline#show_tab_count = 0
         let g:airline#extensions#tabline#show_tab_nr = 0
@@ -580,7 +581,9 @@ call plug#end()
                 let g:airline#extensions#tabline#show_buffers = 1
                 let g:airline#extensions#tabline#show_tabs = 0
             endif
+            :redrawtabline
         endfunction
+"}}}
 "}}}
 
 "}}}

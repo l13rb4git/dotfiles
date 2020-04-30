@@ -1,3 +1,21 @@
+" E576: Failed to parse ShaDa file  {{{
+        if !has('nvim')
+          set viminfo+=n~/vim/viminfo
+        else
+          " Do nothing here to use the neovim default
+          " or do soemething like:
+          set viminfo+=n~/.shada
+        endif
+"}}}
+
+" Open .vimrc easily    {{{
+        cabbrev vrc e ~/.vimrc
+        " Visual Split
+        cabbrev vvrc vsp ~/.vimrc
+"}}}
+
+" PLUGINS   {{{
+
 " Vim-plug initialization   {{{
 " Avoid modify this section, unless you are very sure of what you are doing
         let vim_plug_just_installed = 0
@@ -16,23 +34,6 @@
         endif
         "}}}
 
-" Open .vimrc easily    {{{
-        cabbrev vrc e ~/.vimrc
-        " Visual Split
-        cabbrev vvrc vsp ~/.vimrc
-"}}}
-
-" E576: Failed to parse ShaDa file  {{{
-        if !has('nvim')
-          set viminfo+=n~/vim/viminfo
-        else
-          " Do nothing here to use the neovim default
-          " or do soemething like:
-          set viminfo+=n~/.shada
-        endif
-"}}}
-
-" PLUGINS   {{{
 call plug#begin('~/.vim/plugged')
 
 " Gruvbox colorscheme
@@ -53,7 +54,7 @@ call plug#begin('~/.vim/plugged')
 " Asynchronous Lint Engine
     Plug 'dense-analysis/ale'
 
-" Deoplete ------------------------------
+" Deoplete ------------------------------{{{
     if has('nvim')
       Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
       let g:deoplete#enable_at_startup = 1
@@ -66,6 +67,7 @@ call plug#begin('~/.vim/plugged')
       Plug 'roxma/nvim-yarp'
       Plug 'roxma/vim-hug-neovim-rpc'
     endif
+"}}}
 
 " Asynchronous completion for C and C++ 
     Plug 'zchee/deoplete-clang'
@@ -205,14 +207,6 @@ if has('python')
     " YAPF formatter for Python
     Plug 'pignacio/vim-yapf-format'
 endif
-" Relative numbering of lines (0 is the current line)
-" (disabled by default because is very intrusive and can't be easily toggled
-" on/off. When the plugin is present, will always activate the relative 
-" numbering every time you go to normal mode. Author refuses to add a setting 
-" to avoid that)
-" Plug 'myusuf3/numbers.vim'
-
-" Plugins from vim-scripts repos:
 
 " Search results counter
     Plug 'vim-scripts/IndexedSearch'
@@ -441,6 +435,10 @@ call plug#end()
         nmap  -  <Plug>(choosewin)
 "}}}
 
+" Airline   {{{
+        nmap <Leader>tb :call ToggleTablineMode()<CR><bar>:redraw!<CR>
+"}}}
+
 "}}}
 
 " Plugins Settings   {{{
@@ -524,7 +522,6 @@ call plug#end()
                     :augroup END
         endfunction
 
-
         autocmd! User GoyoEnter nested call <SID>goyo_enter()
         autocmd! User GoyoLeave nested call <SID>goyo_leave()
 "}}}
@@ -564,7 +561,27 @@ call plug#end()
         let g:airline_powerline_fonts = 1
         let g:airline_theme = 'luna'
         let g:airline#extensions#whitespace#enabled = 0
-        let g:airline#extensions#tabline#show_splits = 1
+
+        let g:airline#extensions#tabline#show_splits = 0
+        let g:airline#extensions#tabline#show_tab_count = 0
+        let g:airline#extensions#tabline#show_tab_nr = 0
+        let g:airline#extensions#tabline#show_tab_type = 0
+        let g:airline#extensions#tabline#close_symbol = '×'
+        let g:airline#extensions#tabline#show_close_button = 1
+
+        " Toggle TabLine Mode{{{
+        let g:airline#extensions#tabline#show_buffers = 1
+
+        function! ToggleTablineMode()
+            if g:airline#extensions#tabline#show_buffers
+                let g:airline#extensions#tabline#show_buffers = 0
+                let g:airline#extensions#tabline#show_tabs = 1
+            else
+                let g:airline#extensions#tabline#show_buffers = 1
+                let g:airline#extensions#tabline#show_tabs = 0
+            endif
+        endfunction
+"}}}
 
 "}}}
 

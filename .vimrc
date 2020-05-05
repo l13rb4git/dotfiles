@@ -672,6 +672,23 @@ call plug#end()
         augroup END
 "}}}
 
+" Close all background buffers  {{{
+        function! CloseHiddenBuffers()
+            let visible = {}
+            for t in range(1, tabpagenr('$'))
+                for b in tabpagebuflist(t)
+                    let visible[b] = 1
+                endfor
+            endfor
+
+            for b in range(1, bufnr('$'))
+                if bufexists(b) && !has_key(visible, b)
+                    execute 'bwipeout' b
+                endif
+            endfor
+        endfunction
+"}}}
+
 " Search   {{{
 
     " incremental search

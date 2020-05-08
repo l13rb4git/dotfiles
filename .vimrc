@@ -345,6 +345,15 @@ call plug#end()
         ino <right> <Nop>
 "}}}
 
+" Fugitve   {{{
+        noremap <Leader>gc :Gcommit<CR>
+"}}}
+
+" Nerd Commenter   {{{
+        nmap <Leader>c gc
+        nmap <Leader>c<Leader> gcc
+"}}}
+
 " Find/replace   {{{
         vnoremap ,r "hy:%s/<C-r>h//g<left><left>
 "}}}

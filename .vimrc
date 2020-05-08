@@ -9,9 +9,12 @@
 "}}}
 
 " Open .vimrc easily    {{{
+        " I'm not using "command" because it need a upper case letter 
         cabbrev vrc e ~/.vimrc
         " Visual Split
         cabbrev vvrc vsp ~/.vimrc
+        " In a new tab
+        cabbrev tvrc tabnew /home/leirbag/Documents/dotfiles/.vimrc
 "}}}
 
 " PLUGINS   {{{
@@ -238,6 +241,16 @@ call plug#end()
         set smartcase
         set winwidth=90
         " Background   {{{
+        " if (&term == "pcterm" || &term == "win32")         
+        "     set term=xterm 
+        "     set t_Co=256         
+        "     let &t_AB="\e[48;5;%dm"         
+        "     let &t_AF="\e[38;5;%dm"         
+        "     set termencoding=utf8         
+        "     set nocompatible         
+        "     inoremap <Char-0x07F> <BS>         
+        "     nnoremap <Char-0x07F> <BS> 
+        " endif
         set background=dark
         " Set background trasparency
         " hi Normal guibg=NONE ctermbg=NONE

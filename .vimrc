@@ -10,9 +10,9 @@
 
 " Open .vimrc easily    {{{
         " I'm not using "command" because it need a upper case letter 
-        cabbrev vrc e ~/.vimrc
+        cabbrev vrc e /home/leirbag/Documents/dotfiles/.vimrc
         " Visual Split
-        cabbrev vvrc vsp ~/.vimrc
+        cabbrev vvrc vsp /home/leirbag/Documents/dotfiles/.vimrc
         " In a new tab
         cabbrev tvrc tabnew /home/leirbag/Documents/dotfiles/.vimrc
 "}}}
@@ -240,6 +240,7 @@ call plug#end()
         set ignorecase
         set smartcase
         set winwidth=90
+        set autochdir
         " Background   {{{
         " if (&term == "pcterm" || &term == "win32")         
         "     set term=xterm 

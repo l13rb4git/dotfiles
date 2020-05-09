@@ -347,7 +347,7 @@ call plug#end()
 "}}}
 
 " Fugitve   {{{
-        noremap <Leader>gc :Gcommit<CR>
+        noremap <Leader>gc :Gco<CR>
 "}}}
 
 " Nerd Commenter   {{{

@@ -369,7 +369,6 @@ call plug#end()
 
 " Fugitive   {{{
 
-        unmap <Leader>gc
         nmap <Leader>gc :Gco<CR>
 
 "}}}

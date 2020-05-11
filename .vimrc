@@ -346,8 +346,9 @@ call plug#end()
         ino <right> <Nop>
 "}}}
 
-" Fugitve   {{{
-        noremap <Leader>gc :Gco<CR>
+" Fugitive   {{{
+        unmap <Leader>gc
+        nmap <Leader>gc :Gco<CR>
 "}}}
 
 " Nerd Commenter   {{{

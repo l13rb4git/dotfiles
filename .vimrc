@@ -1,4 +1,5 @@
 " E576: Failed to parse ShaDa file  {{{
+
         if !has('nvim')
           set viminfo+=n~/vim/viminfo
         else
@@ -6,20 +7,24 @@
           " or do soemething like:
           set viminfo+=n~/.shada
         endif
+
 "}}}
 
 " Open .vimrc easily    {{{
+
         " I'm not using "command" because it need a upper case letter 
         cabbrev vrc e /home/leirbag/Documents/dotfiles/.vimrc
         " Visual Split
         cabbrev vvrc vsp /home/leirbag/Documents/dotfiles/.vimrc
         " In a new tab
         cabbrev tvrc tabnew /home/leirbag/Documents/dotfiles/.vimrc
+
 "}}}
 
 " PLUGINS   {{{
 
 " Vim-plug initialization   {{{
+
 " Avoid modify this section, unless you are very sure of what you are doing
         let vim_plug_just_installed = 0
         let vim_plug_path = expand('~/.vim/autoload/plug.vim')
@@ -35,6 +40,7 @@
         if vim_plug_just_installed
             :execute 'source '.fnameescape(vim_plug_path)
         endif
+
         "}}}
 
 call plug#begin('~/.vim/plugged')
@@ -58,6 +64,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'dense-analysis/ale'
 
 " Deoplete ------------------------------{{{
+
     if has('nvim')
       Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
       let g:deoplete#enable_at_startup = 1
@@ -70,6 +77,7 @@ call plug#begin('~/.vim/plugged')
       Plug 'roxma/nvim-yarp'
       Plug 'roxma/vim-hug-neovim-rpc'
     endif
+
 "}}}
 
 " Asynchronous completion for C and C++ 
@@ -224,9 +232,11 @@ endif
     Plug 'vim-scripts/YankRing.vim'
 
 call plug#end()
+
 "}}}
 
 " Vim settings  {{{
+
         let mapleader=" "
         set autoread        		   " Auto reload changed files
         set lazyredraw                 " Reduce the redraw frequency
@@ -255,6 +265,7 @@ call plug#end()
         set background=dark
         " Set background trasparency
         " hi Normal guibg=NONE ctermbg=NONE
+
 "}}}
         " Showcase comments in italics
         highlight Comment cterm=italic gui=italic
@@ -282,14 +293,17 @@ call plug#end()
         filetype indent on
 
         " Better backup, swap and undos storage   {{{
+
         set directory=~/.vim/dirs/tmp     " directory to place swap files in
         set backup                        " make backup files
         set backupdir=~/.vim/dirs/backups " where to put backup files
         set undofile                      " persistent undos - undo after you re-open the file
         set undodir=~/.vim/dirs/undos
         set viminfo+=n~/.vim/dirs/viminfo
+
 "}}}
         " Create needed directories if they don't exist   {{{
+
         if !isdirectory(&backupdir)
             call mkdir(&backupdir, "p")
         endif
@@ -299,9 +313,11 @@ call plug#end()
         if !isdirectory(&undodir)
             call mkdir(&undodir, "p")
         endif
+
 "}}}
 
 " Keep the cursor centered vertically on the screen   {{{
+
         let s:is_centered = 0
 
         function! VCenterCursor()
@@ -315,11 +331,13 @@ call plug#end()
                 let s:is_centered = 1
             endif
         endfunction
+
 "}}}
 
 "}}}
 
 " Tab and spaces   {{{
+
     " tabs and spaces handling
         set expandtab
         set tabstop=4
@@ -330,11 +348,13 @@ call plug#end()
         autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
         autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
         autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+
 "}}}
 
 " Mappings   {{{
 
 " Disable arrow keys   {{{
+
         no <down> ddp
         no <up> ddkkp
         no <left> <Nop>
@@ -344,35 +364,47 @@ call plug#end()
         ino <down> <Nop>
         ino <left> <Nop>
         ino <right> <Nop>
+
 "}}}
 
 " Fugitive   {{{
+
         unmap <Leader>gc
         nmap <Leader>gc :Gco<CR>
+
 "}}}
 
 " Nerd Commenter   {{{
+
         nmap <Leader>c gc
         nmap <Leader>c<Leader> gcc
+
 "}}}
 
 " Find/replace   {{{
+
         vnoremap ,r "hy:%s/<C-r>h//g<left><left>
+
 "}}}
 
 " Moving to the end and the begin of line easily   {{{
+
         map <Leader>h 0
         map <Leader>l $
+
 "}}}
 
 " Files {{{
+
         inoremap <leader>w <Esc>:w<CR>
         nnoremap <leader>w :w<CR>
         inoremap <leader>x <ESC>:x<CR>
         nnoremap <leader>x :x<CR>
+
 "}}}
 
 " Buffers   {{{
+
         inoremap <leader>q <ESC>:q<CR>
         nnoremap <leader>q :q<CR>
 
@@ -380,25 +412,33 @@ call plug#end()
 
         nmap ,n :bn<CR>
         nmap ,p :bp<CR>
+
 "}}}
 
 " Vimux Shortcuts   {{{
+
         map rt :VimuxPromptCommand<CR>
         map tt :VimuxRunLastCommand<CR>
+
 "}}}
 
 " Tab navigation mappings   {{{
+
         map <Leader>tn :tabn<CR>
         map <Leader>tp :tabp<CR>
         map <Leader>ts :tab split<CR>
+
 "}}}
 
 " Resize splits more quickly   {{{
+
         nmap <C-S-Right> <C-w>>
         nmap <C-S-Left> <C-w><
+
 "}}}
 
 " TMUX - navigate windows with meta+arrows   {{{
+
         map <M-Right> <c-w>l
         map <M-Left> <c-w>h
         map <M-Up> <c-w>k
@@ -407,13 +447,17 @@ call plug#end()
         imap <M-Left> <ESC><c-w>h
         imap <M-Up> <ESC><c-w>k
         imap <M-Down> <ESC><c-w>j
+
 "}}}
 
 " show pending tasks list   {{{
+
         map <F2> :TaskList<CR>
+
 "}}}
 
 " CtrlP   {{{
+
 
 " file finder mapping
         let g:ctrlp_map = ',e'
@@ -447,20 +491,27 @@ call plug#end()
           \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
           \ 'file': '\.pyc$\|\.pyo$',
           \ }
+
 "}}}
 
 " Signify   {{{
+
     " mappings to jump to changed blocks
         nmap <leader>sn <plug>(signify-next-hunk)
         nmap <leader>sp <plug>(signify-prev-hunk)
+
 "}}}
 
 " Window Chooser   {{{
+
         nmap  -  <Plug>(choosewin)
+
 "}}}
 
 " Airline   {{{
+
         nmap <Leader>tb :call ToggleTablineMode()<CR>
+
 "}}}
 
 "}}}
@@ -481,9 +532,11 @@ call plug#end()
         let g:syntastic_warning_symbol = '⚠'
         let g:syntastic_style_error_symbol = '✗'
         let g:syntastic_style_warning_symbol = '⚠'
+
 "}}}
 
 " Jedi-vim ------------------------------{{{
+
 " All these mappings work only for python code:
 " Go to definition
         let g:jedi#goto_command = ',d'
@@ -495,9 +548,11 @@ call plug#end()
         nmap ,D :tab split<CR>:call jedi#goto()<CR>
 " Remap goto documentation for using the Pymode option 
         let g:jedi#documentation_command = "KK"
+
 "}}}
 
 " NeoComplCache ------------------------------{{{
+
 " most of them not documented because I'm not sure how they work
 " (docs aren't good, had to do a lot of trial and error to make 
 " it play nice)
@@ -516,14 +571,18 @@ call plug#end()
 " complete with workds from any opened file
         let g:neocomplcache_same_filetype_lists = {}
         let g:neocomplcache_same_filetype_lists._ = '_'
+
 "}}}
 
 " Autoclose ------------------------------{{{
+
         " Fix to let ESC work as espected with Autoclose plugin
         let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+
 "}}}
 
 " Goyo  ------------------------------{{{
+
         let g:goyo_width = 100
         let g:goyo_height = 100
         nmap <Leader>gy :Goyo<CR>
@@ -548,9 +607,11 @@ call plug#end()
 
         autocmd! User GoyoEnter nested call <SID>goyo_enter()
         autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 "}}}
 
 " DragVisuals ------------------------------{{{
+
 " mappings to move blocks in 4 directions
         vmap <expr> <S-M-LEFT> DVB_Drag('left')
         vmap <expr> <S-M-RIGHT> DVB_Drag('right')
@@ -558,9 +619,11 @@ call plug#end()
         vmap <expr> <S-M-UP> DVB_Drag('up')
 " mapping to duplicate block
         vmap <expr> D DVB_Duplicate()
+
 "}}}
 
 " Signify ------------------------------{{{
+
         " this first setting decides in which order try to guess your current vcs
         let g:signify_vcs_list = [ 'git', 'hg' ]
         cabbrev sgt SignifyToggle 
@@ -571,12 +634,15 @@ call plug#end()
         highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
         highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
         highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+
 "}}}
 "}}}
 
 " Window Chooser ------------------------------{{{
+
     " show big letters
         let g:choosewin_overlay_enable = 1
+
 "}}}
 
 " Airline ------------------------------{{{
@@ -607,27 +673,33 @@ call plug#end()
             endif
             :redrawtabline
         endfunction
+
 "}}}
 "}}}
 
 "}}}
 
 " Pymode ------------------------------{{{
+
         let g:pymode_run = 1
         " Python Highlight
         let python_highlight_all = 1
         let python_self_cls_highlight = 1
         let g:pymode_python = 'python3'
+
 "}}}
 
 " Vim Motions  ------------------------------{{{
+
         nmap S <Plug>(easymotion-s2)
         map \ <Plug>(easymotion-prefix)
         let g:EasyMotion_smartcase = 1
 
+
 "}}}
 
 " Ale  ------------------------------{{{
+
 " Shorten error/warning flags
         let g:ale_echo_msg_error_str = 'E'
         let g:ale_echo_msg_warning_str = 'W'
@@ -646,26 +718,33 @@ call plug#end()
               \ }
 " Repairing cursor disappears when viewing error message
         let g:ale_echo_cursor = 0
+
 "}}}
 
 " Deoplete ------------------------------{{{
+
 " Setup completion sources
         let g:deoplete#sources = {}
         let g:deoplete#sources.java = ['jc', 'file', 'buffer', 'ultisnips']
         let g:deoplete#complete_method = "omnifunc"
         let g:deoplete#auto_complete_delay=50
+
 "}}}
 
 " UltiSnips ----------------------------- {{{
+
         let g:UltiSnipsEditSplit="vertical"
+
 "}}}
 
 " Instant Markdown ----------------------------- {{{
+
         " let g:instant_markdown_browser = "vivaldi --new-window"
         autocmd BufRead,BufReadPost *.md set filetype=markdown
         " let g:instant_markdown_autostart = 0
         " let g:instant_markdown_port = 8888
         " source $HOME/.vim/ftplugin/markdown/instant-markdown.vim
+
 "}}}
 
 " Tagbar ----------------------------- {{{
@@ -674,9 +753,11 @@ call plug#end()
         map <F4> :TagbarToggle<CR>
 " autofocus on tagbar open
         let g:tagbar_autofocus = 1
+
 "}}}
 
 " NERDTree ----------------------------- {{{
+
 " toggle nerdtree display
         map <leader>n :NERDTreeToggle<CR>
         autocmd BufWritePost * NERDTreeRefreshRoot
@@ -684,19 +765,23 @@ call plug#end()
 
  " Disable numbers in the pane
         autocmd FileType nerdtree set norelativenumber
+
 "}}}
 
 "}}}
 
 " Get rid of that delay using <space> in insert mode    {{{
+
         augroup FastEscape
             autocmd!
             au InsertEnter * set timeoutlen=0
             au InsertLeave * set timeoutlen=1000
         augroup END
+
 "}}}
 
 " Close all background buffers  {{{
+
         function! CloseHiddenBuffers()
             let visible = {}
             for t in range(1, tabpagenr('$'))
@@ -711,6 +796,7 @@ call plug#end()
                 endif
             endfor
         endfunction
+
 "}}}
 
 " Search   {{{
@@ -723,17 +809,21 @@ call plug#end()
 
     " Unhighlight after the search is done
         nnoremap <CR> :nohlsearch<CR>
+
 "}}}
 
 " Automatic toggling between line number modes   {{{
+
         :augroup numbertoggle
         :  autocmd!
         :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
         :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
         :augroup END
+
 "}}}
 
 " Use 256 colors when possible   {{{
+
         if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
             let &t_Co = 256
             " colorscheme monokai-phoenix
@@ -746,20 +836,25 @@ call plug#end()
         set termguicolors
         set t_Co=256
         let g:sublimemonokai_term_italic = 1
+
 "}}}
 
 " Folding   {{{
+
         " Any Fold   {{{
         let g:anyfold_identify_comments=2
         let g:anyfold_fold_comments=1
         cabbrev fd AnyFoldActivate 
+
         "}}}
 
         " Section Folding {{{
+
         set foldenable
         set foldlevelstart=10
         set foldnestmax=10
         set foldmethod=syntax
+
         " }}}
 
 "}}}

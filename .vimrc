@@ -367,19 +367,6 @@ call plug#end()
 
 "}}}
 
-" Fugitive   {{{
-
-        nmap <Leader>gc :Gco<CR>
-
-"}}}
-
-" Nerd Commenter   {{{
-
-        nmap <Leader>c gc
-        nmap <Leader>c<Leader> gcc
-
-"}}}
-
 " Find/replace   {{{
 
         vnoremap ,r "hy:%s/<C-r>h//g<left><left>
@@ -414,13 +401,6 @@ call plug#end()
 
 "}}}
 
-" Vimux Shortcuts   {{{
-
-        map rt :VimuxPromptCommand<CR>
-        map tt :VimuxRunLastCommand<CR>
-
-"}}}
-
 " Tab navigation mappings   {{{
 
         map <Leader>tn :tabn<CR>
@@ -433,6 +413,32 @@ call plug#end()
 
         nmap <C-S-Right> <C-w>>
         nmap <C-S-Left> <C-w><
+
+"}}}
+
+" Keep the curso on the center of the screen   {{{
+
+        nnoremap <leader>zz :call VCenterCursor()<CR>
+
+"}}}
+
+" Vimux Shortcuts   {{{
+
+        map rt :VimuxPromptCommand<CR>
+        map tt :VimuxRunLastCommand<CR>
+
+"}}}
+
+" Fugitive   {{{
+
+        nmap <Leader>gc :Gco<CR>
+
+"}}}
+
+" Nerd Commenter   {{{
+
+        nmap <Leader>c gc
+        nmap <Leader>c<Leader> gcc
 
 "}}}
 

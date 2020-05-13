@@ -694,12 +694,12 @@ call plug#end()
 
 "}}}
 
-" Vim Motions  ------------------------------{{{
+" Vim Easy Motion  ------------------------------{{{
 
         nmap S <Plug>(easymotion-s2)
         map \ <Plug>(easymotion-prefix)
         let g:EasyMotion_smartcase = 1
-
+        let g:EasyMotion_do_shade = 0
 
 "}}}
 
@@ -863,4 +863,5 @@ call plug#end()
         " }}}
 
 "}}}
+
 " vim: set foldmethod=marker

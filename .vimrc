@@ -159,7 +159,7 @@ call plug#begin('~/.vim/plugged')
 " Vim Repeat
     Plug 'tpope/vim-repeat'
 
-" Fugitve
+" Fugitive
     Plug 'tpope/vim-fugitive'
 
 " Unimparied

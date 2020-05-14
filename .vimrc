@@ -431,7 +431,7 @@ call plug#end()
 
 " Fugitive   {{{
 
-        nmap <Leader>gc :Gco<CR>
+        autocmd VimEnter * noremap <Leader>gc :Gco<CR>
 
 "}}}
 

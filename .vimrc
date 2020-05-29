@@ -833,15 +833,16 @@ call plug#end()
         if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
             let &t_Co = 256
             " colorscheme monokai-phoenix
+            let g:gruvbox_guisp_fallback = "bg"
             colorscheme gruvbox
 
         else
             colorscheme delek
         endif
 
-        " set termguicolors
+        set termguicolors
         set t_Co=256
-        let g:sublimemonokai_term_italic = 1
+        " let g:sublimemonokai_term_italic = 1
 
 "}}}
 

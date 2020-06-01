@@ -1,6 +1,7 @@
 # zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/leirbag/.oh-my-zsh"
@@ -177,8 +178,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias nv="exec ~/Downloads/nvim/nvim.appimage"
 alias v="vim"
-alias zcfg="vim ~/.zshrc"
-alias rzsh="source ~/.zshrc"
+alias zcfg="vim /home/leirbag/Documents/dotfiles/.zshrc"
+alias rzsh="source /home/leirbag/Documents/dotfiles/.zshrc"
 alias vcfg="vim ~/.vimrc"
 alias tcfg="vim ~/.tmux.conf"
 alias p="python3"

@@ -177,10 +177,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias nv="exec ~/Downloads/nvim/nvim.appimage"
 alias v="vim"
+alias dotf="cd /home/leirbag/Documents/dotfiles"
 alias zcfg="vim /home/leirbag/Documents/dotfiles/.zshrc"
 alias rzsh="source /home/leirbag/Documents/dotfiles/.zshrc"
-alias vcfg="vim ~/.vimrc"
-alias tcfg="vim ~/.tmux.conf"
+alias vcfg="vim /home/leirbag/Documents/dotfiles/.vimrc"
+alias tcfg="vim /home/leirbag/Documents/dotfiles/.tmux.conf"
 alias p="python3"
 alias t="sudo tmux"
 alias c="cd"

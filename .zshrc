@@ -80,10 +80,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status
                                     command_execution_time
                                     vi_mode)
 
-# # Edit line in vim with ctrl-e:
-# autoload edit-command-line; zle -N edit-command-line
-# bindkey '^v' edit-command-line
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME

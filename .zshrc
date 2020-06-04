@@ -69,18 +69,18 @@ bindkey -s '^o' 'lfcd\n'
 
 
 # PowerLevel9k configs
-POWERLEVEL9K_COLOR_SCHEME='dark'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-DEFAULT_USER=`whoami`
-POWERLEVEL9K_VI_COMMAND_MODE_STRING="NORMAL"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir newline vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status 
-                                    root_indicator 
-                                    background_jobs 
-                                    history 
-                                    time 
-                                    command_execution_time
-                                    vi_mode)
+# POWERLEVEL9K_COLOR_SCHEME='dark'
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# DEFAULT_USER=`whoami`
+# POWERLEVEL9K_VI_COMMAND_MODE_STRING="NORMAL"
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir newline vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status 
+#                                     root_indicator 
+#                                     background_jobs 
+#                                     history 
+#                                     time 
+#                                     command_execution_time
+#                                     vi_mode)
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

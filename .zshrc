@@ -3,7 +3,7 @@
 export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/leirbag/.oh-my-zsh"
+export ZSH="/home/macunaima/.oh-my-zsh"
 
 
 # History in cache directory:
@@ -88,7 +88,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -177,11 +177,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias nv="exec ~/Downloads/nvim/nvim.appimage"
 alias v="vim"
-alias dotf="cd /home/leirbag/Documents/dotfiles"
-alias zcfg="vim /home/leirbag/Documents/dotfiles/.zshrc"
-alias rzsh="source /home/leirbag/Documents/dotfiles/.zshrc"
-alias vcfg="vim /home/leirbag/Documents/dotfiles/.vimrc"
-alias tcfg="vim /home/leirbag/Documents/dotfiles/.tmux.conf"
+alias dotf="cd /home/macunaima/dotfiles"
+alias zcfg="vim /home/macunaima/dotfiles/.zshrc"
+alias rzsh="source /home/macunaima/dotfiles/.zshrc"
+alias vcfg="vim /home/macunaima/dotfiles/.vimrc"
+alias tcfg="vim /home/macunaima/dotfiles/.tmux.conf"
 alias p="python3"
 alias t="sudo tmux"
 alias c="cd"
@@ -189,7 +189,7 @@ alias mkc="take"
 alias idea="exec ~/Desktop/idea-IC-192.7142.36/bin/idea.sh"
 alias br="br -dp"
 
-source /home/leirbag/.config/broot/launcher/bash/br
+#source /home/leirbag/.config/broot/launcher/bash/br
 export PATH=$PATH:$HOME/anaconda/bin
 
 # >>> conda initialize >>>

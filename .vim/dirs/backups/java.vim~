@@ -1,3 +1,0 @@
-nmap ,t :call VimuxRunCommand("clear; cd " . expand("%:p:h") . " ; javac " . expand("%") . " ; java " . expand("%:r"))<CR> 
-let g:deoplete#enable_at_startup = 1
-

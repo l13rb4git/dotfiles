@@ -1,5 +1,0 @@
-all_results = []
-count = int(input())
-while count:
-    all_lists = []
-    lists_count = int(input())

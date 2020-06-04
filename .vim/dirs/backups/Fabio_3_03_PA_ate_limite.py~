@@ -1,8 +1,0 @@
-
-def gera_PA(i, r, l):
-	while i <= l:
-		print(i)
-		i += r
-
-
-main()

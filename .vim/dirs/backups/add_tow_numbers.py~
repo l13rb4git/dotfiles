@@ -1,8 +1,0 @@
-#! /usr/bin/env python3
-
-def main():
-    lista_01 = input()
-    print(type(lista_01))
-    print(lista_01)
-
-main()

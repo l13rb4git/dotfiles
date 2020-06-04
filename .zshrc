@@ -2,8 +2,10 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
 
+# Path to home
+source ~/dotfiles/.zsh_home
 # Path to your oh-my-zsh installation.
-export ZSH="/home/macunaima/.oh-my-zsh"
+export ZSH="$NEW_HOME/.oh-my-zsh"
 
 
 # History in cache directory:
@@ -173,11 +175,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias nv="exec ~/Downloads/nvim/nvim.appimage"
 alias v="vim"
-alias dotf="cd /home/macunaima/dotfiles"
-alias zcfg="vim /home/macunaima/dotfiles/.zshrc"
-alias rzsh="source /home/macunaima/dotfiles/.zshrc"
-alias vcfg="vim /home/macunaima/dotfiles/.vimrc"
-alias tcfg="vim /home/macunaima/dotfiles/.tmux.conf"
+alias dotf="cd ~/dotfiles"
+alias zcfg="vim ~/dotfiles/.zshrc"
+alias rzsh="source ~/dotfiles/.zshrc"
+alias vcfg="vim ~/dotfiles/.vimrc"
+alias tcfg="vim ~/dotfiles/.tmux.conf"
 alias p="python3"
 alias t="sudo tmux"
 alias c="cd"

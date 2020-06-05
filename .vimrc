@@ -645,7 +645,8 @@ call plug#end()
 " Window Chooser ------------------------------{{{
 
     " show big letters
-        let g:choosewin_overlay_enable = 1
+        let g:choosewin_overlay_enable = 0
+        let g:choosewin_statusline_replace = 0
 
 "}}}
 

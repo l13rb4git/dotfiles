@@ -13,11 +13,11 @@
 " Open .vimrc easily    {{{
 
         " I'm not using "command" because it need a upper case letter 
-        cabbrev vrc e /home/leirbag/Documents/dotfiles/.vimrc
+        cabbrev vrc e ~/dotfiles/.vimrc
         " Visual Split
-        cabbrev vvrc vsp /home/leirbag/Documents/dotfiles/.vimrc
+        cabbrev vvrc vsp ~/dotfiles/.vimrc
         " In a new tab
-        cabbrev tvrc tabnew /home/leirbag/Documents/dotfiles/.vimrc
+        cabbrev tvrc tabnew ~/dotfiles/.vimrc
 
 "}}}
 

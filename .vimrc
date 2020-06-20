@@ -431,7 +431,11 @@ call plug#end()
 
 " Fugitive   {{{
 
-        autocmd VimEnter * noremap <Leader>gc :Gco<CR>
+        noremap <Leader>gs :Gstatus<CR>
+        noremap <Leader>ga :Gwrite<CR>
+        noremap <Leader>gc :Gco<CR>
+        noremap <Leader>gl :Glog<CR>
+        noremap <Leader>gm :Gmerge<CR>
 
 "}}}
 

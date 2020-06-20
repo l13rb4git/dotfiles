@@ -186,6 +186,7 @@ alias c="cd"
 alias mkc="take"
 alias idea="exec ~/Desktop/idea-IC-192.7142.36/bin/idea.sh"
 alias br="br -dp"
+alias wp="bash ~/bin/wsl-open"
 
 #source /home/leirbag/.config/broot/launcher/bash/br
 export PATH=$PATH:$HOME/anaconda/bin
@@ -205,3 +206,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+[[ -e ~/bin ]] && PATH=$PATH:~/bin

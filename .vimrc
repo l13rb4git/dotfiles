@@ -63,6 +63,9 @@ call plug#begin('~/.vim/plugged')
 " Asynchronous Lint Engine
     Plug 'dense-analysis/ale'
 
+" Emmet
+    Plug 'mattn/emmet-vim'
+
 " Deoplete ------------------------------{{{
 
     if has('nvim')
@@ -130,9 +133,6 @@ call plug#begin('~/.vim/plugged')
 
  " Goyo - White RoomVim Room
     Plug 'junegunn/goyo.vim'
-
-" Zen coding
-    Plug 'mattn/emmet-vim'
 
 " Git integration
     Plug 'motemen/git-vim'

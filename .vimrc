@@ -135,7 +135,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim'
 
 " Git integration
-    Plug 'motemen/git-vim'
+    "Plug 'motemen/git-vim'
 
 " Tab list panel
     Plug 'kien/tabman.vim'

@@ -439,6 +439,13 @@ call plug#end()
 
 "}}}
 
+" Emmet   {{{
+
+        let g:user_emmet_mode='n' 
+        let g:user_emmet_leader_key=','
+
+"}}}
+
 " Nerd Commenter   {{{
 
         nmap <Leader>c gc

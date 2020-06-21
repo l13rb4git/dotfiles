@@ -550,22 +550,6 @@ call plug#end()
 
 "}}}
 
-" Jedi-vim ------------------------------{{{
-
-" All these mappings work only for python code:
-" Go to definition
-        let g:jedi#goto_command = ',d'
-" Find ocurrences
-        let g:jedi#usages_command = ',o'
-" Find assignments
-        let g:jedi#goto_assignments_command = ',a'
-" Go to definition in new tab
-        nmap ,D :tab split<CR>:call jedi#goto()<CR>
-" Remap goto documentation for using the Pymode option 
-        let g:jedi#documentation_command = "KK"
-
-"}}}
-
 " NeoComplCache ------------------------------{{{
 
 " most of them not documented because I'm not sure how they work

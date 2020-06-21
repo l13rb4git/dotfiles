@@ -442,7 +442,7 @@ call plug#end()
 " Emmet   {{{
 
         let g:user_emmet_mode='n' 
-        let g:user_emmet_leader_key=','
+        let g:user_emmet_leader_key=',e'
 
 "}}}
 
@@ -476,7 +476,7 @@ call plug#end()
 
 
 " file finder mapping
-        let g:ctrlp_map = ',e'
+        "let g:ctrlp_map = ',e'
 " tags (symbols) in current file finder mapping
         nmap ,g :CtrlPBufTag<CR>
 " tags (symbols) in all files finder mapping

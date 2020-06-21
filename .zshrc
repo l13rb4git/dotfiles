@@ -187,6 +187,10 @@ alias mkc="take"
 alias idea="exec ~/Desktop/idea-IC-192.7142.36/bin/idea.sh"
 alias br="br -dp"
 alias wp="bash ~/bin/wsl-open"
+# Create a python local http server
+alias pls="python3 -m http.server -b 192.168.0.106 8000"
+# Create and open the python server
+alias plso="pls && wp http://192.168.0.106:8000/"
 
 #source /home/leirbag/.config/broot/launcher/bash/br
 export PATH=$PATH:$HOME/anaconda/bin

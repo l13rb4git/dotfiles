@@ -63,6 +63,9 @@ call plug#begin('~/.vim/plugged')
 " Asynchronous Lint Engine
     Plug 'dense-analysis/ale'
 
+" Emmet
+    Plug 'mattn/emmet-vim'
+
 " Deoplete ------------------------------{{{
 
     if has('nvim')
@@ -131,11 +134,8 @@ call plug#begin('~/.vim/plugged')
  " Goyo - White RoomVim Room
     Plug 'junegunn/goyo.vim'
 
-" Zen coding
-    Plug 'mattn/emmet-vim'
-
 " Git integration
-    Plug 'motemen/git-vim'
+    "Plug 'motemen/git-vim'
 
 " Tab list panel
     Plug 'kien/tabman.vim'
@@ -431,7 +431,18 @@ call plug#end()
 
 " Fugitive   {{{
 
-        autocmd VimEnter * noremap <Leader>gc :Gco<CR>
+        noremap <Leader>gs :Gstatus<CR>
+        noremap <Leader>ga :Gwrite<CR>
+        noremap <Leader>gc :Gco<CR>
+        noremap <Leader>gl :Glog<CR>
+        noremap <Leader>gm :Gmerge<CR>
+
+"}}}
+
+" Emmet   {{{
+
+        let g:user_emmet_mode='nv' 
+        let g:user_emmet_leader_key=',e'
 
 "}}}
 
@@ -465,7 +476,7 @@ call plug#end()
 
 
 " file finder mapping
-        let g:ctrlp_map = ',e'
+        "let g:ctrlp_map = ',e'
 " tags (symbols) in current file finder mapping
         nmap ,g :CtrlPBufTag<CR>
 " tags (symbols) in all files finder mapping
@@ -536,22 +547,6 @@ call plug#end()
         let g:syntastic_warning_symbol = '⚠'
         let g:syntastic_style_error_symbol = '✗'
         let g:syntastic_style_warning_symbol = '⚠'
-
-"}}}
-
-" Jedi-vim ------------------------------{{{
-
-" All these mappings work only for python code:
-" Go to definition
-        let g:jedi#goto_command = ',d'
-" Find ocurrences
-        let g:jedi#usages_command = ',o'
-" Find assignments
-        let g:jedi#goto_assignments_command = ',a'
-" Go to definition in new tab
-        nmap ,D :tab split<CR>:call jedi#goto()<CR>
-" Remap goto documentation for using the Pymode option 
-        let g:jedi#documentation_command = "KK"
 
 "}}}
 
@@ -825,6 +820,24 @@ call plug#end()
         :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
         :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
         :augroup END
+
+"}}}
+
+" Zoom / Restore window.   {{{
+
+        function! s:ZoomToggle() abort
+            if exists('t:zoomed') && t:zoomed
+                execute t:zoom_winrestcmd
+                let t:zoomed = 0
+            else
+                let t:zoom_winrestcmd = winrestcmd()
+                resize
+                vertical resize
+                let t:zoomed = 1
+            endif
+        endfunction
+        command! ZoomToggle call s:ZoomToggle()
+        nnoremap <silent> ,zz :ZoomToggle<CR>
 
 "}}}
 

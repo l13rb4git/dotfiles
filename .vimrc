@@ -365,7 +365,7 @@ call plug#end()
         function YankToBuffer()
             let currentdir = getcwd()
             cd ~/.vim/
-            call writefile(split(@@, "\n", 1), '.vimbuffer')
+            call writefile(split(@@, "\n"), '.vimbuffer')
             exe 'cd' currentdir
         endfunction
 

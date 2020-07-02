@@ -877,7 +877,12 @@ call plug#end()
             wincmd o
           else
             let l:width = (&columns - &textwidth) / 2 - 5
-            execute 'topleft' l:width . 'vsplit +setlocal\ nobuflisted' l:name | wincmd p
+
+            execute 
+                \ 'topleft' l:width . 
+                \ 'vsplit +setlocal\ nobuflisted' l:name | 
+                \ wincmd p
+
             hi VertSplit guifg=bg guibg=NONE gui=NONE
             endif
         endfunction

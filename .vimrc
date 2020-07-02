@@ -249,7 +249,7 @@ call plug#end()
         set nocompatible
         set ignorecase
         set smartcase
-        set winwidth=90
+        "set winwidth=90
         set autochdir
         " Background   {{{
         " if (&term == "pcterm" || &term == "win32")         
@@ -865,6 +865,25 @@ call plug#end()
         endfunction
         command! ZoomToggle call s:ZoomToggle()
         nnoremap <silent> ,zz :ZoomToggle<CR>
+
+"}}}
+
+" WhiteRom  ------------------------------{{{
+
+        function! WriteRoomToggle()
+          let l:name = '_writeroom_'
+          set noequalalways
+          if bufwinnr(l:name) > 0
+            wincmd o
+          else
+            let l:width = (&columns - &textwidth) / 2 - 5
+            execute 'topleft' l:width . 'vsplit +setlocal\ nobuflisted' l:name | wincmd p
+            hi VertSplit guifg=bg guibg=NONE gui=NONE
+            endif
+        endfunction
+
+        " toggle writeroom on/off
+        map <silent><Leader>gg :call WriteRoomToggle()<CR>
 
 "}}}
 

@@ -357,9 +357,20 @@ call plug#end()
 
         " copy to buffer
         vmap ´ty :w! ~/.vim/.vimbuffer<CR>
+        " cut to buffer
+        vmap ´td :w! ~/.vim/.vimbuffer<CR> <Bar> :normal! gvdd<CR>
         " paste from buffer
         map ´tp :r ~/.vim/.vimbuffer<CR>
 
+        function YankToBuffer()
+            let currentdir = getcwd()
+            cd ~/.vim/
+            call writefile(split(@@, "\n", 1), '.vimbuffer')
+            exe 'cd' currentdir
+        endfunction
+
+        autocmd! TextYankPost * call YankToBuffer()
+            
 "}}}
 
 " Disable arrow keys   {{{

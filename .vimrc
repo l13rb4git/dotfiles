@@ -270,7 +270,7 @@ call plug#end()
         " Showcase comments in italics
         highlight Comment cterm=italic gui=italic
         " Not display a ~ for blank lines
-        highlight EndOfBuffer ctermfg=black ctermbg=black
+        autocmd VimEnter * highlight EndOfBuffer ctermfg=bg ctermbg=bg
 
         " always show status bar
         set ls=2
@@ -933,4 +933,4 @@ call plug#end()
 
 "}}}
 
-" vim: set foldmethod=marker
+" vim:foldmethod=marker

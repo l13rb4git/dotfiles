@@ -353,6 +353,15 @@ call plug#end()
 
 " Mappings   {{{
 
+" Copy and paste between different tmux panes   {{{
+
+        " copy to buffer
+        vmap ´ty :w! ~/.vim/.vimbuffer<CR>
+        " paste from buffer
+        map ´tp :r ~/.vim/.vimbuffer<CR>
+
+"}}}
+
 " Disable arrow keys   {{{
 
         no <down> ddp

@@ -269,6 +269,9 @@ call plug#end()
 "}}}
         " Showcase comments in italics
         highlight Comment cterm=italic gui=italic
+        " Not display a ~ for blank lines
+        highlight EndOfBuffer ctermfg=black ctermbg=black
+
         " always show status bar
         set ls=2
         " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.

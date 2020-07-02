@@ -679,6 +679,13 @@ call plug#end()
 
 "}}}
 
+" Jedi ------------------------------{{{
+
+" Jedi completion is too slow
+        let g:jedi#completions_enabled = 0
+
+"}}}
+
 " Pymode ------------------------------{{{
 
         let g:pymode_run = 1

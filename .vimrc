@@ -366,15 +366,6 @@ call plug#end()
         " paste from buffer
         map ´tp :r ~/.vim/.vimbuffer<CR>
 
-        function YankToBuffer()
-            let currentdir = getcwd()
-            cd ~/.vim/
-            call writefile(split(@@, "\n"), '.vimbuffer')
-            exe 'cd' currentdir
-        endfunction
-
-        autocmd! TextYankPost * call YankToBuffer()
-            
 "}}}
 
 " Disable arrow keys   {{{
@@ -852,6 +843,20 @@ call plug#end()
         :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
         :augroup END
 
+"}}}
+
+
+" Yanktobuffer   {{{
+
+        function YankToBuffer()
+            let currentdir = getcwd()
+            cd ~/.vim/
+            call writefile(split(@@, "\n"), '.vimbuffer')
+            exe 'cd' currentdir
+        endfunction
+
+        autocmd! TextYankPost * call YankToBuffer()
+            
 "}}}
 
 " Zoom / Restore window.   {{{

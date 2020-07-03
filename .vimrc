@@ -54,6 +54,17 @@ call plug#begin('~/.vim/plugged')
 " Navigate between tmux's panes
     Plug 'christoomey/vim-tmux-navigator'
 
+" FZF
+    Plug '~/.fzf'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+
+" Vim Rooter
+    Plug 'airblade/vim-rooter'
+
+" Vim Grepper
+    Plug 'mhinz/vim-grepper'
+
 " Folding
     Plug 'pseewald/vim-anyfold'
 
@@ -593,6 +604,46 @@ call plug#end()
 
         " Fix to let ESC work as espected with Autoclose plugin
         let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+
+"}}}
+
+" FZF ------------------------------{{{
+
+        let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline --bind ctrl-a:select-all'
+        let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+
+        "Customize fzf colors to match your color scheme
+        let g:fzf_colors =
+        \ { 'fg':      ['fg', 'Normal'],
+          \ 'bg':      ['bg', 'Normal'],
+          \ 'hl':      ['fg', 'Comment'],
+          \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+          \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+          \ 'hl+':     ['fg', 'Statement'],
+          \ 'info':    ['fg', 'PreProc'],
+          \ 'border':  ['fg', 'Ignore'],
+          \ 'prompt':  ['fg', 'Conditional'],
+          \ 'pointer': ['fg', 'Exception'],
+          \ 'marker':  ['fg', 'Keyword'],
+          \ 'spinner': ['fg', 'Label'],
+          \ 'header':  ['fg', 'Comment'] }
+
+        let g:fzf_action = {
+          \ 'ctrl-t': 'tab split',
+          \ 'ctrl-x': 'split',
+          \ 'ctrl-v': 'vsplit',
+          \ 'ctrl-y': {lines -> setreg('*', join(lines, "\n"))}}
+
+        " Get Files
+        command! -bang -nargs=? -complete=dir Files
+            \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+
+        " Get text in files with Rg
+        command! -bang -nargs=* Rg
+          \ call fzf#vim#grep(
+          \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+          \   fzf#vim#with_preview(), <bang>0)
 
 "}}}
 

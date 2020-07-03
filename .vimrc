@@ -246,6 +246,7 @@ call plug#end()
         set listchars+=precedes:←      " Show arrow if line continues leftwards
         set laststatus=2               " Always display the status line
         set ruler                      " show the cursor position all the time
+        set number
         set nocompatible
         set ignorecase
         set smartcase
@@ -844,7 +845,6 @@ call plug#end()
         :augroup END
 
 "}}}
-
 
 " Yanktobuffer   {{{
 

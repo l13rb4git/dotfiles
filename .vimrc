@@ -303,6 +303,7 @@ call plug#end()
         set undofile                      " persistent undos - undo after you re-open the file
         set undodir=~/.vim/dirs/undos
         set viminfo+=n~/.vim/dirs/viminfo
+        set noswapfile
 
 "}}}
         " Create needed directories if they don't exist   {{{

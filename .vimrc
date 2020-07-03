@@ -624,6 +624,8 @@ call plug#end()
         let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline --bind ctrl-a:select-all'
         let $FZF_DEFAULT_COMMAND="rg --files --hidden"
 
+        let g:fzf_buffers_jump = 1
+
         "Customize fzf colors to match your color scheme
         let g:fzf_colors =
         \ { 'fg':      ['fg', 'Normal'],

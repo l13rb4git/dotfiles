@@ -461,7 +461,6 @@ call plug#end()
         noremap <Leader>gs :Gstatus<CR>
         noremap <Leader>ga :Gwrite<CR>
         noremap <Leader>gc :Gco<CR>
-        noremap <Leader>gl :Glog<CR>
         noremap <Leader>gm :Gmerge<CR>
 
 "}}}
@@ -496,6 +495,19 @@ call plug#end()
 " show pending tasks list   {{{
 
         map <F2> :TaskList<CR>
+
+"}}}
+
+" FZF ------------------------------{{{
+
+        map <Leader>ff :Files<CR>
+        map <leader>fw :Windows<CR>
+        map <Leader>fl :Lines<CR>
+        map <Leader>fbl :BLines<CR>
+        map <Leader>fs :Snippets<CR>
+        nnoremap <leader>fg :Rg<CR>
+
+        noremap <Leader>gl :Commits<CR>
 
 "}}}
 

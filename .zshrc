@@ -7,6 +7,7 @@ source ~/dotfiles/.zsh_home
 # Path to your oh-my-zsh installation.
 export ZSH="$NEW_HOME/.oh-my-zsh"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # History in cache directory:
 HISTSIZE=100

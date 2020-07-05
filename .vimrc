@@ -332,24 +332,6 @@ call plug#end()
 
 "}}}
 
-" Keep the cursor centered vertically on the screen   {{{
-
-        let s:is_centered = 0
-
-        function! VCenterCursor()
-            if s:is_centered
-                unmap j
-                unmap k
-                let s:is_centered = 0
-            else
-                nnoremap j jzz
-                nnoremap k kzz
-                let s:is_centered = 1
-            endif
-        endfunction
-
-"}}}
-
 "}}}
 
 " Tab and spaces   {{{
@@ -918,6 +900,24 @@ call plug#end()
 
         autocmd! TextYankPost * call YankToBuffer()
             
+"}}}
+
+" Keep the cursor centered vertically on the screen   {{{
+
+        let s:is_centered = 0
+
+        function! VCenterCursor()
+            if s:is_centered
+                unmap j
+                unmap k
+                let s:is_centered = 0
+            else
+                nnoremap j jzz
+                nnoremap k kzz
+                let s:is_centered = 1
+            endif
+        endfunction
+
 "}}}
 
 " Zoom / Restore window.   {{{

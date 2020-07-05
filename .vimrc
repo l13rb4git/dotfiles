@@ -382,8 +382,8 @@ call plug#end()
 
 " Disable arrow keys   {{{
 
-        no <down> ddp
-        no <up> ddkkp
+        no <up> <Nop>
+        no <down> <Nop>
         no <left> <Nop>
         no <right> <Nop>
 

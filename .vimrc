@@ -661,6 +661,12 @@ call plug#end()
 
 "}}}
 
+" Rooter  ------------------------------{{{
+
+        let g:rooter_manual_only = 1
+
+"}}}
+
 " Goyo  ------------------------------{{{
 
         let g:goyo_width = 100

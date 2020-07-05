@@ -421,8 +421,6 @@ call plug#end()
         inoremap <leader>q <ESC>:q<CR>
         nnoremap <leader>q :q<CR>
 
-        nnoremap <leader>v :vnew<CR>:NERDTreeToggle<CR>
-
         nmap ,n :bn<CR>
         nmap ,p :bp<CR>
 

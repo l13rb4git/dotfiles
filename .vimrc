@@ -433,7 +433,7 @@ call plug#end()
 
 "}}}
 
-" Keep the curso on the center of the screen   {{{
+" Keep the cursor on the center of the screen   {{{
 
         nnoremap <leader>zz :call VCenterCursor()<CR>
 
@@ -907,7 +907,7 @@ call plug#end()
 
 "}}}
 
-" Yanktobuffer   {{{
+" YankToBuffer   {{{
 
         function YankToBuffer()
             let currentdir = getcwd()

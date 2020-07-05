@@ -428,14 +428,6 @@ call plug#end()
 
 "}}}
 
-" Tab navigation mappings   {{{
-
-        map <Leader>tn :tabn<CR>
-        map <Leader>tp :tabp<CR>
-        map <Leader>ts :tab split<CR>
-
-"}}}
-
 " Resize splits more quickly   {{{
 
         nmap <C-S-Right> <C-w>>

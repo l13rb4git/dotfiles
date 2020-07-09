@@ -446,8 +446,8 @@ call plug#end()
 
 " Nerd Commenter   {{{
 
-        nmap <Leader>c gc
-        nmap <Leader>c<Leader> gcc
+        "nmap <Leader>c <plug>NERDCommenterCommen 
+        "nmap <Leader>c<Leader> gcc
 
 "}}}
 

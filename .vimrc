@@ -309,6 +309,8 @@ call plug#end()
         " allow plugins by file type (required for plugins!)
         filetype plugin on
         filetype indent on
+        
+        autocmd FileType sql colorscheme monokai-phoenix setlocal tw=110
 
         " Better backup, swap and undos storage   {{{
 

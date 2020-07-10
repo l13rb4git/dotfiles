@@ -310,9 +310,8 @@ call plug#end()
         filetype plugin on
         filetype indent on
         
-        autocmd FileType sql colorscheme monokai-phoenix setlocal tw=110
-
-        " Better backup, swap and undos storage   {{{
+        autocmd FileType sql colorscheme monokai-phoenix
+        autocmd FileType sql setlocal tw=110
 
         set directory=~/.vim/dirs/tmp     " directory to place swap files in
         set backup                        " make backup files

@@ -74,6 +74,9 @@ call plug#begin('~/.vim/plugged')
 " Asynchronous Lint Engine
     Plug 'dense-analysis/ale'
 
+" SQL Syntax
+    Plug 'shmup/vim-sql-syntax'
+
 " Emmet
     Plug 'mattn/emmet-vim'
 

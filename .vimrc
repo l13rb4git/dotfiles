@@ -54,6 +54,17 @@ call plug#begin('~/.vim/plugged')
 " Navigate between tmux's panes
     Plug 'christoomey/vim-tmux-navigator'
 
+" FZF
+    Plug '~/.fzf'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+
+" Vim Rooter
+    Plug 'airblade/vim-rooter'
+
+" Vim Grepper
+    Plug 'mhinz/vim-grepper'
+
 " Folding
     Plug 'pseewald/vim-anyfold'
 
@@ -62,6 +73,9 @@ call plug#begin('~/.vim/plugged')
 
 " Asynchronous Lint Engine
     Plug 'dense-analysis/ale'
+
+" SQL Syntax
+    Plug 'shmup/vim-sql-syntax'
 
 " Emmet
     Plug 'mattn/emmet-vim'
@@ -246,10 +260,11 @@ call plug#end()
         set listchars+=precedes:←      " Show arrow if line continues leftwards
         set laststatus=2               " Always display the status line
         set ruler                      " show the cursor position all the time
+        set number
         set nocompatible
         set ignorecase
         set smartcase
-        set winwidth=90
+        "set winwidth=90
         set autochdir
         " Background   {{{
         " if (&term == "pcterm" || &term == "win32")         
@@ -269,6 +284,9 @@ call plug#end()
 "}}}
         " Showcase comments in italics
         highlight Comment cterm=italic gui=italic
+        " Not display a ~ for blank lines
+        autocmd VimEnter * highlight EndOfBuffer ctermfg=bg ctermbg=bg
+
         " always show status bar
         set ls=2
         " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
@@ -291,6 +309,8 @@ call plug#end()
         " allow plugins by file type (required for plugins!)
         filetype plugin on
         filetype indent on
+        
+        autocmd FileType sql colorscheme monokai-phoenix setlocal tw=110
 
         " Better backup, swap and undos storage   {{{
 
@@ -300,6 +320,7 @@ call plug#end()
         set undofile                      " persistent undos - undo after you re-open the file
         set undodir=~/.vim/dirs/undos
         set viminfo+=n~/.vim/dirs/viminfo
+        set noswapfile
 
 "}}}
         " Create needed directories if they don't exist   {{{
@@ -313,24 +334,6 @@ call plug#end()
         if !isdirectory(&undodir)
             call mkdir(&undodir, "p")
         endif
-
-"}}}
-
-" Keep the cursor centered vertically on the screen   {{{
-
-        let s:is_centered = 0
-
-        function! VCenterCursor()
-            if s:is_centered
-                unmap j
-                unmap k
-                let s:is_centered = 0
-            else
-                nnoremap j jzz
-                nnoremap k kzz
-                let s:is_centered = 1
-            endif
-        endfunction
 
 "}}}
 
@@ -353,10 +356,21 @@ call plug#end()
 
 " Mappings   {{{
 
+" Copy and paste between different tmux panes   {{{
+
+        " copy to buffer
+        vmap ´ty :w! ~/.vim/.vimbuffer<CR>
+        " cut to buffer
+        vmap ´td :w! ~/.vim/.vimbuffer<CR> <Bar> :normal! gvdd<CR>
+        " paste from buffer
+        map ´tp :r ~/.vim/.vimbuffer<CR>
+
+"}}}
+
 " Disable arrow keys   {{{
 
-        no <down> ddp
-        no <up> ddkkp
+        no <up> <Nop>
+        no <down> <Nop>
         no <left> <Nop>
         no <right> <Nop>
 
@@ -394,18 +408,8 @@ call plug#end()
         inoremap <leader>q <ESC>:q<CR>
         nnoremap <leader>q :q<CR>
 
-        nnoremap <leader>v :vnew<CR>:NERDTreeToggle<CR>
-
         nmap ,n :bn<CR>
         nmap ,p :bp<CR>
-
-"}}}
-
-" Tab navigation mappings   {{{
-
-        map <Leader>tn :tabn<CR>
-        map <Leader>tp :tabp<CR>
-        map <Leader>ts :tab split<CR>
 
 "}}}
 
@@ -416,7 +420,7 @@ call plug#end()
 
 "}}}
 
-" Keep the curso on the center of the screen   {{{
+" Keep the cursor on the center of the screen   {{{
 
         nnoremap <leader>zz :call VCenterCursor()<CR>
 
@@ -434,7 +438,6 @@ call plug#end()
         noremap <Leader>gs :Gstatus<CR>
         noremap <Leader>ga :Gwrite<CR>
         noremap <Leader>gc :Gco<CR>
-        noremap <Leader>gl :Glog<CR>
         noremap <Leader>gm :Gmerge<CR>
 
 "}}}
@@ -448,8 +451,8 @@ call plug#end()
 
 " Nerd Commenter   {{{
 
-        nmap <Leader>c gc
-        nmap <Leader>c<Leader> gcc
+        "nmap <Leader>c <plug>NERDCommenterCommen 
+        "nmap <Leader>c<Leader> gcc
 
 "}}}
 
@@ -472,41 +475,54 @@ call plug#end()
 
 "}}}
 
+" FZF ------------------------------{{{
+
+        map <Leader>ff :Files<CR>
+        map <leader>fw :Windows<CR>
+        map <Leader>fl :Lines<CR>
+        map <Leader>fbl :BLines<CR>
+        map <Leader>fs :Snippets<CR>
+        nnoremap <leader>fg :Rg<CR>
+
+        noremap <Leader>gl :Commits<CR>
+
+"}}}
+
 " CtrlP   {{{
 
 
 " file finder mapping
         "let g:ctrlp_map = ',e'
-" tags (symbols) in current file finder mapping
-        nmap ,g :CtrlPBufTag<CR>
-" tags (symbols) in all files finder mapping
-        nmap ,G :CtrlPBufTagAll<CR>
-" general code finder in all files mapping
-        nmap ,f :CtrlPLine<CR>
-" recent files finder mapping
-        nmap ,m :CtrlPMRUFiles<CR>
-" commands finder mapping
-        nmap ,c :CtrlPCmdPalette<CR>
-" to be able to call CtrlP with default search text
-        function! CtrlPWithSearchText(search_text, ctrlp_command_end)
-            execute ':CtrlP' . a:ctrlp_command_end
-            call feedkeys(a:search_text)
-        endfunction
-" same as previous mappings, but calling with current word as default text
-        nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
-        nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
-        nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
-        nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
-        nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
-        nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
-        nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
-" don't change working directory
-        let g:ctrlp_working_path_mode = 0
-" ignore these files and folders on file finder
-        let g:ctrlp_custom_ignore = {
-          \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
-          \ 'file': '\.pyc$\|\.pyo$',
-          \ }
+" " tags (symbols) in current file finder mapping
+"         nmap ,g :CtrlPBufTag<CR>
+" " tags (symbols) in all files finder mapping
+"         nmap ,G :CtrlPBufTagAll<CR>
+" " general code finder in all files mapping
+"         nmap ,f :CtrlPLine<CR>
+" " recent files finder mapping
+"         nmap ,m :CtrlPMRUFiles<CR>
+" " commands finder mapping
+"         nmap ,c :CtrlPCmdPalette<CR>
+" " to be able to call CtrlP with default search text
+"         function! CtrlPWithSearchText(search_text, ctrlp_command_end)
+"             execute ':CtrlP' . a:ctrlp_command_end
+"             call feedkeys(a:search_text)
+"         endfunction
+" " same as previous mappings, but calling with current word as default text
+"         nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
+"         nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
+"         nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
+"         nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
+"         nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
+"         nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
+"         nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
+" " don't change working directory
+"         let g:ctrlp_working_path_mode = 0
+" " ignore these files and folders on file finder
+"         let g:ctrlp_custom_ignore = {
+"           \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
+"           \ 'file': '\.pyc$\|\.pyo$',
+"           \ }
 
 "}}}
 
@@ -577,6 +593,54 @@ call plug#end()
 
         " Fix to let ESC work as espected with Autoclose plugin
         let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+
+"}}}
+
+" FZF ------------------------------{{{
+
+        let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline --bind ctrl-a:select-all'
+        let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+
+        let g:fzf_buffers_jump = 1
+
+        "Customize fzf colors to match your color scheme
+        let g:fzf_colors =
+        \ { 'fg':      ['fg', 'Normal'],
+          \ 'bg':      ['bg', 'Normal'],
+          \ 'hl':      ['fg', 'Comment'],
+          \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+          \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+          \ 'hl+':     ['fg', 'Statement'],
+          \ 'info':    ['fg', 'PreProc'],
+          \ 'border':  ['fg', 'Ignore'],
+          \ 'prompt':  ['fg', 'Conditional'],
+          \ 'pointer': ['fg', 'Exception'],
+          \ 'marker':  ['fg', 'Keyword'],
+          \ 'spinner': ['fg', 'Label'],
+          \ 'header':  ['fg', 'Comment'] }
+
+        let g:fzf_action = {
+          \ 'ctrl-t': 'tab split',
+          \ 'ctrl-x': 'split',
+          \ 'ctrl-v': 'vsplit',
+          \ 'ctrl-y': {lines -> setreg('*', join(lines, "\n"))}}
+
+        " Get Files
+        command! -bang -nargs=? -complete=dir Files
+            \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+
+        " Get text in files with Rg
+        command! -bang -nargs=* Rg
+          \ call fzf#vim#grep(
+          \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+          \   fzf#vim#with_preview(), <bang>0)
+
+"}}}
+
+" Rooter  ------------------------------{{{
+
+        let g:rooter_manual_only = 1
 
 "}}}
 
@@ -676,6 +740,13 @@ call plug#end()
 
 "}}}
 "}}}
+
+"}}}
+
+" Jedi ------------------------------{{{
+
+" Jedi completion is too slow
+        let g:jedi#completions_enabled = 0
 
 "}}}
 
@@ -823,6 +894,37 @@ call plug#end()
 
 "}}}
 
+" YankToBuffer   {{{
+
+        function YankToBuffer()
+            let currentdir = getcwd()
+            cd ~/.vim/
+            call writefile(split(@@, "\n"), '.vimbuffer')
+            exe 'cd' currentdir
+        endfunction
+
+        autocmd! TextYankPost * call YankToBuffer()
+            
+"}}}
+
+" Keep the cursor centered vertically on the screen   {{{
+
+        let s:is_centered = 0
+
+        function! VCenterCursor()
+            if s:is_centered
+                unmap j
+                unmap k
+                let s:is_centered = 0
+            else
+                nnoremap j jzz
+                nnoremap k kzz
+                let s:is_centered = 1
+            endif
+        endfunction
+
+"}}}
+
 " Zoom / Restore window.   {{{
 
         function! s:ZoomToggle() abort
@@ -838,6 +940,30 @@ call plug#end()
         endfunction
         command! ZoomToggle call s:ZoomToggle()
         nnoremap <silent> ,zz :ZoomToggle<CR>
+
+"}}}
+
+" WhiteRom  ------------------------------{{{
+
+        function! WriteRoomToggle()
+          let l:name = '_writeroom_'
+          set noequalalways
+          if bufwinnr(l:name) > 0
+            wincmd o
+          else
+            let l:width = (&columns - &textwidth) / 2 - 5
+
+            execute 
+                \ 'topleft' l:width . 
+                \ 'vsplit +setlocal\ nobuflisted' l:name | 
+                \ wincmd p
+
+            hi VertSplit guifg=bg guibg=NONE gui=NONE
+            endif
+        endfunction
+
+        " toggle writeroom on/off
+        map <silent><Leader>gg :call WriteRoomToggle()<CR>
 
 "}}}
 
@@ -879,4 +1005,4 @@ call plug#end()
 
 "}}}
 
-" vim: set foldmethod=marker
+" vim:foldmethod=marker

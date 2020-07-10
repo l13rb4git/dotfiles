@@ -210,11 +210,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-<<<<<<< HEAD
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default
 fi
 
-=======
 [[ -e ~/bin ]] && PATH=$PATH:~/bin
->>>>>>> 761b6ffa32506c6151ee35351affb755ed7d03b1

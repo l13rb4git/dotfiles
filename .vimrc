@@ -68,6 +68,9 @@ call plug#begin('~/.vim/plugged')
 " Folding
     Plug 'pseewald/vim-anyfold'
 
+" CSV
+    Plug 'chrisbra/csv.vim'
+
 " Synsc bottom bar of vim and tmux
     Plug 'edkolev/tmuxline.vim'
 
@@ -99,6 +102,9 @@ call plug#begin('~/.vim/plugged')
 
 " Asynchronous completion for C and C++ 
     Plug 'zchee/deoplete-clang'
+
+" VimRubySupport
+    Plug 'vim-ruby/vim-ruby'
 
 " Java-completion
     " Plug 'artur-shaik/vim-javacomplete2'
@@ -307,6 +313,7 @@ call plug#end()
         syntax on
 
         " allow plugins by file type (required for plugins!)
+        filetype on
         filetype plugin on
         filetype indent on
         

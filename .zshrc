@@ -194,6 +194,12 @@ alias pls="python3 -m http.server -b 192.168.0.106 8000"
 # Create and open the python server
 alias plso="pls && wp http://192.168.0.106:8000/"
 
+# Rails aliases
+alias r="rails"
+alias rs="rails s"
+alias rdbc="rails db:create"
+alias rdbm="rails db:migrate"
+
 #source /home/leirbag/.config/broot/launcher/bash/br
 export PATH=$PATH:$HOME/anaconda/bin
 
@@ -217,3 +223,6 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 fi
 
 [[ -e ~/bin ]] && PATH=$PATH:~/bin
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion ] ]

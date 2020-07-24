@@ -200,6 +200,9 @@ call plug#begin('~/.vim/plugged')
 " Indentation based movements
     Plug 'jeetsukumaran/vim-indentwise'
 
+" vim-easy-align
+    Plug 'junegunn/vim-easy-align'
+
 " Python autocompletion, go to definition.
     Plug 'davidhalter/jedi-vim'
 
@@ -537,6 +540,16 @@ call plug#end()
     " mappings to jump to changed blocks
         nmap <leader>sn <plug>(signify-next-hunk)
         nmap <leader>sp <plug>(signify-prev-hunk)
+
+"}}}
+
+" Easy Align   {{{
+
+    " Start interactive EasyAlign in visual mode (e.g. vipga)
+    xmap ga <Plug>(EasyAlign)
+
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    nmap ga <Plug>(EasyAlign)
 
 "}}}
 

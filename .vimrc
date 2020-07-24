@@ -487,6 +487,7 @@ call plug#end()
 " FZF ------------------------------{{{
 
         map <Leader>ff :Files<CR>
+        map <Leader>fg :GFiles<CR>
         map <leader>fw :Windows<CR>
         map <Leader>fl :Lines<CR>
         map <Leader>fbl :BLines<CR>
@@ -618,7 +619,7 @@ call plug#end()
 " FZF ------------------------------{{{
 
         let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline --bind ctrl-a:select-all'
-        let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+        "let $FZF_DEFAULT_COMMAND="rg --files --hidden"
 
         let g:fzf_buffers_jump = 1
 

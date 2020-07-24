@@ -492,7 +492,7 @@ call plug#end()
         map <Leader>fl :Lines<CR>
         map <Leader>fbl :BLines<CR>
         map <Leader>fs :Snippets<CR>
-        nnoremap <leader>fg :Rg<CR>
+        "nnoremap <leader>fg :Rg<CR>
 
         noremap <Leader>gl :Commits<CR>
 

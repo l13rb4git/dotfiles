@@ -489,6 +489,8 @@ call plug#end()
         map <Leader>ff :Files<CR>
         map <Leader>fg :GFiles<CR>
         map <leader>fw :Windows<CR>
+        map <leader>fbb :Buffers<CR>
+
         map <Leader>fl :Lines<CR>
         map <Leader>fbl :BLines<CR>
         map <Leader>fs :Snippets<CR>

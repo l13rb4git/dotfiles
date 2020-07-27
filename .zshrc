@@ -194,6 +194,12 @@ alias pls="python3 -m http.server -b 192.168.0.106 8000"
 # Create and open the python server
 alias plso="pls && wp http://192.168.0.106:8000/"
 
+# Rails aliases
+alias r="rails"
+alias rs="rails s"
+alias rdbc="rails db:create"
+alias rdbm="rails db:migrate"
+
 #source /home/leirbag/.config/broot/launcher/bash/br
 export PATH=$PATH:$HOME/anaconda/bin
 

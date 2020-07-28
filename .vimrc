@@ -74,6 +74,9 @@ call plug#begin('~/.vim/plugged')
 " Synsc bottom bar of vim and tmux
     Plug 'edkolev/tmuxline.vim'
 
+" Vim-Smile
+    Plug 'jpalardy/vim-slime'
+
 " Asynchronous Lint Engine
     Plug 'dense-analysis/ale'
 
@@ -657,6 +660,14 @@ call plug#end()
           \ call fzf#vim#grep(
           \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
           \   fzf#vim#with_preview(), <bang>0)
+
+"}}}
+
+" Smile  ------------------------------{{{
+
+        let g:slime_target = "tmux"
+        let g:slime_paste_file = "$HOME/.slime_paste"
+        let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
 
 "}}}
 

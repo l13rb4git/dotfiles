@@ -177,7 +177,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'rosenfeld/conque-term'
 
 " Pending tasks list
-    Plug 'fisadev/FixedTaskList.vim'
+    "Plug 'fisadev/FixedTaskList.vim'
 
 " Vim Repeat
     Plug 'tpope/vim-repeat'
@@ -483,7 +483,7 @@ call plug#end()
 
 " show pending tasks list   {{{
 
-        map <F2> :TaskList<CR>
+        "map <F2> :TaskList<CR>
 
 "}}}
 

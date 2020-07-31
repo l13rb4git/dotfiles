@@ -195,6 +195,7 @@ alias pls="python3 -m http.server -b 192.168.0.106 8000"
 alias plso="pls && wp http://192.168.0.106:8000/"
 
 # Rails aliases
+alias rtemp="vim ~/codes/learn/ruby/temp.rb"
 alias r="rails"
 alias rs="rails s"
 alias rdbc="rails db:create"

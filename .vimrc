@@ -334,7 +334,6 @@ call plug#end()
         set viminfo+=n~/.vim/dirs/viminfo
         set noswapfile
 
-"}}}
         " Create needed directories if they don't exist   {{{
 
         if !isdirectory(&backupdir)

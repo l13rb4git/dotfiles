@@ -989,7 +989,7 @@ call plug#end()
           if bufwinnr(l:name) > 0
             wincmd o
           else
-            let l:width = (&columns - &textwidth) / 2 - 5
+            let l:width = (&columns - &textwidth) / 3
 
             execute 
                 \ 'topleft' l:width . 

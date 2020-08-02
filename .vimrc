@@ -930,6 +930,12 @@ call plug#end()
         :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
         :augroup END
 
+        augroup cmdline_numbertoggle
+            au!
+            au CmdlineLeave : setlocal relativenumber
+            au CmdlineEnter : setlocal norelativenumber | redraw
+        augroup END
+
 "}}}
 
 " YankToBuffer   {{{

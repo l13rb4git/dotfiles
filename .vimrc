@@ -926,15 +926,18 @@ call plug#end()
 
         :augroup numbertoggle
         :  autocmd!
-        :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+        :  autocmd BufEnter,FocusGained,InsertLeave,CmdlineLeave * set relativenumber
         :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
         :augroup END
 
-        augroup cmdline_numbertoggle
-            au!
-            au CmdlineLeave : setlocal relativenumber
-            au CmdlineEnter : setlocal norelativenumber | redraw
-        augroup END
+        nnoremap : :set norelativenumber <Bar> redraw <CR>:
+
+        " Makes the Yanktobuffer function redraw the line number often
+        "augroup cmdline_numbertoggle
+            "au!
+            "au CmdlineLeave : setlocal relativenumber
+            "au CmdlineEnter : setlocal norelativenumber | redraw
+        "augroup END
 
 "}}}
 
@@ -942,9 +945,9 @@ call plug#end()
 
         function YankToBuffer()
             let currentdir = getcwd()
-            cd ~/.vim/
+            silent cd ~/.vim/
             call writefile(split(@@, "\n"), '.vimbuffer')
-            exe 'cd' currentdir
+            silent exe 'cd' currentdir
         endfunction
 
         autocmd! TextYankPost * call YankToBuffer()

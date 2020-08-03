@@ -870,8 +870,15 @@ call plug#end()
 
 " toggle nerdtree display
         map <leader>n :NERDTreeToggle<CR>
-        autocmd BufWritePost * NERDTreeRefreshRoot
+
+        let g:NERDTreeWinPos = "right"
+        let NERDTreeQuitOnOpen = 1
+        let NERDTreeShowHidden = 1
+        let g:NERDTreeWinSize = 60
+        let g:NERDTreeChDirMode = 2
         let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+
+        autocmd BufWritePost * NERDTreeRefreshRoot
 
  " Disable numbers in the pane
         autocmd FileType nerdtree set norelativenumber

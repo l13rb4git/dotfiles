@@ -930,7 +930,7 @@ call plug#end()
         :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
         :augroup END
 
-        nnoremap : :set norelativenumber <Bar> redraw <CR>:
+        "nnoremap : :set norelativenumber <Bar> redraw <CR>:
 
         " Makes the Yanktobuffer function redraw the line number often
         "augroup cmdline_numbertoggle

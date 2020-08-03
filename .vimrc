@@ -334,7 +334,6 @@ call plug#end()
         set viminfo+=n~/.vim/dirs/viminfo
         set noswapfile
 
-"}}}
         " Create needed directories if they don't exist   {{{
 
         if !isdirectory(&backupdir)
@@ -927,9 +926,18 @@ call plug#end()
 
         :augroup numbertoggle
         :  autocmd!
-        :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+        :  autocmd BufEnter,FocusGained,InsertLeave,CmdlineLeave * set relativenumber
         :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
         :augroup END
+
+        nnoremap : :set norelativenumber <Bar> redraw <CR>:
+
+        " Makes the Yanktobuffer function redraw the line number often
+        "augroup cmdline_numbertoggle
+            "au!
+            "au CmdlineLeave : setlocal relativenumber
+            "au CmdlineEnter : setlocal norelativenumber | redraw
+        "augroup END
 
 "}}}
 
@@ -937,9 +945,9 @@ call plug#end()
 
         function YankToBuffer()
             let currentdir = getcwd()
-            cd ~/.vim/
+            silent cd ~/.vim/
             call writefile(split(@@, "\n"), '.vimbuffer')
-            exe 'cd' currentdir
+            silent exe 'cd' currentdir
         endfunction
 
         autocmd! TextYankPost * call YankToBuffer()
@@ -990,7 +998,7 @@ call plug#end()
           if bufwinnr(l:name) > 0
             wincmd o
           else
-            let l:width = (&columns - &textwidth) / 2 - 5
+            let l:width = (&columns - &textwidth) / 3
 
             execute 
                 \ 'topleft' l:width . 

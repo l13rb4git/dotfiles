@@ -323,7 +323,7 @@ call plug#end()
         filetype plugin on
         filetype indent on
         
-        autocmd FileType sql colorscheme monokai-phoenix
+        "autocmd FileType sql colorscheme monokai-phoenix
         autocmd FileType sql setlocal tw=110
 
         set directory=~/.vim/dirs/tmp     " directory to place swap files in
@@ -930,7 +930,7 @@ call plug#end()
         :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
         :augroup END
 
-        nnoremap : :set norelativenumber <Bar> redraw <CR>:
+        "nnoremap : :set norelativenumber <Bar> redraw <CR>:
 
         " Makes the Yanktobuffer function redraw the line number often
         "augroup cmdline_numbertoggle
@@ -944,10 +944,10 @@ call plug#end()
 " YankToBuffer   {{{
 
         function YankToBuffer()
-            let currentdir = getcwd()
-            silent cd ~/.vim/
-            call writefile(split(@@, "\n"), '.vimbuffer')
-            silent exe 'cd' currentdir
+            "let currentdir = getcwd()
+            "silent cd ~/.vim/
+            "call writefile(split(@@, "\n"), '.vimbuffer')
+            "silent exe 'cd' currentdir
         endfunction
 
         autocmd! TextYankPost * call YankToBuffer()

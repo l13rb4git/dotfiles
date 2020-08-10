@@ -951,10 +951,10 @@ call plug#end()
 " YankToBuffer   {{{
 
         function YankToBuffer()
-            "let currentdir = getcwd()
-            "silent cd ~/.vim/
-            "call writefile(split(@@, "\n"), '.vimbuffer')
-            "silent exe 'cd' currentdir
+            let currentdir = getcwd()
+            silent cd ~/.vim/
+            call writefile(split(@@, "\n"), '.vimbuffer')
+            silent exe 'cd' currentdir
         endfunction
 
         autocmd! TextYankPost * call YankToBuffer()

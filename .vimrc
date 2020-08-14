@@ -254,6 +254,9 @@ endif
 " Gvim colorscheme
     Plug 'vim-scripts/Wombat'
 
+" Peekaboo
+    Plug 'junegunn/vim-peekaboo'
+
 " Yank history navigation
     Plug 'vim-scripts/YankRing.vim'
 
@@ -616,6 +619,13 @@ call plug#end()
 " complete with workds from any opened file
         let g:neocomplcache_same_filetype_lists = {}
         let g:neocomplcache_same_filetype_lists._ = '_'
+
+"}}}
+
+" Peekaboo ------------------------------{{{
+
+        let g:peekaboo_compact=1
+        let g:peekaboo_window="vert bo 70new"
 
 "}}}
 

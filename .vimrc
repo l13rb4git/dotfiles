@@ -258,7 +258,7 @@ endif
     Plug 'junegunn/vim-peekaboo'
 
 " Yank history navigation
-    Plug 'vim-scripts/YankRing.vim'
+    "Plug 'vim-scripts/YankRing.vim'
 
 call plug#end()
 

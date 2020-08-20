@@ -428,8 +428,8 @@ call plug#end()
         inoremap <leader>q <ESC>:q<CR>
         nnoremap <leader>q :q<CR>
 
-        nmap ,n :bn<CR>
-        nmap ,p :bp<CR>
+        nmap <Leader>bl :bn<CR>
+        nmap <Leader>bh :bp<CR>
 
 "}}}
 

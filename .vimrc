@@ -433,6 +433,13 @@ call plug#end()
 
 "}}}
 
+" Tabs   {{{
+
+        nmap <Leader>tl :tabnext<CR>
+        nmap <Leader>th :tabprevious<CR>
+
+"}}}
+
 " Resize splits more quickly   {{{
 
         nmap <C-S-Right> <C-w>>

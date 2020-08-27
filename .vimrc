@@ -228,6 +228,9 @@ call plug#begin('~/.vim/plugged')
 " Automatically sort python imports
     Plug 'fisadev/vim-isort'
 
+" Highlight yanked area
+    Plug 'machakann/vim-highlightedyank'
+
 " Drag visual blocks arround
     Plug 'fisadev/dragvisuals.vim'
 

@@ -611,6 +611,12 @@ call plug#end()
 
 " NeoComplCache ------------------------------{{{
 
+        let g:highlightedyank_highlight_duration = 500
+
+"}}}
+
+" NeoComplCache ------------------------------{{{
+
 " most of them not documented because I'm not sure how they work
 " (docs aren't good, had to do a lot of trial and error to make 
 " it play nice)

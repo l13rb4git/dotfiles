@@ -465,7 +465,7 @@ call plug#end()
 
 " Fugitive   {{{
 
-        noremap <Leader>gs :Gstatus<CR>
+        noremap <Leader>gs :vertical Gstatus<CR>
         noremap <Leader>ga :Gwrite<CR>
         noremap <Leader>gc :Gco<CR>
         noremap <Leader>gm :Gmerge<CR>

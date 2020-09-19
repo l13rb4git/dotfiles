@@ -412,7 +412,7 @@ call plug#end()
 
 " Moving to the end and the begin of line easily   {{{
 
-        map <Leader>h 0
+        map <Leader>h ^
         map <Leader>l $
 
 "}}}

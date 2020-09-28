@@ -118,6 +118,12 @@ call plug#begin('~/.vim/plugged')
 " lh-cpp
     " Plug 'LucHermitte/lh-cpp'
 
+" JavaScript bundle for vim, this bundle provides syntax highlighting and improved indentation.
+    Plug 'pangloss/vim-javascript'
+
+" The React syntax highlighting and indenting plugin
+    Plug 'maxmellon/vim-jsx-pretty'
+
 " Python syntax for colorschemes
     Plug 'kh3phr3n/python-syntax'
 
@@ -635,6 +641,12 @@ call plug#end()
 " complete with workds from any opened file
         let g:neocomplcache_same_filetype_lists = {}
         let g:neocomplcache_same_filetype_lists._ = '_'
+
+"}}}
+
+" Vim-Jsx-Pretty ------------------------------{{{
+
+    let g:vim_jsx_pretty_colorful_config = 1
 
 "}}}
 

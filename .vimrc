@@ -921,12 +921,9 @@ call plug#end()
             unlet g:netrw_buffer
             exe "bd".g:netrw_old_buffer 
           else
-            let l:width = 25
-
             execute 
                 \ 'vsplit +setlocal\ nobuflisted' l:name |
                 \ Explore |
-                \ set relativenumber |
                 \ let g:netrw_buffer=bufnr("%")
 
             endif
@@ -946,6 +943,9 @@ call plug#end()
         let g:netrw_browse_split = 4
         let g:netrw_altv = 1
         let g:netrw_winsize = 25
+
+        "Display line numbers
+        let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
 "}}}
 

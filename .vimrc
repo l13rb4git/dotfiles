@@ -407,7 +407,7 @@ call plug#end()
 
 " Netrw ----------------------------- {{{
 
-        map <silent><Leader>e :call NetrwRightSplitToggle()<CR>
+        map <silent><Leader>n :call NetrwRightSplitToggle()<CR>
 
 "}}}
 
@@ -952,7 +952,7 @@ call plug#end()
 " NERDTree ----------------------------- {{{
 
 " toggle nerdtree display
-        map <leader>n :NERDTreeToggle<CR>
+        "map <leader>n :NERDTreeToggle<CR>
 
         let g:NERDTreeWinPos = "right"
         let NERDTreeQuitOnOpen = 1

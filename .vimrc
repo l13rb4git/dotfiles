@@ -405,6 +405,12 @@ call plug#end()
 
 "}}}
 
+" Netrw ----------------------------- {{{
+
+        map <silent><Leader>e :call NetrwRightSplitToggle()<CR>
+
+"}}}
+
 " Smile   {{{
 
         map <Leader><Leader>t <C-C><C-C>
@@ -902,6 +908,44 @@ call plug#end()
         map <F4> :TagbarToggle<CR>
 " autofocus on tagbar open
         let g:tagbar_autofocus = 1
+
+"}}}
+
+" Netrw ----------------------------- {{{
+
+        function! NetrwRightSplitToggle()
+          let l:name = '_netrw_'
+          set noequalalways
+          if exists("g:netrw_buffer") && bufexists(g:netrw_buffer)
+            let g:netrw_old_buffer=g:netrw_buffer
+            unlet g:netrw_buffer
+            exe "bd".g:netrw_old_buffer 
+          else
+            let l:width = 25
+
+            execute 
+                \ 'vsplit +setlocal\ nobuflisted' l:name |
+                \ Explore |
+                \ set relativenumber |
+                \ let g:netrw_buffer=bufnr("%")
+
+            endif
+        endfunction
+
+        function! CloseNetrw()
+          if exists("g:netrw_buffer") && bufexists(g:netrw_buffer)
+            exe "bd".g:netrw_buffer | unlet g:netrw_buffer
+          endif
+        endfunction
+
+        au FileType netrw au BufLeave <buffer> call CloseNetrw()
+        au FileType netrw au BufEnter * call CloseNetrw()
+
+        let g:netrw_banner = 0
+        let g:netrw_liststyle = 3
+        let g:netrw_browse_split = 4
+        let g:netrw_altv = 1
+        let g:netrw_winsize = 25
 
 "}}}
 

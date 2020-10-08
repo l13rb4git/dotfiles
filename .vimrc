@@ -387,7 +387,7 @@ call plug#end()
         " cut to buffer
         vmap ´td :w! ~/.vim/.vimbuffer<CR> <Bar> :normal! gvdd<CR>
         " paste from buffer
-        map ´tp :r ~/.vim/.vimbuffer<CR>
+        map <Leader>tp :r ~/.vim/.vimbuffer<CR>
 
 "}}}
 

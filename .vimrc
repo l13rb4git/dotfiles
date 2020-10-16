@@ -419,7 +419,8 @@ call plug#end()
 
 " Find/replace   {{{
 
-        vnoremap ,r "hy:%s/<C-r>h//g<left><left>
+        vnoremap ,r "hy:%s/<C-r>h//c<left><left>
+        nnoremap ,r :%s/\<<C-r>=expand('<cword>')<CR>\>//c<left><left>
 
 "}}}
 

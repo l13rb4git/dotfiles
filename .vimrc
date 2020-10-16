@@ -447,6 +447,8 @@ call plug#end()
 
         nmap <Leader>bl :bn<CR>
         nmap <Leader>bh :bp<CR>
+        nnoremap <Leader><BS> <C-^>
+
 
 "}}}
 

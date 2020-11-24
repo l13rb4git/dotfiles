@@ -378,6 +378,7 @@ call plug#end()
 
 "}}}
 
+
 " Mappings   {{{
 
 " Copy and paste between different tmux panes   {{{
@@ -390,6 +391,7 @@ call plug#end()
         map <Leader>tp :r ~/.vim/.vimbuffer<CR>
 
 "}}}
+
 
 " Disable arrow keys   {{{
 
@@ -405,17 +407,20 @@ call plug#end()
 
 "}}}
 
+
 " Netrw ----------------------------- {{{
 
         map <silent><Leader>n :call NetrwRightSplitToggle()<CR>
 
 "}}}
 
+
 " Smile   {{{
 
         map <Leader><Leader>t <C-C><C-C>
 
 "}}}
+
 
 " Find/replace   {{{
 
@@ -424,12 +429,14 @@ call plug#end()
 
 "}}}
 
+
 " Moving to the end and the begin of line easily   {{{
 
         map <Leader>h ^
         map <Leader>l $
 
 "}}}
+
 
 " Files {{{
 
@@ -439,6 +446,7 @@ call plug#end()
         nnoremap <leader>x :x<CR>
 
 "}}}
+
 
 " Buffers   {{{
 
@@ -452,12 +460,14 @@ call plug#end()
 
 "}}}
 
+
 " Tabs   {{{
 
         nmap <Leader>tl :tabnext<CR>
         nmap <Leader>th :tabprevious<CR>
 
 "}}}
+
 
 " Resize splits more quickly   {{{
 
@@ -466,11 +476,13 @@ call plug#end()
 
 "}}}
 
+
 " Keep the cursor on the center of the screen   {{{
 
         nnoremap <leader>zz :call VCenterCursor()<CR>
 
 "}}}
+
 
 " Vimux Shortcuts   {{{
 
@@ -478,6 +490,7 @@ call plug#end()
         map tt :VimuxRunLastCommand<CR>
 
 "}}}
+
 
 " Fugitive   {{{
 
@@ -488,6 +501,7 @@ call plug#end()
 
 "}}}
 
+
 " Emmet   {{{
 
         let g:user_emmet_mode='nv' 
@@ -495,12 +509,6 @@ call plug#end()
 
 "}}}
 
-" Nerd Commenter   {{{
-
-        "nmap <Leader>c <plug>NERDCommenterCommen 
-        "nmap <Leader>c<Leader> gcc
-
-"}}}
 
 " TMUX - navigate windows with meta+arrows   {{{
 
@@ -515,11 +523,6 @@ call plug#end()
 
 "}}}
 
-" show pending tasks list   {{{
-
-        "map <F2> :TaskList<CR>
-
-"}}}
 
 " FZF ------------------------------{{{
 
@@ -537,43 +540,6 @@ call plug#end()
 
 "}}}
 
-" CtrlP   {{{
-
-
-" file finder mapping
-        "let g:ctrlp_map = ',e'
-" " tags (symbols) in current file finder mapping
-"         nmap ,g :CtrlPBufTag<CR>
-" " tags (symbols) in all files finder mapping
-"         nmap ,G :CtrlPBufTagAll<CR>
-" " general code finder in all files mapping
-"         nmap ,f :CtrlPLine<CR>
-" " recent files finder mapping
-"         nmap ,m :CtrlPMRUFiles<CR>
-" " commands finder mapping
-"         nmap ,c :CtrlPCmdPalette<CR>
-" " to be able to call CtrlP with default search text
-"         function! CtrlPWithSearchText(search_text, ctrlp_command_end)
-"             execute ':CtrlP' . a:ctrlp_command_end
-"             call feedkeys(a:search_text)
-"         endfunction
-" " same as previous mappings, but calling with current word as default text
-"         nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
-"         nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
-"         nmap ,wf :call CtrlPWithSearchText(expand('<cword>'), 'Line')<CR>
-"         nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
-"         nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
-"         nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
-"         nmap ,wc :call CtrlPWithSearchText(expand('<cword>'), 'CmdPalette')<CR>
-" " don't change working directory
-"         let g:ctrlp_working_path_mode = 0
-" " ignore these files and folders on file finder
-"         let g:ctrlp_custom_ignore = {
-"           \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules)$',
-"           \ 'file': '\.pyc$\|\.pyo$',
-"           \ }
-
-"}}}
 
 " Signify   {{{
 
@@ -582,6 +548,7 @@ call plug#end()
         nmap <leader>sp <plug>(signify-prev-hunk)
 
 "}}}
+
 
 " Easy Align   {{{
 
@@ -654,11 +621,13 @@ call plug#end()
 
 "}}}
 
+
 " Vim-Jsx-Pretty ------------------------------{{{
 
     let g:vim_jsx_pretty_colorful_config = 1
 
 "}}}
+
 
 " Peekaboo ------------------------------{{{
 
@@ -667,12 +636,14 @@ call plug#end()
 
 "}}}
 
+
 " Autoclose ------------------------------{{{
 
         " Fix to let ESC work as espected with Autoclose plugin
         let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
 "}}}
+
 
 " FZF ------------------------------{{{
 
@@ -716,6 +687,7 @@ call plug#end()
 
 "}}}
 
+
 " Smile  ------------------------------{{{
 
         let g:slime_target = "tmux"
@@ -724,11 +696,13 @@ call plug#end()
 
 "}}}
 
+
 " Rooter  ------------------------------{{{
 
         let g:rooter_manual_only = 1
 
 "}}}
+
 
 " Goyo  ------------------------------{{{
 
@@ -759,6 +733,7 @@ call plug#end()
 
 "}}}
 
+
 " DragVisuals ------------------------------{{{
 
 " mappings to move blocks in 4 directions
@@ -770,6 +745,7 @@ call plug#end()
         vmap <expr> D DVB_Duplicate()
 
 "}}}
+
 
 " Signify ------------------------------{{{
 
@@ -787,6 +763,7 @@ call plug#end()
 "}}}
 "}}}
 
+
 " Window Chooser ------------------------------{{{
 
     " show big letters
@@ -794,6 +771,7 @@ call plug#end()
         let g:choosewin_statusline_replace = 0
 
 "}}}
+
 
 " Airline ------------------------------{{{
 
@@ -829,12 +807,14 @@ call plug#end()
 
 "}}}
 
+
 " Jedi ------------------------------{{{
 
 " Jedi completion is too slow
         let g:jedi#completions_enabled = 0
 
 "}}}
+
 
 " Pymode ------------------------------{{{
 
@@ -846,6 +826,7 @@ call plug#end()
 
 "}}}
 
+
 " Vim Easy Motion  ------------------------------{{{
 
         nmap S <Plug>(easymotion-s2)
@@ -855,6 +836,7 @@ call plug#end()
         let g:EasyMotion_enter_jump_first = 1
 
 "}}}
+
 
 " Ale  ------------------------------{{{
 
@@ -879,6 +861,7 @@ call plug#end()
 
 "}}}
 
+
 " Deoplete ------------------------------{{{
 
 " Setup completion sources
@@ -889,11 +872,13 @@ call plug#end()
 
 "}}}
 
+
 " UltiSnips ----------------------------- {{{
 
         let g:UltiSnipsEditSplit="vertical"
 
 "}}}
+
 
 " Instant Markdown ----------------------------- {{{
 
@@ -905,6 +890,7 @@ call plug#end()
 
 "}}}
 
+
 " Tagbar ----------------------------- {{{
 
 " toggle tagbar display
@@ -913,6 +899,7 @@ call plug#end()
         let g:tagbar_autofocus = 1
 
 "}}}
+
 
 " Netrw ----------------------------- {{{
 
@@ -952,6 +939,7 @@ call plug#end()
 
 "}}}
 
+
 " NERDTree ----------------------------- {{{
 
 " toggle nerdtree display
@@ -973,6 +961,7 @@ call plug#end()
 
 "}}}
 
+
 " Get rid of that delay using <space> in insert mode    {{{
 
         augroup FastEscape
@@ -982,6 +971,7 @@ call plug#end()
         augroup END
 
 "}}}
+
 
 " Close all background buffers  {{{
 
@@ -1002,6 +992,7 @@ call plug#end()
 
 "}}}
 
+
 " Search   {{{
 
     " incremental search
@@ -1014,6 +1005,7 @@ call plug#end()
         nnoremap <CR> :nohlsearch<CR>
 
 "}}}
+
 
 " Automatic toggling between line number modes   {{{
 
@@ -1034,6 +1026,7 @@ call plug#end()
 
 "}}}
 
+
 " YankToBuffer   {{{
 
         function YankToBuffer()
@@ -1046,6 +1039,7 @@ call plug#end()
         autocmd! TextYankPost * call YankToBuffer()
             
 "}}}
+
 
 " Keep the cursor centered vertically on the screen   {{{
 
@@ -1065,6 +1059,7 @@ call plug#end()
 
 "}}}
 
+
 " Zoom / Restore window.   {{{
 
         function! s:ZoomToggle() abort
@@ -1082,6 +1077,7 @@ call plug#end()
         nnoremap <silent> ,zz :ZoomToggle<CR>
 
 "}}}
+
 
 " WhiteRom  ------------------------------{{{
 
@@ -1107,6 +1103,7 @@ call plug#end()
 
 "}}}
 
+
 " Use 256 colors when possible   {{{
 
         if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
@@ -1124,6 +1121,7 @@ call plug#end()
         " let g:sublimemonokai_term_italic = 1
 
 "}}}
+
 
 " Folding   {{{
 

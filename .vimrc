@@ -526,15 +526,15 @@ call plug#end()
 
 " FZF ------------------------------{{{
 
-        map <Leader>ff :Files<CR>
-        map <Leader>fg :GFiles<CR>
-        map <leader>fw :Windows<CR>
-        map <leader>fbb :Buffers<CR>
+        nmap <Leader>ff :Files<CR>
+        nmap <Leader>fg :GFiles<CR>
+        nmap <leader>fw :Windows<CR>
+        nmap <leader>fb :Buffers<CR>
 
-        map <Leader>fl :Lines<CR>
-        map <Leader>fbl :BLines<CR>
-        map <Leader>fs :Snippets<CR>
-        "nnoremap <leader>fg :Rg<CR>
+        nmap <Leader>fl :Lines<CR>
+        nmap <Leader><Leader>fl :BLines<CR>
+        nmap <Leader>fs :Snippets<CR>
+        nmap <leader>fr :Rg<CR>
 
         noremap <Leader>gl :Commits<CR>
 
@@ -648,7 +648,7 @@ call plug#end()
 " FZF ------------------------------{{{
 
         let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline --bind ctrl-a:select-all'
-        "let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+        let $FZF_DEFAULT_COMMAND="rg --files --hidden"
 
         let g:fzf_buffers_jump = 1
 

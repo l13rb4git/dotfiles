@@ -486,8 +486,8 @@ call plug#end()
 
 " Vimux Shortcuts   {{{
 
-        map rt :VimuxPromptCommand<CR>
-        map tt :VimuxRunLastCommand<CR>
+        map <Leader>rt :VimuxPromptCommand<CR>
+        map <Leader>tt :VimuxRunLastCommand<CR>
 
 "}}}
 

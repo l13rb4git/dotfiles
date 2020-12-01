@@ -430,6 +430,13 @@ call plug#end()
 "}}}
 
 
+" Swapcase of word   {{{
+
+        nmap <Leader>u g~iw
+
+"}}}
+
+
 " Moving to the end and the begin of line easily   {{{
 
         map <Leader>h ^

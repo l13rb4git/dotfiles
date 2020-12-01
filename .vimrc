@@ -699,7 +699,9 @@ call plug#end()
 
 " Rooter  ------------------------------{{{
 
-        let g:rooter_manual_only = 1
+
+        let g:rooter_patterns = ['Rakefile', 'Gemfile', '.git/']
+        "let g:rooter_manual_only = 1
 
 "}}}
 

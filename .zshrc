@@ -201,6 +201,11 @@ alias rs="rails s"
 alias rdbc="rails db:create"
 alias rdbm="rails db:migrate"
 
+# Docker aliases
+alias dc="sudo docker-compose"
+alias dcr="sudo docker-compose run web"
+
+
 #source /home/leirbag/.config/broot/launcher/bash/br
 export PATH=$PATH:$HOME/anaconda/bin
 
@@ -230,3 +235,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+DockerResourcesBin="/mnt/c/ProgramData/DockerDesktop/version-bin/"
+export PATH=$PATH:$DockerResourcesBin

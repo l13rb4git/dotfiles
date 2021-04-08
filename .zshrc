@@ -204,6 +204,10 @@ alias rdbm="rails db:migrate"
 #source /home/leirbag/.config/broot/launcher/bash/br
 export PATH=$PATH:$HOME/anaconda/bin
 
+# asdf
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/leirbag/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

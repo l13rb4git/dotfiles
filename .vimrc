@@ -115,11 +115,14 @@ call plug#begin('~/.vim/plugged')
 " DilemtMate
     Plug 'Raimondi/delimitMate'
 
+" A collection of language packs for Vim.
+    Plug 'sheerun/vim-polyglot'
+
 " lh-cpp
     " Plug 'LucHermitte/lh-cpp'
 
 " JavaScript bundle for vim, this bundle provides syntax highlighting and improved indentation.
-    Plug 'pangloss/vim-javascript'
+    "Plug 'pangloss/vim-javascript'
 
 " The React syntax highlighting and indenting plugin
     Plug 'maxmellon/vim-jsx-pretty'
@@ -320,7 +323,7 @@ call plug#end()
         " When scrolling, keep cursor 8 lines away from screen border
         set scrolloff=8
         " Save as sudo
-        ca w!! w !sudo tee "%"
+        ca w!! w !sudo tee > /dev/null %
         " Autocompletion of files and commands behaves like shell
         set wildmode=list:longest
 
@@ -328,12 +331,13 @@ call plug#end()
         set textwidth=80
         set colorcolumn=+1
 
-        syntax on
 
         " allow plugins by file type (required for plugins!)
         filetype on
         filetype plugin on
         filetype indent on
+
+        syntax on
         
         "autocmd FileType sql colorscheme monokai-phoenix
         autocmd FileType sql setlocal tw=110

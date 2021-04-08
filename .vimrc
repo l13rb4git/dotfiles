@@ -432,7 +432,7 @@ call plug#end()
 
 " Swapcase of word   {{{
 
-        nmap <Leader>u g~iw
+        nmap <Leader>u g~iwe
 
 "}}}
 

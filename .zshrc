@@ -205,7 +205,9 @@ alias chh="sudo chmod 777 "
 
 # Docker aliases
 alias dc="sudo docker-compose"
-alias dcr="sudo docker-compose run web"
+alias dr="sudo docker-compose run web"
+alias drr="sudo docker-compose run web bundle exec"
+alias ddp="sudo docker-compose run web rm tmp/pids/server.pid"
 
 
 #source /home/leirbag/.config/broot/launcher/bash/br

@@ -509,6 +509,9 @@ call plug#end()
         noremap <Leader>ga :Gwrite<CR>
         noremap <Leader>gc :Gco<CR>
         noremap <Leader>gm :Gmerge<CR>
+        noremap <Leader>gdf :Gvdiffsplit!<CR>
+        noremap <Leader>gdh :diffget //2 <CR>
+        noremap <Leader>gdl :diffget //3 <CR>
 
 "}}}
 

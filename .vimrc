@@ -169,8 +169,11 @@ call plug#begin('~/.vim/plugged')
 " Git integration
     "Plug 'motemen/git-vim'
 
+" Undotree
+    Plug 'mbbill/undotree'
+
 " Tab list panel
-    Plug 'kien/tabman.vim'
+    "Plug 'kien/tabman.vim'
 
 " Airline
     Plug 'vim-airline/vim-airline'
@@ -503,6 +506,18 @@ call plug#end()
 "}}}
 
 
+" Undotree   {{{
+
+        nnoremap <Leader>u :UndotreeToggle<CR>
+        nnoremap <Leader><Leader>u :UndotreeFocus<CR>
+
+        let g:nremap = {"[u": "", "]u": ""}
+        nmap [u g-
+        nmap ]u g+
+
+"}}}
+
+
 " Fugitive   {{{
 
         noremap <Leader>gs :vertical Gstatus<CR>
@@ -576,7 +591,7 @@ call plug#end()
 
 " Window Chooser   {{{
 
-        nmap  -  <Plug>(choosewin)
+        "nmap  -  <Plug>(choosewin)
 
 "}}}
 
@@ -698,6 +713,14 @@ call plug#end()
           \ call fzf#vim#grep(
           \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
           \   fzf#vim#with_preview(), <bang>0)
+
+"}}}
+
+
+" Undotree   {{{
+
+        let g:undotree_WindowLayout = 3
+        let g:undotree_ShortIndicators = 1
 
 "}}}
 

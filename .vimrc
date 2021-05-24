@@ -422,7 +422,8 @@ call plug#end()
 
 " Netrw ----------------------------- {{{
 
-        map <silent><Leader>n :call NetrwRightSplitToggle()<CR>
+        nmap <silent><Leader>n :call NetrwRightSplitToggle(expand(''))<CR>
+        nmap <silent><Leader><Leader>n :call NetrwRightSplitToggle(expand("%:p:h"))<CR>
 
 "}}}
 
@@ -948,19 +949,19 @@ call plug#end()
 
 " Netrw ----------------------------- {{{
 
-        function! NetrwRightSplitToggle()
+        function! NetrwRightSplitToggle(path)
           let l:name = '_netrw_'
           set noequalalways
+
           if exists("g:netrw_buffer") && bufexists(g:netrw_buffer)
             let g:netrw_old_buffer=g:netrw_buffer
             unlet g:netrw_buffer
             exe "bd".g:netrw_old_buffer 
-          else
-            execute 
-                \ 'vsplit +setlocal\ nobuflisted' l:name |
-                \ Explore |
-                \ let g:netrw_buffer=bufnr("%")
 
+          else
+            execute  'vsplit +setlocal\ nobuflisted' l:name 
+            exec "Ex" a:path 
+            let g:netrw_buffer=bufnr("%")
             endif
         endfunction
 

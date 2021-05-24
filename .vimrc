@@ -10,6 +10,7 @@
 
 "}}}
 
+
 " Open .vimrc easily    {{{
 
         " I'm not using "command" because it need a upper case letter 
@@ -20,6 +21,7 @@
         cabbrev tvrc tabnew ~/dotfiles/.vimrc
 
 "}}}
+
 
 " PLUGINS   {{{
 
@@ -279,6 +281,7 @@ call plug#end()
 
 "}}}
 
+
 " Vim settings  {{{
 
         let mapleader=" "
@@ -369,6 +372,7 @@ call plug#end()
 
 "}}}
 
+
 " Tab and spaces   {{{
 
     " tabs and spaces handling
@@ -387,6 +391,7 @@ call plug#end()
 
 
 " Mappings   {{{
+
 
 " Copy and paste between different tmux panes   {{{
 
@@ -602,6 +607,7 @@ call plug#end()
 "}}}
 
 "}}}
+
 
 " Plugins Settings   {{{
 
@@ -1182,4 +1188,5 @@ call plug#end()
 
 "}}}
 
-" vim:foldmethod=marker
+
+autocmd FileType vim setlocal foldmethod=marker | normal zM

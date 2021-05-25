@@ -514,8 +514,8 @@ call plug#end()
 
 " Undotree   {{{
 
-        nnoremap <Leader>u :UndotreeToggle<CR>
-        nnoremap <Leader><Leader>u :UndotreeFocus<CR>
+        nnoremap ,u :UndotreeToggle<CR>
+        nnoremap ,,u :UndotreeFocus<CR>
 
         let g:nremap = {"[u": "", "]u": ""}
         nmap [u g-

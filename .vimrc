@@ -70,6 +70,9 @@ call plug#begin('~/.vim/plugged')
 " Folding
     Plug 'pseewald/vim-anyfold'
 
+" Vim-cool hlsearch
+    Plug 'romainl/vim-cool'
+
 " CSV
     Plug 'chrisbra/csv.vim'
 
@@ -1048,7 +1051,7 @@ call plug#end()
         set hlsearch  
 
     " Unhighlight after the search is done
-        nnoremap <CR> :nohlsearch<CR>
+        "nnoremap <CR> :nohlsearch<CR>
 
 "}}}
 

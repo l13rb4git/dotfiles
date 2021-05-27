@@ -442,6 +442,7 @@ call plug#end()
 
         vnoremap ,r "hy:%s/<C-r>h//c<left><left>
         nnoremap ,r :%s/\<<C-r>=expand('<cword>')<CR>\>//c<left><left>
+        nnoremap c* *Ncgn
 
 "}}}
 

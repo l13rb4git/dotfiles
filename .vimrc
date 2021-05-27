@@ -74,16 +74,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'romainl/vim-cool'
 
 " CSV
-    Plug 'chrisbra/csv.vim'
+    "Plug 'chrisbra/csv.vim'
 
 " Synsc bottom bar of vim and tmux
     Plug 'edkolev/tmuxline.vim'
 
 " Vim-Smile
-    Plug 'jpalardy/vim-slime'
+    "Plug 'jpalardy/vim-slime'
 
 " Asynchronous Lint Engine
-    Plug 'dense-analysis/ale'
+    "Plug 'dense-analysis/ale'
 
 " SQL Syntax
     Plug 'shmup/vim-sql-syntax'
@@ -145,10 +145,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'easymotion/vim-easymotion'
 
 " Better file browser
-    Plug 'scrooloose/nerdtree'
+    "Plug 'scrooloose/nerdtree'
 
 " Instant Markdown
-    Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+    "Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 
 " Vim Markdown
     Plug 'tpope/vim-markdown'
@@ -157,19 +157,19 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdcommenter'
 
 " Class/module browser
-    Plug 'majutsushi/tagbar'
+    "Plug 'majutsushi/tagbar'
 
 " Code and files fuzzy finder
-    Plug 'ctrlpvim/ctrlp.vim'
+    "Plug 'ctrlpvim/ctrlp.vim'
 
 " Extension to ctrlp, for fuzzy command finder
-    Plug 'fisadev/vim-ctrlp-cmdpalette'
+    "Plug 'fisadev/vim-ctrlp-cmdpalette'
 
 " DevIcons
     " Plug 'ryanoasis/vim-devicons'
 
  " Goyo - White RoomVim Room
-    Plug 'junegunn/goyo.vim'
+    "Plug 'junegunn/goyo.vim'
 
 " Git integration
     "Plug 'motemen/git-vim'
@@ -258,7 +258,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/syntastic'
 
 " Paint css colors with the real color
-    Plug 'lilydjwg/colorizer'
+    "Plug 'lilydjwg/colorizer'
 
 if has('python')
     " YAPF formatter for Python
@@ -827,6 +827,7 @@ call plug#end()
 
         let g:airline_powerline_fonts = 1
         let g:airline_theme = 'luna'
+        "correct tabline color  'airline_tabsel':  ['#ffffff', '#003f3f',  231, 36, ''],
         let g:airline#extensions#whitespace#enabled = 0
 
         " TabLine{{{
@@ -1002,10 +1003,10 @@ call plug#end()
         let g:NERDTreeChDirMode = 2
         let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
-        autocmd BufWritePost * NERDTreeRefreshRoot
+        "autocmd BufWritePost * NERDTreeRefreshRoot
 
  " Disable numbers in the pane
-        autocmd FileType nerdtree set norelativenumber
+        "autocmd FileType nerdtree set norelativenumber
 
 "}}}
 

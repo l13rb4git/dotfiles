@@ -211,6 +211,9 @@ call plug#begin('~/.vim/plugged')
 " Commentary
     Plug 'tpope/vim-commentary'
 
+" Vinegar
+    Plug 'tpope/vim-vinegar'
+
 " Autoclose
     Plug 'Townk/vim-autoclose'
 
@@ -965,6 +968,10 @@ call plug#end()
           let l:name = '_netrw_'
           set noequalalways
 
+          if a:path != ''
+            let g:netrw_liststyle = 0
+          endif
+
           if exists("g:netrw_buffer") && bufexists(g:netrw_buffer)
             let g:netrw_old_buffer=g:netrw_buffer
             unlet g:netrw_buffer
@@ -973,6 +980,7 @@ call plug#end()
           else
             execute  'vsplit +setlocal\ nobuflisted' l:name 
             exec "Ex" a:path 
+            nmap <buffer> <silent> <nowait> I iii
             let g:netrw_buffer=bufnr("%")
             endif
         endfunction
@@ -988,8 +996,7 @@ call plug#end()
 
         let g:netrw_banner = 0
         let g:netrw_liststyle = 3
-        let g:netrw_browse_split = 4
-        let g:netrw_altv = 1
+        let g:netrw_browse_split = 0
         let g:netrw_winsize = 25
 
         "Display line numbers

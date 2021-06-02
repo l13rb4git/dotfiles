@@ -181,8 +181,8 @@ call plug#begin('~/.vim/plugged')
     "Plug 'kien/tabman.vim'
 
 " Airline
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    "Plug 'vim-airline/vim-airline'
+    "Plug 'vim-airline/vim-airline-themes'
 
 " Terminal Vim with 256 colors colorscheme
     Plug 'fisadev/fisa-vim-colorscheme'
@@ -407,6 +407,14 @@ call plug#end()
         vmap ´td :w! ~/.vim/.vimbuffer<CR> <Bar> :normal! gvdd<CR>
         " paste from buffer
         map <Leader>tp :r ~/.vim/.vimbuffer<CR>
+
+"}}}
+
+
+" Registers   {{{
+
+        " Substite visual highlighted word but not copy it
+        vnoremap <leader>p "_dP
 
 "}}}
 

@@ -1217,4 +1217,4 @@ call plug#end()
 "}}}
 
 
-autocmd FileType vim setlocal foldmethod=marker | normal zM
+autocmd FileType vim setlocal foldmethod=marker | setlocal textwidth=0 | normal zM

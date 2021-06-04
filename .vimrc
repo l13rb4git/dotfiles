@@ -181,8 +181,8 @@ call plug#begin('~/.vim/plugged')
     "Plug 'kien/tabman.vim'
 
 " Airline
-    "Plug 'vim-airline/vim-airline'
-    "Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
 " Terminal Vim with 256 colors colorscheme
     Plug 'fisadev/fisa-vim-colorscheme'
@@ -227,7 +227,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-easy-align'
 
 " Python autocompletion, go to definition.
-    Plug 'davidhalter/jedi-vim'
+    "Plug 'davidhalter/jedi-vim'
 
 " COC autocompletion
     " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -507,6 +507,16 @@ call plug#end()
 
         nmap <Leader>tl :tabnext<CR>
         nmap <Leader>th :tabprevious<CR>
+
+"}}}
+
+
+" Indent Objects   {{{
+
+        nmap <leader>yi yaI
+        nmap <leader>yI yiI
+        nmap <leader>vi vaI
+        nmap <leader>vI viI
 
 "}}}
 

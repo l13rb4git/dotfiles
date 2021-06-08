@@ -200,7 +200,7 @@ alias r="rails"
 alias rs="rails s"
 alias rdbc="rails db:create"
 alias rdbm="rails db:migrate"
-alias cpg="cp Gemfile /mnt/c/Users/fms/Codes/fms-pharmacy ; cp Gemfile.lock /mnt/c/Users/fms/Codes/fms-pharmacy"
+alias cpg="cp Gemfile /mnt/c/Users/fms/Codes/rh-online ; cp Gemfile.lock /mnt/c/Users/fms/Codes/rh-online"
 alias chh="sudo chmod 777 "
 
 # Docker aliases

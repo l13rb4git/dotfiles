@@ -399,18 +399,6 @@ call plug#end()
 " Mappings   {{{
 
 
-" Copy and paste between different tmux panes   {{{
-
-        " copy to buffer
-        vmap ´ty :w! ~/.vim/.vimbuffer<CR>
-        " cut to buffer
-        vmap ´td :w! ~/.vim/.vimbuffer<CR> <Bar> :normal! gvdd<CR>
-        " paste from buffer
-        map <Leader>tp :r ~/.vim/.vimbuffer<CR>
-
-"}}}
-
-
 " Registers   {{{
 
         " Substite visual highlighted word but not copy it
@@ -419,63 +407,10 @@ call plug#end()
 "}}}
 
 
-" Disable arrow keys   {{{
+" Command   {{{
 
-        no <up> <Nop>
-        no <down> <Nop>
-        no <left> <Nop>
-        no <right> <Nop>
-
-        ino <up> <Nop>
-        ino <down> <Nop>
-        ino <left> <Nop>
-        ino <right> <Nop>
-
-"}}}
-
-
-" Netrw ----------------------------- {{{
-
-        nmap <silent><Leader>n :call NetrwRightSplitToggle(expand(''))<CR>
-        nmap <silent><Leader><Leader>n :call NetrwRightSplitToggle(expand("%:p:h"))<CR>
-
-"}}}
-
-
-" Smile   {{{
-
-        map <Leader><Leader>t <C-C><C-C>
-
-"}}}
-
-
-" Find/replace   {{{
-
-        vnoremap ,r "hy:%s/<C-r>h//c<left><left>
-        nnoremap ,r :%s/\<<C-r>=expand('<cword>')<CR>\>//c<left><left>
-        nnoremap c* *Ncgn
-
-        " Search for selected text, forwards or backwards.
-        vnoremap <silent> * :<C-U>
-          \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-          \gvy/<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
-          \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-          \gVzv:call setreg('"', old_reg, old_regtype)<CR>
-
-"}}}
-
-
-" Swapcase of word   {{{
-
-        nmap <Leader>u g~iwe
-
-"}}}
-
-
-" Moving to the end and the begin of line easily   {{{
-
-        map <Leader>h ^
-        map <Leader>l $
+        cnoremap <C-a> <Home>
+        cnoremap <C-e> <End>
 
 "}}}
 
@@ -511,12 +446,48 @@ call plug#end()
 "}}}
 
 
-" Indent Objects   {{{
+" Disable arrow keys   {{{
 
-        nmap <leader>yi yaI
-        nmap <leader>yI yiI
-        nmap <leader>vi vaI
-        nmap <leader>vI viI
+        no <up> <Nop>
+        no <down> <Nop>
+        no <left> <Nop>
+        no <right> <Nop>
+
+        ino <up> <Nop>
+        ino <down> <Nop>
+        ino <left> <Nop>
+        ino <right> <Nop>
+
+"}}}
+
+
+" Find/replace   {{{
+
+        vnoremap ,r "hy:%s/<C-r>h//c<left><left>
+        nnoremap ,r :%s/\<<C-r>=expand('<cword>')<CR>\>//c<left><left>
+        nnoremap c* *Ncgn
+
+        " Search for selected text, forwards or backwards.
+        vnoremap <silent> * :<C-U>
+          \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+          \gvy/<C-R>=&ic?'\c':'\C'<CR><C-R><C-R>=substitute(
+          \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+          \gVzv:call setreg('"', old_reg, old_regtype)<CR>
+
+"}}}
+
+
+" Swapcase of word   {{{
+
+        nmap <Leader>u g~iwe
+
+"}}}
+
+
+" Moving to the end and the begin of line easily   {{{
+
+        map <Leader>h ^
+        map <Leader>l $
 
 "}}}
 
@@ -532,6 +503,43 @@ call plug#end()
 " Keep the cursor on the center of the screen   {{{
 
         nnoremap <leader>zz :call VCenterCursor()<CR>
+
+"}}}
+
+
+" Copy and paste between different tmux panes   {{{
+
+        " copy to buffer
+        vmap ´ty :w! ~/.vim/.vimbuffer<CR>
+        " cut to buffer
+        vmap ´td :w! ~/.vim/.vimbuffer<CR> <Bar> :normal! gvdd<CR>
+        " paste from buffer
+        map <Leader>tp :r ~/.vim/.vimbuffer<CR>
+
+"}}}
+
+
+" Netrw ----------------------------- {{{
+
+        nmap <silent><Leader>n :call NetrwRightSplitToggle(expand(''))<CR>
+        nmap <silent><Leader><Leader>n :call NetrwRightSplitToggle(expand("%:p:h"))<CR>
+
+"}}}
+
+
+" Indent Objects   {{{
+
+        nmap <leader>yi yaI
+        nmap <leader>yI yiI
+        nmap <leader>vi vaI
+        nmap <leader>vI viI
+
+"}}}
+
+
+" Smile   {{{
+
+        map <Leader><Leader>t <C-C><C-C>
 
 "}}}
 
@@ -627,17 +635,20 @@ call plug#end()
 
 "}}}
 
+
 " Window Chooser   {{{
 
         "nmap  -  <Plug>(choosewin)
 
 "}}}
 
+
 " Airline   {{{
 
         nmap <Leader>tb :call ToggleTablineMode()<CR>
 
 "}}}
+
 
 "}}}
 

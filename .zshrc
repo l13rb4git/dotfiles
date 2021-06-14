@@ -195,6 +195,10 @@ alias pls="python3 -m http.server -b 192.168.0.106 8000"
 # Create and open the python server
 alias plso="pls && wp http://192.168.0.106:8000/"
 
+# Virtualenv aliases
+alias act="source ./env/bin/activate"
+alias dact="deactivate"
+
 # Rails aliases
 alias rtemp="vim ~/codes/learn/ruby/temp.rb"
 alias r="rails"

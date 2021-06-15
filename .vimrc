@@ -303,6 +303,7 @@ call plug#end()
         set nocompatible
         set ignorecase
         set smartcase
+        set hidden                     "Hide buffers without have to save the changes
         "set winwidth=90
         set autochdir
         " Background   {{{

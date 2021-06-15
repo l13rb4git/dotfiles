@@ -306,6 +306,10 @@ call plug#end()
         set ignorecase
         set smartcase
         set hidden                     " Hide buffers without have to save the changes
+
+        if has('virtualedit')
+            set virtualedit=block      " Allow cursor to move where there is no text in visual block mode
+        endif
         "set winwidth=90
         set autochdir
         " Background   {{{

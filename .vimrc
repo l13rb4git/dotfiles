@@ -406,7 +406,7 @@ call plug#end()
 " Commands    {{{
 
         " Compile C programs 
-        command Compile ! gcc -o %:r % 
+        command Compile ! gcc -o exec/%:r % 
 
 "}}}
 

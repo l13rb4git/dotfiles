@@ -295,14 +295,21 @@ call plug#end()
         set lazyredraw                 " Reduce the redraw frequency
         set ttyfast                    " Send more characters in fast terminals
         set nowrap                     " Don't wrap long lines
+        set list                       " Show whitespaces
         set listchars=extends:→        " Show arrow if line continues rightwards
         set listchars+=precedes:←      " Show arrow if line continues leftwards
+        set listchars+=trail:•         " BULLET (U+2022, UTF-8: E2 80 A2)
         set laststatus=2               " Always display the status line
         set ruler                      " show the cursor position all the time
         set number
         set nocompatible
         set ignorecase
         set smartcase
+        set hidden                     " Hide buffers without have to save the changes
+
+        if has('virtualedit')
+            set virtualedit=block      " Allow cursor to move where there is no text in visual block mode
+        endif
         "set winwidth=90
         set autochdir
         " Background   {{{
@@ -496,6 +503,14 @@ call plug#end()
 
         map <Leader>h ^
         map <Leader>l $
+
+"}}}
+
+
+" Store relative line number jumps in the jumplist if they exceed a threshold   {{{
+
+        nnoremap <expr> k (v:count > 5 ? "m'" . v:count : '') . 'k'
+        nnoremap <expr> j (v:count > 5 ? "m'" . v:count : '') . 'j'
 
 "}}}
 

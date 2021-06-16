@@ -499,6 +499,14 @@ call plug#end()
 "}}}
 
 
+" Store relative line number jumps in the jumplist if they exceed a threshold   {{{
+
+        nnoremap <expr> k (v:count > 5 ? "m'" . v:count : '') . 'k'
+        nnoremap <expr> j (v:count > 5 ? "m'" . v:count : '') . 'j'
+
+"}}}
+
+
 " Resize splits more quickly   {{{
 
         nmap <C-S-Right> <C-w>>

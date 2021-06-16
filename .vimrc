@@ -917,6 +917,7 @@ call plug#end()
 
         let g:pymode_run = 1
         " Python Highlight
+        let g:pymode_lint_cwindow = 0
         let python_highlight_all = 1
         let python_self_cls_highlight = 1
         let g:pymode_python = 'python3'

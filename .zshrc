@@ -60,6 +60,12 @@ bindkey -v '^?' backward-delete-char
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
+    if ! type "lf" > /dev/null; then
+        wget https://github.com/gokcehan/lf/releases/download/r23/lf-linux-amd64.tar.gz
+        tar xvf lf-linux-amd64.tar.gz
+        sudo mv lf /usr/local/bin
+    fi
+
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then

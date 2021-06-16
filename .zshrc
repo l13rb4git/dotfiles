@@ -71,6 +71,18 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 
 
+# Make CTRL-Z background things and unbackground them.
+function fg-bg() {
+  if [[ $#BUFFER -eq 0 ]]; then
+    fg
+  else
+    zle push-input
+  fi
+}
+zle -N fg-bg
+bindkey '^Z' fg-bg
+
+
 # PowerLevel9k configs
 # POWERLEVEL9K_COLOR_SCHEME='dark'
 # POWERLEVEL9K_PROMPT_ON_NEWLINE=true

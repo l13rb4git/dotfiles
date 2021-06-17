@@ -403,6 +403,14 @@ call plug#end()
 "}}}
 
 
+" Commands    {{{
+
+        " Compile C programs 
+        command Compile ! gcc -o %:r % 
+
+"}}}
+
+
 " Mappings   {{{
 
 

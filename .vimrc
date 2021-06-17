@@ -290,6 +290,7 @@ call plug#end()
 
 " Vim settings  {{{
 
+        set runtimepath+=~/dotfiles/.vim
         let mapleader=" "
         set autoread        		   " Auto reload changed files
         set lazyredraw                 " Reduce the redraw frequency
@@ -581,6 +582,13 @@ call plug#end()
         let g:nremap = {"[u": "", "]u": ""}
         nmap [u g-
         nmap ]u g+
+
+"}}}
+
+
+" Ultisnips   {{{
+
+        nmap ,es :call UltiSnipsCustomEdit(&ft)<cr>
 
 "}}}
 
@@ -988,6 +996,14 @@ call plug#end()
 " UltiSnips ----------------------------- {{{
 
         let g:UltiSnipsEditSplit="vertical"
+        " Need to create a symlink to the folder (not needed anymore if using ,es map)
+        " ln -s ~/dotfiles/.vim/custom_snippets ~/.vim
+        let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
+
+
+        function! UltiSnipsCustomEdit(buff_filetype)
+            exec "vsp ~/dotfiles/.vim/custom_snippets/" . a:buff_filetype . ".snippets"
+        endfunction
 
 "}}}
 

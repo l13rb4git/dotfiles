@@ -290,6 +290,7 @@ call plug#end()
 
 " Vim settings  {{{
 
+        set runtimepath+=~/dotfiles/.vim
         let mapleader=" "
         set autoread        		   " Auto reload changed files
         set lazyredraw                 " Reduce the redraw frequency
@@ -988,6 +989,7 @@ call plug#end()
 " UltiSnips ----------------------------- {{{
 
         let g:UltiSnipsEditSplit="vertical"
+        let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
 
 "}}}
 

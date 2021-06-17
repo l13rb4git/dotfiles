@@ -238,8 +238,10 @@ alias ddp="sudo docker-compose run web rm tmp/pids/server.pid"
 export PATH=$PATH:$HOME/anaconda/bin
 
 # asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+if [ -f "$HOME/.asdf" ]; then
+    . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

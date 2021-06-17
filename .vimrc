@@ -290,15 +290,14 @@ call plug#end()
 
 " Vim settings  {{{
 
+        set runtimepath+=~/dotfiles/.vim
         let mapleader=" "
         set autoread        		   " Auto reload changed files
         set lazyredraw                 " Reduce the redraw frequency
         set ttyfast                    " Send more characters in fast terminals
         set nowrap                     " Don't wrap long lines
-        set list                       " Show whitespaces
         set listchars=extends:→        " Show arrow if line continues rightwards
         set listchars+=precedes:←      " Show arrow if line continues leftwards
-        set listchars+=trail:•         " BULLET (U+2022, UTF-8: E2 80 A2)
         set laststatus=2               " Always display the status line
         set ruler                      " show the cursor position all the time
         set number
@@ -990,6 +989,7 @@ call plug#end()
 " UltiSnips ----------------------------- {{{
 
         let g:UltiSnipsEditSplit="vertical"
+        let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
 
 "}}}
 

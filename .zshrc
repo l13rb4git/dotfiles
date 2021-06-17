@@ -23,6 +23,7 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
+
 # # vi mode
 bindkey -v
 # export KEYTIMEOUT=1
@@ -36,6 +37,9 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
+
+# repeat last command
+bindkey -s '^b' '!!^I^M'
 
 # Change cursor shape for different vi modes.
 # function zle-keymap-select {
@@ -198,7 +202,8 @@ alias nv="exec ~/Downloads/nvim/nvim.appimage"
 alias v="vim"
 alias dotf="cd ~/dotfiles"
 alias zcfg="vim ~/dotfiles/.zshrc"
-alias rzsh="source ~/dotfiles/.zshrc"
+alias rrzsh="source ~/dotfiles/.zshrc"
+alias rzsh="exec zsh"
 alias vcfg="vim ~/dotfiles/.vimrc"
 alias tcfg="vim ~/dotfiles/.tmux.conf"
 alias p="python3"
@@ -237,8 +242,10 @@ alias ddp="sudo docker-compose run web rm tmp/pids/server.pid"
 export PATH=$PATH:$HOME/anaconda/bin
 
 # asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+if [ -f "$HOME/.asdf" ]; then
+    . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

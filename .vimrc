@@ -357,6 +357,11 @@ call plug#end()
 
         syntax on
         
+        " Do not show theses files on the buffers list
+        au BufNewFile,BufRead 
+            \ *.snippets
+            \ setlocal nobuflisted
+
         "autocmd FileType sql colorscheme monokai-phoenix
         autocmd FileType sql setlocal tw=110
 

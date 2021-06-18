@@ -1,0 +1,63 @@
+snippet fab "Inicializa o modelo de uma questão"
+require_relative "utils"
+include Utils
+
+
+def main
+  puts "$0"
+end
+
+
+if __FILE__ == $ 0
+  main
+end
+endsnippet
+
+
+snippet # "String Interpolation"
+#{$1}$0
+endsnippet
+
+
+# Rspec -----------------------------------
+snippet describe
+describe '$1' do
+  $2
+end
+endsnippet
+
+snippet context
+context '$1' do
+  $2
+end
+endsnippet
+
+snippet expect
+expect {
+  ${1:object}
+}.to $2
+endsnippet 
+
+snippet too
+$1($2).to $3
+endsnippet 
+
+snippet bl
+it { should belong_to(:$1) }
+endsnippet 
+
+snippet hv
+it { should have_many(:$1) }
+endsnippet 
+
+snippet vl
+it { should validate_presence_of(:$1) }
+endsnippet 
+
+snippet rsp
+require 'rails_helper'
+
+RSpec.describe $1, type: :${2:model} do
+  $3
+end
+endsnippet

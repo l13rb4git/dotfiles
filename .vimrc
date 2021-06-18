@@ -357,6 +357,11 @@ call plug#end()
 
         syntax on
         
+        " Do not show theses files on the buffers list
+        au BufNewFile,BufRead 
+            \ *.snippets
+            \ setlocal nobuflisted
+
         "autocmd FileType sql colorscheme monokai-phoenix
         autocmd FileType sql setlocal tw=110
 
@@ -582,6 +587,13 @@ call plug#end()
         let g:nremap = {"[u": "", "]u": ""}
         nmap [u g-
         nmap ]u g+
+
+"}}}
+
+
+" Ultisnips   {{{
+
+        nmap ,es :call UltiSnipsCustomEdit(&ft)<cr>
 
 "}}}
 
@@ -989,7 +1001,14 @@ call plug#end()
 " UltiSnips ----------------------------- {{{
 
         let g:UltiSnipsEditSplit="vertical"
+        " Need to create a symlink to the folder (not needed anymore if using ,es map)
+        " ln -s ~/dotfiles/.vim/custom_snippets ~/.vim
         let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
+
+
+        function! UltiSnipsCustomEdit(buff_filetype)
+            exec "vsp ~/dotfiles/.vim/custom_snippets/" . a:buff_filetype . ".snippets"
+        endfunction
 
 "}}}
 

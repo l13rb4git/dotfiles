@@ -1,0 +1,2 @@
+# restore tmux session
+map <c-r> $ ln -sf $f last

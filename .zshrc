@@ -241,6 +241,12 @@ alias ddp="sudo docker-compose run web rm tmp/pids/server.pid"
 #source /home/leirbag/.config/broot/launcher/bash/br
 export PATH=$PATH:$HOME/anaconda/bin
 
+# lfrc
+if ! [ -f "$HOME/.config/lf/lfrc" ]; then
+    mkdir $HOME/.config/lf/
+    echo "source $HOME/dotfiles/lfrc" > $HOME/.config/lf/lfrc
+fi
+
 # asdf
 if [ -f "$HOME/.asdf" ]; then
     . $HOME/.asdf/asdf.sh

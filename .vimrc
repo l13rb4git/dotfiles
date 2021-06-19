@@ -410,7 +410,8 @@ call plug#end()
 " Commands    {{{
 
         " Compile C programs 
-        command Compile ! gcc -o exec/%:r:t % 
+        let compileC = '! gcc -o exec/%:r:t %' 
+        command Compile exec compileC
 
 "}}}
 

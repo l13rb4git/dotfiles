@@ -92,6 +92,14 @@ function fg-bg() {
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
+# Configuration to run graphical applications on WSL2
+run-visual () {
+    export DISPLAY_NUMBER="0.0"
+    export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):$DISPLAY_NUMBER
+    export LIBGL_ALWAYS_INDIRECT=1
+}
+#bindkey -s '^M-v' 'run-visual\n'
+
 
 # PowerLevel9k configs
 # POWERLEVEL9K_COLOR_SCHEME='dark'

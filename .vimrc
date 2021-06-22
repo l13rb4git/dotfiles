@@ -869,7 +869,6 @@ call plug#end()
 
         let g:airline_powerline_fonts = 1
         let g:airline_theme = 'luna'
-        "correct tabline color  'airline_tabsel':  ['#ffffff', '#003f3f',  231, 36, ''],
         let g:airline#extensions#whitespace#enabled = 0
 
         " TabLine{{{
@@ -880,6 +879,22 @@ call plug#end()
         let g:airline#extensions#tabline#show_tab_type = 0
         let g:airline#extensions#tabline#close_symbol = '×'
         let g:airline#extensions#tabline#show_close_button = 1
+
+        "correct tabline color  'airline_tabsel':  ['#ffffff', '#003f3f',  231, 36, ''],
+        " patching the the theme before it gets applied
+        let g:airline_theme_patch_func = 'AirlineThemePatch'
+        function! AirlineThemePatch(palette)
+          if g:airline_theme == 'luna'
+            let a:palette.tabline = {
+              \ 'airline_tab':  ['#2aa198', '#003f3f',  231, 29, ''],
+              \ 'airline_tabsel':  ['#ffffff', '#003f3f',  231, 36, ''],        
+              \ 'airline_tabtype':  ['#ffffff', '#005252',  231, 36, ''],
+              \ 'airline_tabfill':  ['#ffffff', '#262626',  231, 23, ''],
+              \ 'airline_tabmod':  ['#ffffff', '#780000',  231, 88, ''],
+              \ }
+          endif
+        endfunction
+
 
         " Toggle TabLine Mode{{{
         let g:airline#extensions#tabline#show_buffers = 1

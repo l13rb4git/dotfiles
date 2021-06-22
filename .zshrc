@@ -187,6 +187,9 @@ source $ZSH/oh-my-zsh.sh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#003f3f,bold"
 
+# ctrl-enter to run the suggested command
+bindkey '^M' autosuggest-execute
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

@@ -91,23 +91,6 @@ call plug#begin('~/.vim/plugged')
 " Emmet
     Plug 'mattn/emmet-vim'
 
-" Deoplete ------------------------------{{{
-
-    if has('nvim')
-      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-      let g:deoplete#enable_at_startup = 1
-
-    " Comrade InteliJ
-      Plug 'beeender/Comrade'
-
-    else
-      Plug 'Shougo/deoplete.nvim'
-      Plug 'roxma/nvim-yarp'
-      Plug 'roxma/vim-hug-neovim-rpc'
-    endif
-
-"}}}
-
 " Asynchronous completion for C and C++ 
     Plug 'zchee/deoplete-clang'
 
@@ -156,9 +139,6 @@ call plug#begin('~/.vim/plugged')
 " Code commenter
     Plug 'scrooloose/nerdcommenter'
 
-" Class/module browser
-    "Plug 'majutsushi/tagbar'
-
 " Code and files fuzzy finder
     "Plug 'ctrlpvim/ctrlp.vim'
 
@@ -177,9 +157,6 @@ call plug#begin('~/.vim/plugged')
 " Undotree
     Plug 'mbbill/undotree'
 
-" Tab list panel
-    "Plug 'kien/tabman.vim'
-
 " Airline
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -192,9 +169,6 @@ call plug#begin('~/.vim/plugged')
 
 " Consoles as buffers
     Plug 'rosenfeld/conque-term'
-
-" Pending tasks list
-    "Plug 'fisadev/FixedTaskList.vim'
 
 " Vim Repeat
     Plug 'tpope/vim-repeat'
@@ -245,9 +219,6 @@ call plug#begin('~/.vim/plugged')
 " Git/mercurial/others diff icons on the side of the file lines
     Plug 'mhinz/vim-signify'
 
-" Automatically sort python imports
-    Plug 'fisadev/vim-isort'
-
 " Highlight yanked area
     Plug 'machakann/vim-highlightedyank'
 
@@ -273,9 +244,6 @@ endif
 
 " XML/HTML tags navigation
     Plug 'vim-scripts/matchit.zip'
-
-" Gvim colorscheme
-    Plug 'vim-scripts/Wombat'
 
 " Peekaboo
     Plug 'junegunn/vim-peekaboo'

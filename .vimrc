@@ -916,6 +916,17 @@ call plug#end()
 "}}}
 
 
+" Tmuxline ------------------------------{{{
+
+        au VimEnter *
+            \ let new_airline_theme = tmuxline#themes#airline#get() |
+            \ let new_airline_theme.pane = ['#262626', '#262626', ''] |
+            \ let new_airline_theme.cpane = ['#262626', '#262626', ''] |
+            \ :call tmuxline#api#set_theme(new_airline_theme)
+
+"}}}
+
+
 " Jedi ------------------------------{{{
 
 " Jedi completion is too slow

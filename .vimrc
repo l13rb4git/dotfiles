@@ -353,7 +353,15 @@ call plug#end()
             call mkdir(&undodir, "p")
         endif
 
-"}}}
+        "}}}
+
+        " Costumize Gruvbox {{{
+
+            " Change color of html tag args to yellow
+            hi! link htmlArg GruvboxYellow 
+
+        "}}}
+
 
 "}}}
 

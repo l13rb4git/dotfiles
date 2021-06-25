@@ -355,18 +355,6 @@ call plug#end()
 
         "}}}
 
-        " Costumize Gruvbox {{{
-
-            " Change color of html tag args to yellow
-            autocmd FileType html hi! link htmlArg GruvboxYellow 
-
-            " Change color of python functions parameters
-            autocmd FileType python hi! link pythonParameters GruvboxOrange
-            autocmd FileType python hi! link pythonClassVar GruvboxAqua
-
-        "}}}
-
-
 "}}}
 
 
@@ -1284,6 +1272,26 @@ call plug#end()
         set foldmethod=syntax
 
         " }}}
+
+"}}}
+
+
+" Costumize Gruvbox {{{
+
+    " HTML tag args to yellow
+    autocmd FileType html hi! link htmlArg GruvboxYellow 
+
+    " Python functions parameters
+    autocmd FileType python 
+                \ hi! link pythonParameters GruvboxOrange |
+                \ hi! link pythonClassVar GruvboxAqua
+
+    " C colors
+    autocmd FileType c 
+                \ hi! link cOperators GruvboxRed |
+                \ hi! link cUserFunctionDef GruvboxAqua |
+                \ hi! link Function GruvboxGreenBold |
+                \ hi! link cBuiltinFunc GruvboxOrange
 
 "}}}
 

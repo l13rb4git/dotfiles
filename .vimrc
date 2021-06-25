@@ -358,7 +358,11 @@ call plug#end()
         " Costumize Gruvbox {{{
 
             " Change color of html tag args to yellow
-            hi! link htmlArg GruvboxYellow 
+            autocmd FileType html hi! link htmlArg GruvboxYellow 
+
+            " Change color of python functions parameters
+            autocmd FileType python hi! link pythonParameters GruvboxOrange
+            autocmd FileType python hi! link pythonClassVar GruvboxAqua
 
         "}}}
 

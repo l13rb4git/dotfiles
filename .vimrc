@@ -1037,6 +1037,8 @@ call plug#end()
 
           if a:path != ''
             let g:netrw_liststyle = 0
+          else
+            let g:netrw_liststyle = 3
           endif
 
           if exists("g:netrw_buffer") && bufexists(g:netrw_buffer)
@@ -1047,7 +1049,7 @@ call plug#end()
           else
             execute  'vsplit +setlocal\ nobuflisted' l:name 
             exec "Ex" a:path 
-            nmap <buffer> <silent> <nowait> I iii
+            nnoremap <buffer> <silent> <nowait> I iii
             let g:netrw_buffer=bufnr("%")
             endif
         endfunction
@@ -1288,10 +1290,11 @@ call plug#end()
 
     " C colors
     autocmd FileType c 
-                \ hi! link cOperators GruvboxRed |
+                \ hi! link cOperators GruvboxRed        |
                 \ hi! link cUserFunctionDef GruvboxAqua |
-                \ hi! link Function GruvboxGreenBold |
-                \ hi! link cBuiltinFunc GruvboxOrange
+                \ hi! link Function GruvboxGreenBold    |
+                \ hi! link cBuiltinFunc GruvboxOrange   |
+                \ hi! link cSpecial GruvboxAqua
 
 "}}}
 

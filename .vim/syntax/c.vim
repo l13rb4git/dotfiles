@@ -1,6 +1,6 @@
 syn match cOperators        '\V=\|-\|+\|*\|@\|%\|&\||\|^\|~\|<\|>\|!=\|:=\|/\ze\(\a\|\s\)'
 " Functions
-syn match cUserFunctionDef "\<\w*\>\ze(.*){\|\<\w*\>\ze(.*)\(\s{\|\n\)" contains=cType,cDelimiter,cDefine
+syn match cUserFunctionDef "\<\w*\>\ze(.*){\|\<\w*\>\ze(.*)\(\s{\|\n\)$" contains=cType,cDelimiter,cDefine
 syn match cUserFunctionPointer "(\s*\*\s*\h\w*\s*)\(\s\|\n\)*(" contains=cDelimiter,cOperator
 
 

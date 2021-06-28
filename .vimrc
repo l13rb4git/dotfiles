@@ -1288,10 +1288,12 @@ call plug#end()
 
     " C colors
     autocmd FileType c 
-                \ hi! link cOperators GruvboxRed |
+                \ hi! link cOperators GruvboxRed        |
                 \ hi! link cUserFunctionDef GruvboxAqua |
-                \ hi! link Function GruvboxGreenBold |
-                \ hi! link cBuiltinFunc GruvboxOrange
+                \ hi! link Function GruvboxGreenBold    |
+                \ hi! link cBuiltinFunc GruvboxOrange   |
+                \ hi! link cFormat GruvboxAqua          |
+                \ hi! link cSpecial GruvboxAqua
 
 "}}}
 
